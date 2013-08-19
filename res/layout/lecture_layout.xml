@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="@dimen/padding" 
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+     
+    <LinearLayout 
+        android:orientation="vertical" 
+        android:padding="@dimen/padding" 
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content">
+        
+        <Spinner 
+            android:id="@id/courses_spinner" 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" 
+            android:spinnerMode="dropdown" />
+        
+        <Spinner 
+            android:id="@id/lecture_day_spinner" 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" 
+            android:spinnerMode="dialog" />
+        
+        <TimePicker 
+            android:id="@id/start_time_picker" 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        
+        <TimePicker 
+            android:id="@id/end_time_picker"
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" />
+        
+        <Spinner 
+            android:id="@+id/lecture_trigger_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        
+        <EditText 
+            android:id="@id/lecture_venue_view"
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" 
+            android:hint="@string/assessment_venue_hint" />
+        
+        <EditText 
+            android:id="@id/lecturer_edit_view" 
+            android:visibility="gone" 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" 
+            android:hint="@string/lecturer_hint" />
+    </LinearLayout>
+</ScrollView>

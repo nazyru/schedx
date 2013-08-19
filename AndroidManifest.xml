@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest  android:versionCode="1" android:versionName="1.0" package="com.nazir.schedx"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+  <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="17"/>
+  
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <application android:theme="@style/Theme.Schedx" android:label="@string/app_name" android:icon="@drawable/ic_launcher" android:debuggable="true" android:allowBackup="true">
+        <activity android:label="@string/app_name" android:name="com.nazir.schedx.ui.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:label="Lecture Schedule" android:name="com.nazir.schedx.ui.LectureActivity" />
+        <activity android:label="Todo" android:name="com.nazir.schedx.ui.TodoActivity" />
+        <activity android:label="Assessment" android:name="com.nazir.schedx.ui.AssessmentActivity" />
+        <activity android:label="List Of Courses" android:name="com.nazir.schedx.ui.CoursesListActivity" />
+        <activity android:label="Lecture Schedule - Grid" android:name="com.nazir.schedx.ui.LectureGridView" />
+        <activity android:label="List of Task" android:name="com.nazir.schedx.ui.TodoListActivity" />
+        <activity android:label="Lecture Schedule" android:name="com.nazir.schedx.ui.LectureListActivity" />
+        <activity android:label="@string/title_activity_my_custom" android:name="com.nazir.schedx.ui.MyCustomActivity" />
+        <activity android:label="@string/title_activity_my_custom_list" android:name="com.nazir.schedx.ui.MyCustomListActivity" />
+        <activity android:label="@string/title_activity_assessment_list" android:name="com.nazir.schedx.ui.AssessmentListActivity" />
+        <activity android:label="@string/title_activity_course" android:name="com.nazir.schedx.ui.CourseActivity" />
+        <activity android:label="@string/title_activity_class_rep" android:name="com.nazir.schedx.ui.ClassRepActivity" />
+        <activity android:label="Class Rep" android:name="com.nazir.schedx.ui.ClassRepFragment" />
+        <activity android:label="Settings" android:name="com.nazir.schedx.ui.SettingsActivity" />
+        <receiver android:name="com.nazir.schedx.remainder.ScheduleReceiver" android:enabled="true" />
+        <service android:name="com.nazir.schedx.remainder.ScheduleService" android:enabled="true" />
+        <receiver android:name="com.nazir.schedx.remainder.RebootReceiver" android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <service android:name="com.nazir.schedx.remainder.RebootService" />
+    </application>
+</manifest>

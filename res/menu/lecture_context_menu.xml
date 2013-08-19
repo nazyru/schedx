@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+  
+    <item android:icon="@drawable/action_content_edit" 
+        android:id="@id/edit_schedule_action_item" 
+        android:title="@string/edit_schedule_action_title" 
+        android:showAsAction="ifRoom" />
+    
+    <item android:icon="@drawable/action_content_discard" 
+        android:id="@id/action_delete_item" 
+        android:title="@string/action_delete_item_title"
+        android:showAsAction="ifRoom" />
+    
+    <item android:id="@id/assign_class_rep_item" 
+        android:title="@string/assign_class_rep" 
+        android:showAsAction="never" />
+    
+    <item android:id="@id/lecture_status" 
+        android:title="@string/lecture_status_title" 
+        android:showAsAction="never" />
+</menu>

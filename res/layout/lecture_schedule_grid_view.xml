@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/margin_both_sides"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TableRow>
+        <TextView android:gravity="center" android:text="@string/monday_header_label" style="@style/text_header_style" />
+        <TextView android:gravity="center" android:text="@string/tuesday_header_label" style="@style/text_header_style" />
+        <TextView android:gravity="center" android:text="@string/wednesday_header_label" style="@style/text_header_style" />
+        <TextView android:gravity="center" android:text="@string/thursday_header_label" style="@style/text_header_style" />
+        <TextView android:gravity="center" android:text="@string/friday_header_label" style="@style/text_header_style" />
+        <TextView android:gravity="center" android:text="@string/saturday_header_label" style="@style/text_header_style" />
+        <TextView android:gravity="center" android:text="@string/sunday_header_label" style="@style/text_header_style" />
+    </TableRow>
+    <TableRow>
+        <ListView android:id="@id/monday_schedule_list_view" />
+        <ListView android:id="@id/tuesday_schedule_list_view" />
+        <ListView android:id="@id/wednesday_schedule_list_view" />
+        <ListView android:id="@id/thursday_schedule_list_view" />
+        <ListView android:id="@id/friday_schedule_list_view" />
+        <ListView android:id="@id/saturday_schedule_list_view" />
+        <ListView android:id="@id/sunday_schedule_list_view" />
+    </TableRow>
+</TableLayout>

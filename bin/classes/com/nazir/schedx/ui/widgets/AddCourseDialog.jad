@@ -1,0 +1,84 @@
+// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
+// Jad home page: http://www.kpdus.com/jad.html
+// Decompiler options: packimports(3) 
+
+package com.nazir.schedx.ui.widgets;
+
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentActivity;
+import android.text.Editable;
+import android.view.LayoutInflater;
+import android.widget.EditText;
+import android.widget.Toast;
+import com.nazir.schedx.model.Course;
+import com.nazir.schedx.persist.CoursesHelper;
+
+public class AddCourseDialog extends DialogFragment
+{
+
+    public AddCourseDialog()
+    {
+    }
+
+    private void handleSubmit()
+    {
+        Course course = new Course();
+        EditText edittext = (EditText)getActivity().findViewById(0x7f050033);
+        EditText edittext1 = (EditText)getActivity().findViewById(0x7f050034);
+        EditText edittext2 = (EditText)getActivity().findViewById(0x7f050035);
+        if(edittext != null)
+            course.setCourseCode(edittext.getText().toString().trim());
+        if(edittext1 != null)
+            course.setCourseTitle(edittext1.getText().toString().trim());
+        if(edittext2 != null)
+            course.setCourseUnit(Integer.parseInt(edittext2.getText().toString().trim()));
+        if(isValid(course))
+        {
+            (new CoursesHelper(getActivity())).addCourse(course);
+            Toast.makeText(getActivity(), "Saved", 0).show();
+        }
+    }
+
+    private boolean isValid(Course course)
+    {
+        boolean flag = true;
+        if(course.getCourseCode() == null)
+        {
+            Toast.makeText(getActivity(), "Not Saved: Course Code can't be Empty", 1).show();
+            flag = false;
+        }
+        if(course.getCourseTitle() == null)
+        {
+            Toast.makeText(getActivity(), "Not Saved: Title can't be Empty", 1).show();
+            flag = false;
+        }
+        return flag;
+    }
+
+    public Dialog onCreateDialog(Bundle bundle)
+    {
+        super.onCreateDialog(bundle);
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(getActivity());
+        builder.setTitle(0x7f0a000f).setPositiveButton(0x7f0a0010, new android.content.DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface dialoginterface, int i)
+            {
+                handleSubmit();
+            }
+
+            final AddCourseDialog this$0;
+
+            
+            {
+                this$0 = AddCourseDialog.this;
+                super();
+            }
+        }
+).setView(getActivity().getLayoutInflater().inflate(0x7f030019, null));
+        return builder.create();
+    }
+
+}
