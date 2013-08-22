@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/add_course_title_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+    
+<TextView 
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:text="@string/add_course_custom_title"
+    android:background="@color/my_app_color_light_green"
+    android:textStyle="bold"
+    android:textColor="#ffffff"
+    android:textSize="18sp"
+    android:fontFamily="san-seriff"
+    android:layout_gravity="center_vertical"/>
+</LinearLayout>

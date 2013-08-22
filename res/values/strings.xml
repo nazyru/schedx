@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="abs__action_bar_home_description">Navigate home</string>
     <string name="abs__action_bar_up_description">Navigate up</string>
     <string name="abs__action_menu_overflow_description">More options</string>
@@ -16,10 +17,12 @@
     <string name="app_name">SchedX</string>
     <string name="hello_world">Testing...</string>
     <string name="add_course_title">Add Course</string>
-    <string name="add_course_button">Add</string>
+    <string name="add_course_button">Save</string>
     <string name="add_course_hint">Course Code Here</string>
+    <string name="add_course_cancel_button_hint">Cancel</string>
     <string name="course_title">Course Title Here</string>
     <string name="course_units">Course Unit (Optional)</string>
+    <string name="add_course_custom_title">Add Course </string>
     <string name="todo_name_hint">Tag</string>
     <string name="todo_desc_view">Description</string>
     <string name="todo_go_button_label">Schedule</string>
@@ -51,7 +54,7 @@
     <string name="alert_dialog_yes_option">Yes</string>
     <string name="alert_dialog_no_option">No</string>
     <string name="alert_dilog_message">Are You Sure You want to Delete ?</string>
-    <string name="class_rep_hint">Class Rep</string>
+    <string name="class_rep_hint">CLASS REP</string>
     <string name="class_rep_reg_no">Registration number</string>
     <string name="class_rep_phone">Phone Number</string>
     <string name="class_rep_email_address">Email Address</string>
@@ -60,13 +63,12 @@
     <string name="lecture_status_title">Status</string>
     <string name="lecture_ongoing">On-going</string>
     <string name="lecture_finished">Finished</string>
-    <string name="course_code_hint">Course Code</string>
-    <string name="course_title_hint">Course Title</string>
-    <string name="start_time_hint">Starting On</string>
-    <string name="end_time_hint">Finishing On</string>
-    <string name="lecture_day_hint">Day</string>
-    <string name="venue_hint">Venue</string>
-    <string name="status_hint">Status</string>
+    <string name="course_code_hint">COURSE</string>
+    <string name="start_time_hint">STARTING ON</string>
+    <string name="end_time_hint">FINISHING BY</string>
+    <string name="lecture_day_hint">DAY</string>
+    <string name="venue_hint">VENUE</string>
+    <string name="status_hint">STATUS</string>
     <string name="app_mode_key">app_mode</string>
     <string name="app_mode_cat_title">App Mode</string>
     <string name="app_mode_title">Mode of Usage</string>
@@ -83,10 +85,12 @@
     <string name="assessment_notif_key">assessment_notification_key</string>
     <string name="assessment_notif_title">Assessment Notifications</string>
     <string name="assessment_notif_dialog_title">Delay(in Days)</string>
-    
+
     <!-- Delete Course Dialog -->
     <string name="delete_course_message">"All Schedules Associated with this Course will be lost!"</string>
     <string name="delete_course_title">Delete Course</string>
     <string name="delete_course_yes_button">Delete</string>
     <string name="delete_course_no_button">Discard</string>
+    <string name="title_activity_lecture_detail">Lecture Details</string>
+
 </resources>

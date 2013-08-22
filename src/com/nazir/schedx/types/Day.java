@@ -19,11 +19,6 @@ public enum Day
         this.description = desc;
     }
 
-    public String getDescription()
-    {
-        return description;
-    }
-
     public String toString()
     {
         return description;

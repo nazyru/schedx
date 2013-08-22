@@ -95,17 +95,12 @@ public class LectureListActivity extends MyCustomListFragment
 );
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-            public void onItemClick(AdapterView adapterview, View view, int i, long l)
+            public void onItemClick(AdapterView<?> adapterview, View view, int i, long l)
             {
-                Bundle bundle = new Bundle();
-                bundle.putInt("_id", cursor.getInt(cursor.getColumnIndex("_id")));
-                LectureDetailFragment lecturedetailfragment = new LectureDetailFragment();
-                lecturedetailfragment.setArguments(bundle);
-                FragmentTransaction fragmenttransaction = getSherlockActivity().getSupportFragmentManager().beginTransaction();
-                fragmenttransaction.replace(R.id.main_activity_frame, lecturedetailfragment);
-                fragmenttransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-                fragmenttransaction.addToBackStack(null);
-                fragmenttransaction.commit();
+                
+                Intent intent = new Intent(getSherlockActivity(), LectureDetailActivity.class);
+                intent.putExtra(_ID, cursor.getInt(cursor.getColumnIndex(_ID)));
+                startActivity(intent);
             }    
         }
         		);

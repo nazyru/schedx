@@ -17,4 +17,5 @@
     <dimen name="activity_vertical_margin">16.0dip</dimen>
     <dimen name="padding">16.0dip</dimen>
     <dimen name="margin_both_sides">8.0dip</dimen>
+    <dimen name="detail_header_to_content_pad">8dp</dimen>
 </resources>

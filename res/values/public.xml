@@ -517,7 +517,6 @@
     <public type="string" name="lecture_ongoing" id="0x7f0a003a" />
     <public type="string" name="lecture_finished" id="0x7f0a003b" />
     <public type="string" name="course_code_hint" id="0x7f0a003c" />
-    <public type="string" name="course_title_hint" id="0x7f0a003d" />
     <public type="string" name="start_time_hint" id="0x7f0a003e" />
     <public type="string" name="end_time_hint" id="0x7f0a003f" />
     <public type="string" name="lecture_day_hint" id="0x7f0a0040" />

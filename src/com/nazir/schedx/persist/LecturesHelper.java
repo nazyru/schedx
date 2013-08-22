@@ -182,7 +182,7 @@ public class LecturesHelper
         		String status = cursor.getString(cursor.getColumnIndex(STATUS));
         		lecture.setStatus(status != null ? Status.valueOf(status) : null);
         		
-        		int classRepId = cursor.getInt(cursor.getColumnIndex(REG_NO));
+        		int classRepId = cursor.getInt(cursor.getColumnIndex(CLASS_REP_ID));
         		ClassRep classRep = new ClassRepHelper(context).getClassRep(classRepId);
         		lecture.setClassRep(classRep != null ? classRep: null);
         		
@@ -196,14 +196,11 @@ public class LecturesHelper
 
     public void update(Lecture lecture)
     {
-    	Log.i("--ALSO HERE-->", lecture.getStatus().name() + " "+ lecture.getCourse().getCourseCode());
-        String whereClause = MySqliteOpenHelper.Lectures._ID + " = ? ";
+    	String whereClause = MySqliteOpenHelper.Lectures._ID + " = ? ";
         String whereArgs[] = {Integer.toString(lecture.getId())};
         
         db.update(LECTURES, Mapper.mapToLecture(lecture), whereClause, whereArgs);
         
-        Lecture lect = getLectureSchedlule(lecture.getId());
-        //Log.i("---AFTER--->>", lect.getCourse().getCourseCode());
     }
 
 	public void deleteByCourseId(int courseId) {

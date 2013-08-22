@@ -39,7 +39,7 @@ public class CourseActivity extends MyCustomActivity
         
         try{
         if(action != null  && action.equals(Intent.ACTION_EDIT)){
-        	course.setID(getIntent().getBundleExtra(CoursesListActivity.COURSE_BUNDLE).getInt("_id"));
+        	//set ID here
             courseshelper1.updateCourse(course);
             Toast.makeText(this, "Updated", Toast.LENGTH_SHORT).show();
         }
@@ -76,13 +76,7 @@ public class CourseActivity extends MyCustomActivity
 
     private void populateFields()
     {
-        EditText edittext = (EditText)findViewById(R.id.course_code_widget);
-        EditText edittext1 = (EditText)findViewById(R.id.course_title_view);
-        EditText edittext2 = (EditText)findViewById(R.id.course_unit_view);
-        Bundle bundle = getIntent().getBundleExtra(CoursesListActivity.COURSE_BUNDLE);
-        edittext.setText(bundle.getString("course_code"));
-        edittext1.setText(bundle.getString("course_title"));
-        edittext2.setText(bundle.getString("course_unit"));
+        
     }
 
     protected void onCreate(Bundle bundle)

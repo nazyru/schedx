@@ -8,4 +8,5 @@
     <color name="abs__bright_foreground_disabled_holo_light">#ffb2b2b2</color>
     <color name="my_app_color_light_green">#ff99cc00</color>
     <color name="pressed_schedx">#cc99cc00</color>
+    <color name="detail_header_color">#ffffff</color>
 </resources>

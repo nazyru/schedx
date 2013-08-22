@@ -115,6 +115,7 @@ int color abs__primary_text_disable_only_holo_dark 0x7f070008
 int color abs__primary_text_disable_only_holo_light 0x7f070009
 int color abs__primary_text_holo_dark 0x7f07000a
 int color abs__primary_text_holo_light 0x7f07000b
+int color detail_header_color 0x7f07000c
 int color my_app_color_light_green 0x7f070006
 int color pressed_schedx 0x7f070007
 int dimen abs__action_bar_default_height 0x7f080001
@@ -134,6 +135,7 @@ int dimen abs__search_view_preferred_width 0x7f08000c
 int dimen abs__search_view_text_min_width 0x7f08000b
 int dimen activity_horizontal_margin 0x7f08000f
 int dimen activity_vertical_margin 0x7f080010
+int dimen detail_header_to_content_pad 0x7f080013
 int dimen margin_both_sides 0x7f080012
 int dimen padding 0x7f080011
 int drawable ab_background_textured_schedx 0x7f020000
@@ -336,6 +338,7 @@ int id abs__up 0x7f05000b
 int id action_delete_item 0x7f050075
 int id action_item_new 0x7f05007b
 int id action_settings 0x7f050073
+int id add_course_title_layout 0x7f05007d
 int id add_scedule_action_item 0x7f050079
 int id alarm_repeat_mode_spinner 0x7f05006f
 int id alarm_trigger_spinner 0x7f05006e
@@ -373,6 +376,7 @@ int id ic_save_lecture 0x7f050072
 int id lecture_day_spinner 0x7f050059
 int id lecture_detail_class_rep 0x7f050057
 int id lecture_detail_class_rep_hint 0x7f05004f
+int id lecture_detail_container 0x7f05007c
 int id lecture_detail_course_code 0x7f050050
 int id lecture_detail_course_code_hint 0x7f050048
 int id lecture_detail_course_title 0x7f050051
@@ -388,7 +392,7 @@ int id lecture_detail_status_hint 0x7f05004e
 int id lecture_detail_venue 0x7f050055
 int id lecture_detail_venue_hint 0x7f05004d
 int id lecture_status 0x7f050078
-int id lecture_trigger_spinner 0x7f05007c
+int id lecture_trigger_spinner 0x7f05007e
 int id lecture_venue_view 0x7f05005c
 int id lecturer_edit_view 0x7f05005d
 int id listMode 0x7f050002
@@ -442,10 +446,12 @@ int layout abs__search_dropdown_item_icons_2line 0x7f030012
 int layout abs__search_view 0x7f030013
 int layout abs__simple_dropdown_hint 0x7f030014
 int layout activity_course 0x7f030015
+int layout activity_lecture_detail 0x7f030022
 int layout activity_main 0x7f030016
 int layout activity_my_custom 0x7f030017
 int layout activity_my_custom_list 0x7f030018
 int layout add_course_layout 0x7f030019
+int layout add_course_title_layout 0x7f030026
 int layout assessment_layout 0x7f03001a
 int layout class_rep_layout 0x7f03001b
 int layout custom_adapter_layout 0x7f03001c
@@ -457,12 +463,13 @@ int layout lecture_schedule_grid_view 0x7f030021
 int layout sherlock_spinner_dropdown_item 0x7f030023
 int layout sherlock_spinner_item 0x7f030024
 int layout todo_layout 0x7f030025
-int layout todo_list 0x7f030022
+int layout todo_list 0x7f030027
 int menu action_bar_lecture 0x7f0d0000
 int menu class_rep 0x7f0d0001
 int menu context_menu 0x7f0d0002
 int menu courses_menu 0x7f0d0003
 int menu lecture_context_menu 0x7f0d0004
+int menu lecture_detail 0x7f0d0008
 int menu main 0x7f0d0005
 int menu my_custom 0x7f0d0006
 int menu my_custom_list 0x7f0d0007
@@ -484,6 +491,8 @@ int string action_item_lecture_save 0x7f0a0027
 int string action_item_new_title 0x7f0a0028
 int string action_settings 0x7f0a002a
 int string add_course_button 0x7f0a0010
+int string add_course_cancel_button_hint 0x7f0a003d
+int string add_course_custom_title 0x7f0a0053
 int string add_course_hint 0x7f0a0011
 int string add_course_title 0x7f0a000f
 int string add_schedule_action_title 0x7f0a0024
@@ -509,15 +518,14 @@ int string class_rep_phone 0x7f0a0035
 int string class_rep_reg_no 0x7f0a0034
 int string course_code_hint 0x7f0a003c
 int string course_title 0x7f0a0012
-int string course_title_hint 0x7f0a003d
 int string course_units 0x7f0a0013
 int string courses 0x7f0a0023
 int string create_assessment_button_hint 0x7f0a0018
 int string custom_adapter_arrow_desc 0x7f0a001a
-int string delete_course_message 0x7f0a0053
-int string delete_course_no_button 0x7f0a0056
-int string delete_course_title 0x7f0a0054
-int string delete_course_yes_button 0x7f0a0055
+int string delete_course_message 0x7f0a0054
+int string delete_course_no_button 0x7f0a0057
+int string delete_course_title 0x7f0a0055
+int string delete_course_yes_button 0x7f0a0056
 int string edit_schedule_action_title 0x7f0a0025
 int string end_time_hint 0x7f0a003f
 int string friday_header_label 0x7f0a0020
@@ -545,6 +553,7 @@ int string thursday_header_label 0x7f0a001f
 int string title_activity_assessment_list 0x7f0a002d
 int string title_activity_class_rep 0x7f0a0038
 int string title_activity_course 0x7f0a002e
+int string title_activity_lecture_detail 0x7f0a0058
 int string title_activity_my_custom 0x7f0a0029
 int string title_activity_my_custom_list 0x7f0a002c
 int string todo_desc_view 0x7f0a0015
@@ -655,6 +664,7 @@ int style Widget_Sherlock_SearchAutoCompleteTextView 0x7f0b0034
 int style Widget_Sherlock_Spinner_DropDown_ActionBar 0x7f0b0024
 int style Widget_Sherlock_TextView_SpinnerItem 0x7f0b0032
 int style arrow 0x7f0b005d
+int style detail_header_style 0x7f0b0069
 int style list_item 0x7f0b005c
 int style my_custom_overflow 0x7f0b005f
 int style text_header_style 0x7f0b005b

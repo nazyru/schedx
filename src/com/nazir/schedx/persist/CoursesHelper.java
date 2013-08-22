@@ -97,9 +97,10 @@ public class CoursesHelper
 
     public void updateCourse(Course course)
     {
-        String as[] = new String[1];
-        as[0] = Integer.toString(course.getID());
-        db.update("courses", Mapper.mapToCourse(course), "_id = ?", as);
+    	String whereClause = _ID + " = ?";
+        String whereArgs[] = {Integer.toString(course.getID())};
+        
+        db.update(COURSES, Mapper.mapToCourse(course), whereClause, whereArgs);
     }
 
 	public Course getCourse(int courseId) {
