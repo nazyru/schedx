@@ -11,6 +11,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.view.*;
 import android.widget.*;
+import static com.nazir.schedx.persist.MySqliteOpenHelper.Todos.*;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.*;
 import com.actionbarsherlock.view.ActionMode;
@@ -187,6 +188,21 @@ public class TodoListActivity extends MyCustomFragment
         adapter = new SimpleCursorAdapter(getSherlockActivity(), R.layout.todo_list, cursor, as, ai);
         todoNameindx = cursor.getColumnIndex("name");
         listView.setAdapter(adapter);
+        
+        listView.setOnItemClickListener(new ListView.OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1,
+					int arg2, long arg3) {
+				
+				int id = cursor.getInt(cursor.getColumnIndex(ID));
+				Intent intent = new Intent(getSherlockActivity(), TodoDetailActivity.class);
+				intent.putExtra(ID, id);
+				startActivity(intent);
+				
+			}
+		});
+       
         initActionMode();
     }
 

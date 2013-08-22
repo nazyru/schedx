@@ -96,6 +96,10 @@
             android:name="com.nazir.schedx.ui.AssessmentDetailActivity"
             android:label="@string/title_activity_assessment_detail" >
         </activity>
+        <activity
+            android:name="com.nazir.schedx.ui.TodoDetailActivity"
+            android:label="@string/title_activity_todo_detail" >
+        </activity>
     </application>
 
 </manifest>
