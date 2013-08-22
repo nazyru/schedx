@@ -93,4 +93,19 @@
     <string name="delete_course_no_button">Discard</string>
     <string name="title_activity_lecture_detail">Lecture Details</string>
 
+    <!-- Assessment Detail -->
+    <string name="assessment_detail_type_hint">ASSESSMENT TYPE</string>
+    <string name="assessment_detail_course_code_hint">COURSE</string>
+    <string name="assessment_detail_time_hint">TIME</string>
+    <string name="assessment_detail_location_hint">LOCATION</string>
+    <string name="assessment_detail_memo_hint">MEMO</string>
+    <string name="title_activity_assessment_detail">Assessment Detail</string>
+     
+    <!-- TODO Detail -->
+    <string name="todo_detail_name_hint">TODO TAG</string>
+    <string name="todo_detail_time_hint">TIME</string>
+    <string name="todo_detail_memo_hint">MEMO</string>
+    <string name="todo_detail_rating_hint">RATING</string>
+    
+
 </resources>

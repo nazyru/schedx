@@ -28,7 +28,7 @@ import com.nazir.schedx.util.MyCustomCursorAdapter;
 import java.util.Calendar;
 import static com.nazir.schedx.persist.MySqliteOpenHelper.Lectures.*;
 
-public class LectureListActivity extends MyCustomListFragment
+public class LectureListActivity extends MyCustomFragment
 {
 
     public static String LECTURE_BUNDLE = "com.nazir.schedx.ui.LECTURE";

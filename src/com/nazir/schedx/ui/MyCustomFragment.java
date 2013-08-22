@@ -13,7 +13,7 @@ import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 import com.nazir.schedx.R;
 
-public class MyCustomListFragment extends SherlockFragment
+public class MyCustomFragment extends SherlockFragment
 {
     public Spinner getFilter()
     {

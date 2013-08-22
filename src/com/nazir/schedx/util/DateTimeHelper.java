@@ -2,7 +2,12 @@
 package com.nazir.schedx.util;
 
 import com.nazir.schedx.types.Day;
+
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
 import static java.util.Calendar.*;
 
 public class DateTimeHelper
@@ -141,5 +146,10 @@ public class DateTimeHelper
         calendar.set(13, 0);
         return calendar.getTimeInMillis();
     }
+
+	public static String getDisplayableDate(long date) {
+		SimpleDateFormat formatter = new SimpleDateFormat("EE M dd, yyyy hh:MM a");
+		return formatter.format(new Date(date));
+	}
 
 }

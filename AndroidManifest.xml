@@ -89,9 +89,12 @@
 
         <activity
             android:name="com.nazir.schedx.ui.LectureDetailActivity"
-            android:label="@string/title_activity_lecture_detail" 
+            android:label="@string/title_activity_lecture_detail"
             android:parentActivityName="com.nazir.schedx.ui.LectureListActivity" >
-            
+        </activity>
+        <activity
+            android:name="com.nazir.schedx.ui.AssessmentDetailActivity"
+            android:label="@string/title_activity_assessment_detail" >
         </activity>
     </application>
 

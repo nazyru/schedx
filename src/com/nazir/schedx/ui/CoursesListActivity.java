@@ -142,15 +142,6 @@ public class CoursesListActivity extends MyCustomListActivity
 		helper.disconnect();
 	}
 
-	protected void doEdit(int id)
-    {
-		
-		
-        doAddCourse(CourseFlag.EDIT);
-    }
-
-    
-
     public boolean onCreateOptionsMenu(Menu menu)
     {
         return super.onCreateOptionsMenu(menu);
@@ -195,6 +186,8 @@ public class CoursesListActivity extends MyCustomListActivity
         }
         
         View view = getLayoutInflater().inflate(R.layout.add_course_title_layout, null, false);
+        TextView viewHeader = (TextView) view.findViewById(R.id.add_course_title_layout);
+        viewHeader.setText(flag == CourseFlag.NEW ? "Add Course" : "Update Course");
         
 		AlertDialog alertDialog = new AlertDialog.Builder(this)
 		.setView(dialogView)

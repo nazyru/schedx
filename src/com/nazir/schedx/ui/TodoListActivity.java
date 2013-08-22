@@ -21,7 +21,7 @@ import com.nazir.schedx.R;
 import com.nazir.schedx.persist.TodosHelper;
 import com.nazir.schedx.remainder.ScheduleReceiver;
 
-public class TodoListActivity extends MyCustomListFragment
+public class TodoListActivity extends MyCustomFragment
 {
     public static final String TODO_BUNDLE = "com.nazir.schedx.ui.todo";
     private SimpleCursorAdapter adapter;

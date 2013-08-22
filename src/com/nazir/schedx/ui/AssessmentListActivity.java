@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.view.*;
 import android.widget.*;
+
 import com.actionbarsherlock.view.ActionMode;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
@@ -20,7 +21,7 @@ import com.nazir.schedx.util.AssessmentCursorAdapter;
 
 import static com.nazir.schedx.persist.MySqliteOpenHelper.Assessment.*;
 
-public class AssessmentListActivity extends MyCustomListFragment
+public class AssessmentListActivity extends MyCustomFragment
 {
     public static String ASSESSMENT_BUNDLE = "com.nazir.schedx.ui.BUNDLE";
     private SimpleCursorAdapter adapter;
@@ -187,7 +188,7 @@ public class AssessmentListActivity extends MyCustomListFragment
         filter.setAdapter(filterAdapter);
         filter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
-            public void onItemSelected(AdapterView adapterview, View view, int i, long l)
+            public void onItemSelected(AdapterView<?> adapterview, View view, int i, long l)
             {
                 AssessmentType assessmenttype = (AssessmentType)filterAdapter.getItem(i);
                 cursor = helper.getAssessmentByType(assessmenttype);
@@ -197,9 +198,21 @@ public class AssessmentListActivity extends MyCustomListFragment
             public void onNothingSelected(AdapterView adapterview)
             {
             }
-
         }
 );
+        getListView().setOnItemClickListener(new ListView.OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> adapter, View view, int id,
+					long rowId) {
+				
+				Intent intent = new Intent(getSherlockActivity(), AssessmentDetailActivity.class);
+				intent.putExtra(ID, cursor.getInt(cursor.getColumnIndex(ID)));
+				startActivity(intent);
+				
+			}
+		});
+        
         initActionMode();
     }
 

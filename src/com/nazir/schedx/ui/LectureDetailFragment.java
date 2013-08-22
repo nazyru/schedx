@@ -10,7 +10,7 @@ import com.nazir.schedx.persist.LecturesHelper;
 import com.nazir.schedx.util.DateTimeHelper;
 import static com.nazir.schedx.persist.MySqliteOpenHelper.Lectures.*;
 
-public class LectureDetailFragment extends MyCustomListFragment
+public class LectureDetailFragment extends MyCustomFragment
 {
     private TextView classRepView;
     private TextView courseCodeView;

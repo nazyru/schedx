@@ -13,7 +13,7 @@ import com.nazir.schedx.R;
 import com.nazir.schedx.persist.ClassRepHelper;
 import com.nazir.schedx.persist.LecturesHelper;
 
-public class ClassRepListFragment extends MyCustomListFragment
+public class ClassRepListFragment extends MyCustomFragment
 {
     public static String CLASSREP_BUNDLE = "com.nazir.schedx.ui.CLASSREP_BUNDLE";
     private Cursor cursor;
