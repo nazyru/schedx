@@ -1,24 +1,39 @@
 
 package com.nazir.schedx.ui;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
 import android.support.v4.widget.SimpleCursorAdapter;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.*;
+
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.*;
 import com.nazir.schedx.R;
+import com.nazir.schedx.model.ClassRep;
 import com.nazir.schedx.persist.ClassRepHelper;
 import com.nazir.schedx.persist.LecturesHelper;
+import com.nazir.schedx.types.Flag;
+import static com.nazir.schedx.persist.MySqliteOpenHelper.ClassRep.*;
 
 public class ClassRepListFragment extends MyCustomFragment
 {
     public static String CLASSREP_BUNDLE = "com.nazir.schedx.ui.CLASSREP_BUNDLE";
     private Cursor cursor;
     private ActionMode mActionMode;
-    private com.actionbarsherlock.view.ActionMode.Callback mCallback;
+    private ActionMode.Callback mCallback;
+    private EditText nameView;
+    private EditText regNoView;
+    private EditText phoneNumberView;
+    private EditText emailAddressView;
+    private SimpleCursorAdapter adapter;
 
 
     public ClassRepListFragment()
@@ -33,7 +48,7 @@ public class ClassRepListFragment extends MyCustomFragment
             {
                 switch(menuitem.getItemId()){
                 case R.id.edit_schedule_action_item:
-                	doEdit();
+                	manageClassRep(Flag.EDIT);
                 	actionmode.finish();
                 	break;
                 case R.id.action_delete_item:
@@ -69,26 +84,33 @@ public class ClassRepListFragment extends MyCustomFragment
 
     protected void doDelete()
     {
-        int i = cursor.getInt(cursor.getColumnIndex("_id"));
-        new ClassRepHelper(getSherlockActivity()).delete(i);
+    	int id = cursor.getInt(cursor.getColumnIndex("_id"));
+    	
+    	LecturesHelper helper = new LecturesHelper(getSherlockActivity());
+    	try{
+    	helper.unassignClassRep(id);
+    	}
+    	catch(SQLException exception){
+    		Log.w("--UNASSIGNED--", "Not Assigned "+ exception.getMessage());
+    	}
+    	finally{
+    		helper.disconnect();
+    	}
+    	
+        new ClassRepHelper(getSherlockActivity()).delete(id);
         Toast.makeText(getSherlockActivity(), "Deleted", Toast.LENGTH_SHORT).show();
+        refreshList();
     }
 
-    protected void doEdit()
-    {
-        Bundle bundle = new Bundle();
-        bundle.putString("name", cursor.getString(cursor.getColumnIndex("name")));
-        bundle.putString("phone_number", cursor.getString(cursor.getColumnIndex("phone_number")));
-        bundle.putString("reg_number", cursor.getString(cursor.getColumnIndex("reg_number")));
-        bundle.putInt("_id", cursor.getInt(cursor.getColumnIndex("_id")));
-        bundle.putString("email_address", cursor.getString(cursor.getColumnIndex("email_address")));
-        Intent intent = new Intent(getSherlockActivity(), ClassRepFragment.class);
-        intent.setAction("android.intent.action.EDIT");
-        intent.putExtra(CLASSREP_BUNDLE, bundle);
-        startActivity(intent);
-    }
+    private void refreshList() {
+    	ClassRepHelper helper = new ClassRepHelper(getSherlockActivity());
+    	cursor = helper.getClassReps();
+    	adapter.changeCursor(cursor);
+    	adapter.notifyDataSetChanged();
+    	helper.disconnect();
+	}
 
-    public void onCreate(Bundle bundle)
+	public void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
     }
@@ -102,7 +124,7 @@ public class ClassRepListFragment extends MyCustomFragment
     {
     	switch(menuitem.getItemId()){
     	case R.id.action_item_new:
-    		startActivity(new Intent(getSherlockActivity(), ClassRepFragment.class));
+    		manageClassRep(Flag.NEW);
     		break;
     	default :
     		return super.onOptionsItemSelected(menuitem);
@@ -111,7 +133,108 @@ public class ClassRepListFragment extends MyCustomFragment
         return true;
     }
 
-    public void onStart()
+    private void manageClassRep(final Flag flag) {
+    	
+    	LayoutInflater inflater = LayoutInflater.from(getSherlockActivity());
+    	final View view = inflater.inflate(R.layout.class_rep_layout,
+    			null, false);
+    	
+    	View titleView = inflater.inflate(R.layout.add_course_title_layout, null, false);
+    	TextView titleHeaderView = (TextView) titleView.findViewById(R.id.add_course_title_layout);
+    	String addUpdateTitle = "Add Class Rep";
+    	
+    	String positiveButtonLabel = "Add";
+    	
+    	if(flag == Flag.EDIT){
+    		populateViews(view);
+    		positiveButtonLabel = "Update";
+    		addUpdateTitle = "Update Class Rep";
+    	}
+    	
+    	titleHeaderView.setText(addUpdateTitle);
+    	
+		new AlertDialog.Builder(getSherlockActivity())
+		.setCustomTitle(titleView)
+		.setView(view)
+		.setPositiveButton(positiveButtonLabel, new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				doSave(view, flag);
+				
+			}
+		})
+		.setNegativeButton(R.string.class_rep_cancel_button_label, new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.dismiss();
+				
+			}
+		}).show();
+		
+	}
+    
+    private void doSave(View view, Flag flag)
+    {
+        ClassRep classrep = new ClassRep();
+        ClassRepHelper classrepHelper;
+        
+        nameView = (EditText) view.findViewById(R.id.class_rep_name);
+        regNoView = (EditText) view.findViewById(R.id.class_rep_reg_num);
+        phoneNumberView = (EditText) view.findViewById(R.id.class_rep_phone_number);
+        emailAddressView = (EditText) view.findViewById(R.id.class_rep_email);
+        
+        classrep.setName(nameView.getText().toString());
+        classrep.setEmailAddress(emailAddressView.getText().toString());
+        classrep.setRegNumber(regNoView.getText().toString());
+        classrep.setPhoneNumber(phoneNumberView.getText().toString());
+        
+        classrepHelper = new ClassRepHelper(getSherlockActivity());
+        
+        try{
+        if(flag == Flag.EDIT){
+        	
+        	classrep.setId(cursor.getInt(cursor.getColumnIndex(_ID)));
+            classrepHelper.update(classrep);
+            Toast.makeText(getSherlockActivity(), "Updated", Toast.LENGTH_SHORT).show();
+        } 
+        else{
+        	classrepHelper.addClassRep(classrep);
+            Toast.makeText(getSherlockActivity(), "Saved", Toast.LENGTH_SHORT).show();
+        }
+        }catch(SQLiteException sqlExc){
+        	Log.i("Class Rep Add Exception", sqlExc.getMessage());
+            Toast.makeText(getSherlockActivity(), "Not Saved", Toast.LENGTH_SHORT).show();
+        }
+        finally{
+        	refreshList();
+        	classrepHelper.disconnect();
+        }
+        
+    }
+    private void populateViews(View view)
+    {
+    	ClassRepHelper helper = new ClassRepHelper(getSherlockActivity());
+    	ClassRep classRep = helper.getClassRep(cursor.getInt(cursor.getColumnIndex(_ID)));
+    	helper.disconnect();
+    	
+    	
+        nameView = (EditText) view.findViewById(R.id.class_rep_name);
+        nameView.setText(classRep.getName());
+        
+        regNoView = (EditText) view.findViewById(R.id.class_rep_reg_num);
+        regNoView.setText(classRep.getRegNumber());
+        
+        phoneNumberView = (EditText) view.findViewById(R.id.class_rep_phone_number);
+        phoneNumberView.setText(classRep.getPhoneNumber());
+        
+        emailAddressView = (EditText) view.findViewById(R.id.class_rep_email);
+        emailAddressView.setText(classRep.getEmailAddress());
+      
+    }
+
+	public void onStart()
     {
         super.onStart();
         ListView listview = (ListView)getSherlockActivity().findViewById(R.id.list_view);
@@ -119,18 +242,20 @@ public class ClassRepListFragment extends MyCustomFragment
         .setVisibility(Spinner.GONE);
         
         cursor = (new ClassRepHelper(getSherlockActivity())).getClassReps();
-        listview.setAdapter(new SimpleCursorAdapter(getSherlockActivity(),
+        adapter = new SimpleCursorAdapter(getSherlockActivity(),
         		android.R.layout.simple_list_item_2, cursor, new String[] {
-            "name", "reg_number"
+            NAME, REG_NO
         }, new int[] {
             android.R.id.text1, android.R.id.text2
-        }));
+        });
+        
+        listview.setAdapter(adapter);
         
         initActionMode();
         
         listview.setOnItemLongClickListener(new android.widget.AdapterView.OnItemLongClickListener() {
 
-            public boolean onItemLongClick(AdapterView adapterview, View view, int i, long l)
+            public boolean onItemLongClick(AdapterView<?> adapterview, View view, int i, long l)
             {
                 if(mActionMode != null)
                 {
@@ -140,28 +265,29 @@ public class ClassRepListFragment extends MyCustomFragment
                     mActionMode = getSherlockActivity().startActionMode(mCallback);
                     return true;
                 }
-            }
-
-           
+            }  
         }
 );
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-            public void onItemClick(AdapterView adapterview, View view, int i, long l)
+            public void onItemClick(AdapterView<?> adapterview, View view, int i, long l)
             {
-                int lectureId = getArguments().getInt("_id");
-                int classRepId = cursor.getInt(cursor.getColumnIndex("_id"));
+                int lectureId = getArguments().getInt(_ID);
+                if(lectureId == -1)
+                	return;
+                Log.i("~~~HERE~~~", "Problem Here  ID = "+ lectureId );
+                int classRepId = cursor.getInt(cursor.getColumnIndex(_ID));
                 LecturesHelper lectureshelper = new LecturesHelper(getSherlockActivity());
                 
                 if(lectureshelper.assignClassRep(classRepId, lectureId))
                     Toast.makeText(getSherlockActivity(), "Assigned", Toast.LENGTH_SHORT).show();
                 else
                     Toast.makeText(getSherlockActivity(), "Not Assigned", Toast.LENGTH_SHORT).show();
+                
                 lectureshelper.disconnect();
+                getSherlockActivity().finish();
             }
-
         }
 );
-    }
-    
+    } 
 }

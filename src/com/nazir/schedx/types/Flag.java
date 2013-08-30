@@ -1,6 +1,6 @@
 package com.nazir.schedx.types;
 
-public enum CourseFlag {
+public enum Flag {
 NEW(),
 EDIT();
 }

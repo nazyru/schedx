@@ -11,7 +11,7 @@ import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.view.Menu;
 import com.nazir.schedx.R;
 
-public class MainActivity extends MyFragment
+public class MainActivity extends MyFragmentActivity
 {
 	 public void onCreate(Bundle bundle)
 	    {
@@ -70,30 +70,6 @@ public class MainActivity extends MyFragment
             clz = class1;
         }
     }
-
-    public void handleTestButton(View view)
-    {
-        startActivity(new Intent(this, CoursesListActivity.class));
-    }
-
-    public void onClickStatusButton(View view)
-    {
-        switch(view.getId())
-        {
-        default:
-            return;
-
-        case 2131034216: 
-            Toast.makeText(this, "On-going", 0).show();
-            return;
-
-        case 2131034217: 
-            Toast.makeText(this, "Finished", 0).show();
-            break;
-        }
-    }
-
-   
 
     public boolean onCreateOptionsMenu(Menu menu)
     {

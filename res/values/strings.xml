@@ -23,7 +23,7 @@
     <string name="course_title">Course Title Here</string>
     <string name="course_units">Course Unit (Optional)</string>
     <string name="add_course_custom_title">Add Course </string>
-    <string name="todo_name_hint">Tag</string>
+    <string name="todo_name_hint">I wanna...</string>
     <string name="todo_desc_view">Description</string>
     <string name="todo_go_button_label">Schedule</string>
     <string name="assessment_venue_hint">Venue</string>
@@ -54,12 +54,15 @@
     <string name="alert_dialog_yes_option">Yes</string>
     <string name="alert_dialog_no_option">No</string>
     <string name="alert_dilog_message">Are You Sure You want to Delete ?</string>
-    <string name="class_rep_hint">CLASS REP</string>
+    
+    <string name="class_rep_cancel_button_label">Cancel</string>
+    <string name="class_rep_hint">Name here</string>
     <string name="class_rep_reg_no">Registration number</string>
     <string name="class_rep_phone">Phone Number</string>
     <string name="class_rep_email_address">Email Address</string>
     <string name="assign_class_rep">Assign Class Rep</string>
-    <string name="title_activity_class_rep">Class Rep Activity</string>
+    <string name="title_activity_class_rep">Class Rep</string>
+    
     <string name="lecture_status_title">Status</string>
     <string name="lecture_ongoing">On-going</string>
     <string name="lecture_finished">Finished</string>
@@ -69,6 +72,7 @@
     <string name="lecture_day_hint">DAY</string>
     <string name="venue_hint">VENUE</string>
     <string name="status_hint">STATUS</string>
+    <string name="lecture_class_rep_header_hint">CLASS REP</string>
     <string name="app_mode_key">app_mode</string>
     <string name="app_mode_cat_title">App Mode</string>
     <string name="app_mode_title">Mode of Usage</string>
@@ -107,5 +111,26 @@
     <string name="todo_detail_memo_hint">MEMO</string>
     <string name="todo_detail_rating_hint">RATING</string>
     <string name="title_activity_todo_detail">Todo Detail</string>
+    
+    <plurals name="lecture_extra_message" >
+        <item quantity="other">(In %d Minutes from now)</item>
+        <item quantity="one">now</item>
+    </plurals>
+    
+    <plurals name="assessment_extra_message" >
+        <item quantity="other">(In %d Days from now)</item>
+        <item quantity="one">now</item>
+    </plurals>
+    
+    <!-- TODO  -->
+    <string name="expand_image_button_description">Expand/Collapse Button</string>
+    <string name="today_field">TODAY</string>
+    <string name="add_button_description">Add Task</string>
+    <string name="tomorrow_field">TOMORROW</string>
+    <string name="upcoming_field">UPCOMING</string>
+   
+    <!--Class Rep Context Menu  -->
+    <string name="call_class_rep_title"> Call Class Rep</string>
+    <string name="email_class_rep_title">Email Class Rep</string>
 
 </resources>

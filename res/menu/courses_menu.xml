@@ -2,7 +2,7 @@
 <menu
   xmlns:android="http://schemas.android.com/apk/res/android">
     <item 
-        android:id="@id/courses_action_item" 
+        android:id="@+id/courses_action_item" 
         android:title="@string/courses" 
         android:showAsAction="never" />
 </menu>

@@ -697,6 +697,7 @@ containing a value of this type.
         public static final int abs__primary_text_holo_light=0x7f07000b;
         public static final int detail_header_color=0x7f07000c;
         public static final int my_app_color_light_green=0x7f070006;
+        public static final int my_app_white_color=0x7f07000d;
         public static final int pressed_schedx=0x7f070007;
     }
     public static final class dimen {
@@ -936,12 +937,17 @@ containing a value of this type.
         public static final int btn_cab_done_schedx=0x7f020082;
         public static final int cab_background_bottom_schedx=0x7f020083;
         public static final int cab_background_top_schedx=0x7f020084;
+        public static final int call_icon=0x7f02009e;
         public static final int contextual_item_save=0x7f020085;
+        public static final int email_icon=0x7f02009f;
         public static final int ic_action_add_schedule=0x7f020086;
         public static final int ic_action_overflow=0x7f020087;
         public static final int ic_launcher=0x7f020088;
         public static final int list_focused_schedx=0x7f020089;
         public static final int menu_dropdown_panel_schedx=0x7f02008a;
+        public static final int navigation_collapse=0x7f0200a0;
+        public static final int navigation_expand=0x7f0200a1;
+        public static final int notification=0x7f0200a2;
         public static final int pressed_background_schedx=0x7f02008b;
         public static final int progress_bg_schedx=0x7f02008c;
         public static final int progress_horizontal_schedx=0x7f02008d;
@@ -1005,6 +1011,8 @@ containing a value of this type.
         public static final int action_delete_item=0x7f050075;
         public static final int action_item_new=0x7f05007b;
         public static final int action_settings=0x7f050073;
+        public static final int add_button2=0x7f050093;
+        public static final int add_button3=0x7f050097;
         public static final int add_course_title_layout=0x7f05007f;
         public static final int add_scedule_action_item=0x7f050079;
         public static final int alarm_repeat_mode_spinner=0x7f05006f;
@@ -1023,7 +1031,10 @@ containing a value of this type.
         public static final int assessment_type_spinner=0x7f050036;
         public static final int assessment_venue_view=0x7f050038;
         public static final int assign_class_rep_item=0x7f050077;
+        public static final int call_class_rep_item=0x7f050099;
+        public static final int call_id=0x7f050085;
         public static final int class_rep_email=0x7f050040;
+        public static final int class_rep_fragment_container=0x7f050087;
         public static final int class_rep_name=0x7f05003d;
         public static final int class_rep_phone_number=0x7f05003f;
         public static final int class_rep_reg_num=0x7f05003e;
@@ -1041,7 +1052,12 @@ containing a value of this type.
         public static final int disableHome=0x7f050009;
         public static final int edit_query=0x7f050026;
         public static final int edit_schedule_action_item=0x7f050074;
+        public static final int email_class_rep=0x7f050086;
+        public static final int email_class_rep_item=0x7f05009a;
         public static final int end_time_picker=0x7f05005b;
+        public static final int expand_collapse_button=0x7f05008d;
+        public static final int expand_collapse_button2=0x7f050091;
+        public static final int expand_collapse_button3=0x7f050095;
         public static final int friday_schedule_list_view=0x7f050065;
         public static final int help_action_item=0x7f05007a;
         public static final int homeAsUp=0x7f050006;
@@ -1065,7 +1081,7 @@ containing a value of this type.
         public static final int lecture_detail_venue=0x7f050055;
         public static final int lecture_detail_venue_hint=0x7f05004d;
         public static final int lecture_status=0x7f050078;
-        public static final int lecture_trigger_spinner=0x7f050085;
+        public static final int lecture_trigger_spinner=0x7f050088;
         public static final int lecture_venue_view=0x7f05005c;
         public static final int lecturer_edit_view=0x7f05005d;
         public static final int listMode=0x7f050002;
@@ -1085,18 +1101,25 @@ containing a value of this type.
         public static final int tabMode=0x7f050003;
         public static final int thursday_schedule_list_view=0x7f050064;
         public static final int time_range_item_text_view=0x7f05005f;
+        public static final int today_add_image_view=0x7f05008f;
+        public static final int today_field=0x7f05008e;
+        public static final int today_list_view=0x7f050090;
         public static final int todo_date_picker=0x7f05006c;
         public static final int todo_desc_view=0x7f05006b;
         public static final int todo_detail_container=0x7f05007e;
-        public static final int todo_detail_memo_view=0x7f050088;
-        public static final int todo_detail_name_view=0x7f050086;
-        public static final int todo_detail_rating_view=0x7f050089;
-        public static final int todo_detail_time_view=0x7f050087;
+        public static final int todo_detail_memo_view=0x7f05008b;
+        public static final int todo_detail_name_view=0x7f050089;
+        public static final int todo_detail_rating_view=0x7f05008c;
+        public static final int todo_detail_time_view=0x7f05008a;
         public static final int todo_list_item=0x7f050071;
         public static final int todo_name_view=0x7f05006a;
         public static final int todo_rating_bar=0x7f050070;
         public static final int todo_time_picker=0x7f05006d;
+        public static final int tomorrow_field=0x7f050092;
+        public static final int tomorrow_list_view=0x7f050094;
         public static final int tuesday_schedule_list_view=0x7f050062;
+        public static final int upcoming_field=0x7f050096;
+        public static final int upcoming_list_view=0x7f050098;
         public static final int useLogo=0x7f050004;
         public static final int venue_item_text_view=0x7f050060;
         public static final int wednesday_schedule_list_view=0x7f050063;
@@ -1138,6 +1161,8 @@ containing a value of this type.
         public static final int add_course_title_layout=0x7f030028;
         public static final int assessment_detail_layout=0x7f030029;
         public static final int assessment_layout=0x7f03001a;
+        public static final int class_rep_contextual_popup_layout=0x7f03002a;
+        public static final int class_rep_fragment=0x7f03002b;
         public static final int class_rep_layout=0x7f03001b;
         public static final int custom_adapter_layout=0x7f03001c;
         public static final int custom_list_header=0x7f03001d;
@@ -1147,22 +1172,27 @@ containing a value of this type.
         public static final int lecture_schedule_grid_view=0x7f030021;
         public static final int sherlock_spinner_dropdown_item=0x7f030023;
         public static final int sherlock_spinner_item=0x7f030024;
-        public static final int todo_detail_layout=0x7f03002a;
+        public static final int todo_detail_layout=0x7f03002c;
         public static final int todo_layout=0x7f030025;
-        public static final int todo_list=0x7f03002b;
+        public static final int todo_list=0x7f03002d;
     }
     public static final class menu {
         public static final int action_bar_lecture=0x7f0d0000;
         public static final int assessment_detail=0x7f0d0008;
         public static final int class_rep=0x7f0d0001;
+        public static final int class_rep_context_menu=0x7f0d0009;
         public static final int context_menu=0x7f0d0002;
         public static final int courses_menu=0x7f0d0003;
         public static final int lecture_context_menu=0x7f0d0004;
-        public static final int lecture_detail=0x7f0d0009;
+        public static final int lecture_detail=0x7f0d000a;
         public static final int main=0x7f0d0005;
         public static final int my_custom=0x7f0d0006;
         public static final int my_custom_list=0x7f0d0007;
-        public static final int todo_detail=0x7f0d000a;
+        public static final int todo_detail=0x7f0d000b;
+    }
+    public static final class plurals {
+        public static final int assessment_extra_message=0x7f0e0001;
+        public static final int lecture_extra_message=0x7f0e0000;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -1208,6 +1238,7 @@ containing a value of this type.
         public static final int action_item_lecture_save=0x7f0a0027;
         public static final int action_item_new_title=0x7f0a0028;
         public static final int action_settings=0x7f0a002a;
+        public static final int add_button_description=0x7f0a0068;
         public static final int add_course_button=0x7f0a0010;
         public static final int add_course_cancel_button_hint=0x7f0a003d;
         public static final int add_course_custom_title=0x7f0a0053;
@@ -1224,19 +1255,23 @@ containing a value of this type.
         public static final int app_mode_title=0x7f0a0045;
         public static final int app_name=0x7f0a000d;
         public static final int assessment_cat_title=0x7f0a004f;
-        public static final int assessment_detail_course_code_hint=0x7f0a005a;
-        public static final int assessment_detail_location_hint=0x7f0a005c;
-        public static final int assessment_detail_memo_hint=0x7f0a005d;
-        public static final int assessment_detail_time_hint=0x7f0a005b;
+        public static final int assessment_detail_course_code_hint=0x7f0a005c;
+        public static final int assessment_detail_location_hint=0x7f0a005e;
+        public static final int assessment_detail_memo_hint=0x7f0a005f;
+        public static final int assessment_detail_time_hint=0x7f0a005d;
         /**  Assessment Detail 
          */
-        public static final int assessment_detail_type_hint=0x7f0a0059;
+        public static final int assessment_detail_type_hint=0x7f0a005b;
         public static final int assessment_memo_hint=0x7f0a0019;
         public static final int assessment_notif_dialog_title=0x7f0a0052;
         public static final int assessment_notif_key=0x7f0a0050;
         public static final int assessment_notif_title=0x7f0a0051;
         public static final int assessment_venue_hint=0x7f0a0017;
         public static final int assign_class_rep=0x7f0a0037;
+        /** Class Rep Context Menu  
+         */
+        public static final int call_class_rep_title=0x7f0a006b;
+        public static final int class_rep_cancel_button_label=0x7f0a0054;
         public static final int class_rep_email_address=0x7f0a0036;
         public static final int class_rep_hint=0x7f0a0033;
         public static final int class_rep_phone=0x7f0a0035;
@@ -1249,15 +1284,20 @@ containing a value of this type.
         public static final int custom_adapter_arrow_desc=0x7f0a001a;
         /**  Delete Course Dialog 
          */
-        public static final int delete_course_message=0x7f0a0054;
-        public static final int delete_course_no_button=0x7f0a0057;
-        public static final int delete_course_title=0x7f0a0055;
-        public static final int delete_course_yes_button=0x7f0a0056;
+        public static final int delete_course_message=0x7f0a0056;
+        public static final int delete_course_no_button=0x7f0a0059;
+        public static final int delete_course_title=0x7f0a0057;
+        public static final int delete_course_yes_button=0x7f0a0058;
         public static final int edit_schedule_action_title=0x7f0a0025;
+        public static final int email_class_rep_title=0x7f0a006c;
         public static final int end_time_hint=0x7f0a003f;
+        /**  TODO  
+         */
+        public static final int expand_image_button_description=0x7f0a0066;
         public static final int friday_header_label=0x7f0a0020;
         public static final int hello_world=0x7f0a000e;
         public static final int help_action_title=0x7f0a002b;
+        public static final int lecture_class_rep_header_hint=0x7f0a0055;
         public static final int lecture_day_hint=0x7f0a0040;
         public static final int lecture_finished=0x7f0a003b;
         public static final int lecture_notif_cat_title=0x7f0a004b;
@@ -1277,24 +1317,27 @@ containing a value of this type.
         public static final int status_hint=0x7f0a0042;
         public static final int sunday_header_label=0x7f0a0022;
         public static final int thursday_header_label=0x7f0a001f;
-        public static final int title_activity_assessment_detail=0x7f0a005e;
+        public static final int title_activity_assessment_detail=0x7f0a0060;
         public static final int title_activity_assessment_list=0x7f0a002d;
         public static final int title_activity_class_rep=0x7f0a0038;
         public static final int title_activity_course=0x7f0a002e;
-        public static final int title_activity_lecture_detail=0x7f0a0058;
+        public static final int title_activity_lecture_detail=0x7f0a005a;
         public static final int title_activity_my_custom=0x7f0a0029;
         public static final int title_activity_my_custom_list=0x7f0a002c;
-        public static final int title_activity_todo_detail=0x7f0a0063;
+        public static final int title_activity_todo_detail=0x7f0a0065;
+        public static final int today_field=0x7f0a0067;
         public static final int todo_desc_view=0x7f0a0015;
-        public static final int todo_detail_memo_hint=0x7f0a0061;
+        public static final int todo_detail_memo_hint=0x7f0a0063;
         /**  TODO Detail 
          */
-        public static final int todo_detail_name_hint=0x7f0a005f;
-        public static final int todo_detail_rating_hint=0x7f0a0062;
-        public static final int todo_detail_time_hint=0x7f0a0060;
+        public static final int todo_detail_name_hint=0x7f0a0061;
+        public static final int todo_detail_rating_hint=0x7f0a0064;
+        public static final int todo_detail_time_hint=0x7f0a0062;
         public static final int todo_go_button_label=0x7f0a0016;
         public static final int todo_name_hint=0x7f0a0014;
+        public static final int tomorrow_field=0x7f0a0069;
         public static final int tuesday_header_label=0x7f0a001d;
+        public static final int upcoming_field=0x7f0a006a;
         public static final int venue_hint=0x7f0a0041;
         public static final int wednesday_header_label=0x7f0a001e;
     }
@@ -1370,6 +1413,8 @@ containing a value of this type.
         public static final int TextAppearance_Sherlock_Widget_PopupMenu_Large=0x7f0b0040;
         public static final int TextAppearance_Sherlock_Widget_PopupMenu_Small=0x7f0b0042;
         public static final int TextAppearance_Sherlock_Widget_TextView_SpinnerItem=0x7f0b0044;
+        /**  Selected theme 
+         */
         public static final int Theme_Schedx=0x7f0b005e;
         /**  this style is only referenced in a Light.DarkActionBar based theme 
  this style is only referenced in a Light.DarkActionBar based theme 

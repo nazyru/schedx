@@ -11,8 +11,12 @@
     <style name="Widget.Sherlock.ActionBar.TabBar" parent="@*android:style/Widget.Holo.ActionBar.TabBar" />
     <style name="Widget.Sherlock.Light.ActionBar.TabBar" parent="@*android:style/Widget.Holo.Light.ActionBar.TabBar" />
     <style name="Widget.Sherlock.Light.ActionBar.TabBar.Inverse" parent="@*android:style/Widget.Holo.Light.ActionBar.TabBar.Inverse" />
-    <style name="Widget.Sherlock.ActionBar.TabText" parent="@*android:style/Widget.Holo.ActionBar.TabText" />
-    <style name="Widget.Sherlock.Light.ActionBar.TabText" parent="@*android:style/Widget.Holo.Light.ActionBar.TabText" />
+    
+    
+    <style name="Widget.Sherlock.Light.ActionBar.TabText" parent="@*android:style/Widget.Holo.Light.ActionBar.TabText" >
+        
+    </style>
+    
     <style name="Widget.Sherlock.Light.ActionBar.TabText.Inverse" parent="@*android:style/Widget.Holo.Light.ActionBar.TabText.Inverse" />
     <style name="Widget.Sherlock.ActionButton" parent="@*android:style/Widget.Holo.ActionButton" />
     <style name="Widget.Sherlock.Light.ActionButton" parent="@*android:style/Widget.Holo.Light.ActionButton" />
@@ -68,18 +72,22 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">false</item>
     </style>
-    <style name="AppBaseTheme" parent="@*android:style/Theme.Holo.Light.DarkActionBar" />
+    <style name="AppBaseTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar" />
+    
+    <!-- Selected theme -->
     <style name="Theme.Schedx" parent="@style/Theme.Sherlock.Light">
         <item name="android:dropDownListViewStyle">@style/DropDownListView.Schedx</item>
         <item name="android:actionBarStyle">@style/ActionBar.Solid.Schedx</item>
         <item name="android:actionDropDownStyle">@style/DropDownNav.Schedx</item>
         <item name="android:actionModeBackground">@drawable/cab_background_top_schedx</item>
         <item name="android:actionBarTabStyle">@style/ActionBarTabStyle.Schedx</item>
+        <item name="android:actionBarTabTextStyle">@style/Widget.Sherlock.ActionBar.TabText</item>
         <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Schedx</item>
         <item name="android:popupMenuStyle">@style/PopupMenu.Schedx</item>
         <item name="android:actionBarItemBackground">@drawable/selectable_background_schedx</item>
         <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_schedx</item>
     </style>
+    
     <style name="ActionBar.Solid.Schedx" parent="@style/Widget.Sherlock.Light.ActionBar.Solid">
         <item name="android:progressBarStyle">@style/ProgressBar.Schedx</item>
         <item name="android:background">@drawable/ab_solid_schedx</item>

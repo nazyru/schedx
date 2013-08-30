@@ -14,7 +14,8 @@ import android.view.KeyEvent;
 import android.widget.Toast;
 import static com.nazir.schedx.persist.MySqliteOpenHelper.Lectures.*;
 
-public class LectureDetailActivity extends MyFragment {
+public class LectureDetailActivity extends MyFragmentActivity {
+	public static String LECTURE_NOTIF_FLAG = "com.nazir.schedx.ui.NOTIFICATION_FLAG";
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,8 @@ public class LectureDetailActivity extends MyFragment {
 		Bundle bundle = new Bundle();
 		int id = getIntent().getIntExtra(_ID, -1);
 		bundle.putInt(_ID, id);
+		boolean flag = getIntent().getBooleanExtra(LECTURE_NOTIF_FLAG, false);
+		bundle.putBoolean(LECTURE_NOTIF_FLAG, flag);
 		
 		LecturesHelper helper = new LecturesHelper(this);
 		Lecture lecture = helper.getLectureSchedlule(id);
@@ -45,11 +48,12 @@ public class LectureDetailActivity extends MyFragment {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item){
-		super.onOptionsItemSelected(item);
-		
+			
 		switch(item.getItemId()){
 		case android.R.id.home:
 			goBack();
+			break;
+			default: return super.onOptionsItemSelected(item);
 		}
 		return true;
 	}

@@ -26,14 +26,112 @@ public class TodoListActivity extends MyCustomFragment
 {
     public static final String TODO_BUNDLE = "com.nazir.schedx.ui.todo";
     private SimpleCursorAdapter adapter;
-    private Cursor cursor;
+    private Cursor todayCursor;
     private TodosHelper helper;
-    private ListView listView;
+    private ListView todayListView;
+    private ListView tomorrowListView;
+    private TextView todayField;
+    private TextView tomorrowField;
     private ActionMode mActionMode;
+    private ImageView todayExpandCollapseView;
+    private ImageView todayAddView;
     int todoNameindx;
+    
     public TodoListActivity()
     {
     }
+
+    public void onStart()
+    {
+        super.onStart();
+        
+        todayListView = (ListView) getSherlockActivity().findViewById(R.id.today_list_view);
+        tomorrowListView = (ListView) getSherlockActivity().findViewById(R.id.tomorrow_list_view);
+        todayField = (TextView) getSherlockActivity().findViewById(R.id.today_field);
+        tomorrowField = (TextView) getSherlockActivity().findViewById(R.id.tomorrow_field);
+        todayExpandCollapseView = (ImageView) getSherlockActivity().findViewById(R.id.expand_collapse_button);
+        todayAddView = (ImageView) getSherlockActivity().findViewById(R.id.today_add_image_view);
+        
+        todayField.setOnClickListener(new MyClickHandler());
+        tomorrowField.setOnClickListener(new MyClickHandler());
+        todayExpandCollapseView.setOnClickListener(new MyClickHandler());
+        todayAddView.setOnClickListener(new MyClickHandler());
+        
+        helper = new TodosHelper(getSherlockActivity());
+        todayCursor = helper.getTodos();
+        todoNameindx = todayCursor.getColumnIndex(NAME);
+        
+        String as[] = {NAME};
+        int ai[] = {android.R.id.text1};
+        adapter = new SimpleCursorAdapter(getSherlockActivity(), 
+        		android.R.layout.simple_list_item_1, todayCursor, as, ai);
+        todayListView.setAdapter(adapter);
+        
+        todayListView.setOnItemClickListener(new ListView.OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1,
+					int arg2, long arg3) {
+				
+				int id = todayCursor.getInt(todayCursor.getColumnIndex(ID));
+				Intent intent = new Intent(getSherlockActivity(), TodoDetailActivity.class);
+				intent.putExtra(ID, id);
+				startActivity(intent);
+				
+			}
+		});
+       
+        initActionMode();
+    }
+
+    protected void cancelAlarm(int i)
+    {
+        Intent intent = new Intent(getSherlockActivity(), ScheduleReceiver.class);
+        intent.setAction(TodoActivity.TODO_ACTION);
+        PendingIntent pendingintent = PendingIntent.getBroadcast(getSherlockActivity(), i, intent, 
+        		PendingIntent.FLAG_CANCEL_CURRENT);
+        ((AlarmManager)getSherlockActivity().getSystemService(Context.ALARM_SERVICE)).cancel(pendingintent);
+    }
+
+    protected void doDelete()
+    {
+        final int id = todayCursor.getInt(todayCursor.getColumnIndex("_id"));
+        new AlertDialog.Builder(getSherlockActivity())
+        .setTitle(R.string.alert_dialog_title)
+        .setMessage(R.string.alert_dilog_message)
+        .setIcon(R.drawable.alert)
+        .setPositiveButton(R.string.alert_dialog_yes_option, new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface dialoginterface, int i)
+            {
+                helper.delete(id);
+                cancelAlarm(id);
+                adapter.notifyDataSetChanged();
+                Toast.makeText(getSherlockActivity(), "Deleted", Toast.LENGTH_SHORT).show();
+            }
+
+        })
+        .setNegativeButton(R.string.alert_dialog_no_option, new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface dialoginterface, int i)
+            {
+                dialoginterface.dismiss();
+            }
+        })
+        .show();
+    }
+
+    protected void doEdit()
+    {
+        int i = todayCursor.getInt(todayCursor.getColumnIndex(ID));
+        Intent intent = new Intent(getSherlockActivity(), TodoActivity.class);
+        intent.setAction(Intent.ACTION_EDIT);
+        Bundle bundle = new Bundle();
+        bundle.putInt(ID, i);
+        intent.putExtra(TODO_BUNDLE, bundle);
+        startActivity(intent);
+    }
+    
 
     private void initActionMode()
     {
@@ -75,9 +173,9 @@ public class TodoListActivity extends MyCustomFragment
 
         }
 ;
-        listView.setOnItemLongClickListener(new android.widget.AdapterView.OnItemLongClickListener() {
+        todayListView.setOnItemLongClickListener(new android.widget.AdapterView.OnItemLongClickListener() {
 
-            public boolean onItemLongClick(AdapterView adapterview, View view, int i, long l)
+            public boolean onItemLongClick(AdapterView<?> adapterview, View view, int i, long l)
             {
                 if(mActionMode != null)
                 {
@@ -92,54 +190,6 @@ public class TodoListActivity extends MyCustomFragment
 );
     }
 
-    protected void cancelAlarm(int i)
-    {
-        Intent intent = new Intent(getSherlockActivity(), ScheduleReceiver.class);
-        intent.setAction(TodoActivity.TODO_ACTION);
-        PendingIntent pendingintent = PendingIntent.getBroadcast(getSherlockActivity(), i, intent, 
-        		PendingIntent.FLAG_CANCEL_CURRENT);
-        ((AlarmManager)getSherlockActivity().getSystemService(Context.ALARM_SERVICE)).cancel(pendingintent);
-    }
-
-    protected void doDelete()
-    {
-        final int id = cursor.getInt(cursor.getColumnIndex("_id"));
-        new AlertDialog.Builder(getSherlockActivity())
-        .setTitle(R.string.alert_dialog_title)
-        .setMessage(R.string.alert_dilog_message)
-        .setIcon(R.drawable.alert)
-        .setPositiveButton(R.string.alert_dialog_yes_option, new DialogInterface.OnClickListener() {
-
-            public void onClick(DialogInterface dialoginterface, int i)
-            {
-                helper.delete(id);
-                cancelAlarm(id);
-                adapter.notifyDataSetChanged();
-                Toast.makeText(getSherlockActivity(), "Deleted", Toast.LENGTH_SHORT).show();
-            }
-
-        })
-        .setNegativeButton(R.string.alert_dialog_no_option, new DialogInterface.OnClickListener() {
-
-            public void onClick(DialogInterface dialoginterface, int i)
-            {
-                dialoginterface.dismiss();
-            }
-        })
-        .show();
-    }
-
-    protected void doEdit()
-    {
-        int i = cursor.getInt(cursor.getColumnIndex("_id"));
-        Intent intent = new Intent(getSherlockActivity(), TodoActivity.class);
-        intent.setAction(Intent.ACTION_EDIT);
-        Bundle bundle = new Bundle();
-        bundle.putInt("_id", i);
-        intent.putExtra(TODO_BUNDLE, bundle);
-        startActivity(intent);
-    }
-
     public void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
@@ -152,16 +202,7 @@ public class TodoListActivity extends MyCustomFragment
 
     public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
     {
-        return super.onCreateView(layoutinflater, viewgroup, bundle);
-    }
-
-    public void onDestroy()
-    {
-        super.onDestroy();
-        if(cursor != null)
-            cursor.close();
-        if(helper != null)
-            helper.disconnect();
+        return layoutinflater.inflate(R.layout.todo_list, null, false);
     }
 
     public boolean onOptionsItemSelected(MenuItem menuitem)
@@ -174,37 +215,63 @@ public class TodoListActivity extends MyCustomFragment
         }
         return true;
     }
-
-    public void onStart()
+    
+    public void onDestroy()
     {
-        super.onStart();
-        
-        ((Spinner)getSherlockActivity().findViewById(R.id.list_header_spinner)).setVisibility(Spinner.GONE);
-        listView = getListView();
-        helper = new TodosHelper(getSherlockActivity());
-        cursor = helper.getTodos();
-        String as[] = {"name"};
-        int ai[] = {R.id.todo_list_item};
-        adapter = new SimpleCursorAdapter(getSherlockActivity(), R.layout.todo_list, cursor, as, ai);
-        todoNameindx = cursor.getColumnIndex("name");
-        listView.setAdapter(adapter);
-        
-        listView.setOnItemClickListener(new ListView.OnItemClickListener() {
+        super.onDestroy();
+        if(todayCursor != null)
+            todayCursor.close();
+        if(helper != null)
+            helper.disconnect();
+    }
+    
+    private class MyClickHandler implements View.OnClickListener{
 
-			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1,
-					int arg2, long arg3) {
-				
-				int id = cursor.getInt(cursor.getColumnIndex(ID));
-				Intent intent = new Intent(getSherlockActivity(), TodoDetailActivity.class);
-				intent.putExtra(ID, id);
-				startActivity(intent);
-				
+		@Override
+		public void onClick(final View v) {
+			
+			switch(v.getId()){
+			case R.id.today_field:
+			case R.id.expand_collapse_button:
+				toggleTodayList();
+				break;
+			case R.id.tomorrow_field:
+				toggleTomorrowList();
+				break;
+			case R.id.today_add_image_view:
+				startActivity(new Intent(getSherlockActivity(), TodoActivity.class));
+				break;
+			default: break;
+			
 			}
-		});
-       
-        initActionMode();
+		}
+    	
     }
 
-    
+	public void toggleTodayList() {
+		
+		switch(todayListView.getVisibility()){
+		case ListView.GONE:
+			todayListView.setVisibility(ListView.VISIBLE);
+			todayExpandCollapseView.setImageResource(R.drawable.navigation_collapse);
+			break;
+		case ListView.VISIBLE:
+			todayListView.setVisibility(ListView.GONE);
+			todayExpandCollapseView.setImageResource(R.drawable.navigation_expand);
+			break;
+		}
+	}
+
+	public void toggleTomorrowList() {
+		
+		switch(tomorrowListView.getVisibility()){
+		case ListView.GONE:
+			tomorrowListView.setVisibility(ListView.VISIBLE);
+			break;
+		case ListView.VISIBLE:
+			tomorrowListView.setVisibility(ListView.GONE);
+			break;
+		}
+	}
+
 }

@@ -2,11 +2,13 @@ package com.nazir.schedx.persist;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import com.nazir.schedx.model.ClassRep;
 import com.nazir.schedx.model.Course;
 import com.nazir.schedx.model.Lecture;
+import com.nazir.schedx.remainder.AlarmHelper;
 import com.nazir.schedx.types.Day;
 import com.nazir.schedx.types.LectureAlarmTrigger;
 import com.nazir.schedx.types.Status;
@@ -102,6 +104,8 @@ public class LecturesHelper
     public Lecture getLectureSchedlule(int id)
     {
         Lecture lecture = new Lecture();
+        lecture.setId(id);
+        
         String selection = MySqliteOpenHelper.Lectures._ID + " = ? ";
         String selectionArgs[] = {Integer.toString(id)};
        
@@ -204,10 +208,45 @@ public class LecturesHelper
     }
 
 	public void deleteByCourseId(int courseId) {
+		
+		List<Lecture> lectures = getLecturesByCourse(courseId);	
+		AlarmHelper.cancelLectureAlarms(lectures, context);
+		
 		String whereClause = COURSE_ID +" = ?";
 		String whereArg[] = {Integer.toString(courseId)};
 		
 		db.delete(LECTURES, whereClause, whereArg);	
+	}
+
+	private List<Lecture> getLecturesByCourse(int courseId) {
+		
+		String selection = COURSE_ID + " = ? ";
+		String selectionArgs[] = {Integer.toString(courseId)};
+		List<Lecture> lectures = new ArrayList<Lecture>();
+		Lecture lecture;
+		
+		Cursor cursor = db.query(LECTURES, new String[]{MySqliteOpenHelper.Lectures._ID}, selection, 
+				selectionArgs, null, null, null);
+		
+		if(cursor.moveToFirst()){
+			do{
+				lecture = new Lecture();
+				lecture.setId(cursor.getInt(cursor.getColumnIndex(MySqliteOpenHelper.Lectures._ID)));
+				lectures.add(lecture);
+			}while(cursor.moveToNext());
+			
+		
+		}
+		
+		return lectures;
+	}
+
+	public void unassignClassRep(int id){
+		String query = "UPDATE "+ LECTURES + " SET "+ 
+				CLASS_REP_ID + " = -1 WHERE " + CLASS_REP_ID + " = "+ id;
+		
+		db.execSQL(query);
+				
 	}
 
 }

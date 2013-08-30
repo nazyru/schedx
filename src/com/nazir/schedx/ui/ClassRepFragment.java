@@ -12,9 +12,6 @@ import com.nazir.schedx.R;
 import com.nazir.schedx.model.ClassRep;
 import com.nazir.schedx.persist.ClassRepHelper;
 
-// Referenced classes of package com.nazir.schedx.ui:
-//            MyCustomActivity, ClassRepListFragment
-
 public class ClassRepFragment extends MyCustomActivity
 {
     private Bundle bundle;

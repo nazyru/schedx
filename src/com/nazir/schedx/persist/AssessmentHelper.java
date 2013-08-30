@@ -1,13 +1,16 @@
 package com.nazir.schedx.persist;
 
+import android.app.AlarmManager;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import com.nazir.schedx.model.Assessment;
+import com.nazir.schedx.remainder.AlarmHelper;
 import com.nazir.schedx.types.AssessmentTriggerMode;
 import com.nazir.schedx.types.AssessmentType;
 import com.nazir.schedx.util.Mapper;
 import java.util.*;
+
 import static com.nazir.schedx.persist.MySqliteOpenHelper.Assessment.*;
 import static com.nazir.schedx.persist.MySqliteOpenHelper.Tables.*;
 
@@ -40,15 +43,7 @@ public class AssessmentHelper
         return db.insertOrThrow(ASSESSMENT, null, Mapper.mapToAssessment(assessment1));
     }
 
-    public void delete(int id)
-    {
-        db.delete(ASSESSMENT, "_id = ?", new String[]{Integer.toString(id)});
-    }
-
-    public void disconnect()
-    {
-        db.close();
-    }
+    
 
     public List<Assessment> getAllAssessments()
     {
@@ -132,11 +127,6 @@ public class AssessmentHelper
         return db.query(ASSESSMENT, columns, null, null, null, null, DATE +" DESC");
     }
 
-    public List<Assessment> getPendingAssessments()
-    {
-        return null;
-    }
-
     public void insertMock(int num)
     {
         
@@ -154,12 +144,47 @@ public class AssessmentHelper
         		new String[]{Integer.toString(assessment1.getId())});
     }
 
-	public void deleteByCourseId(int id) {
+	public void deleteByCourseId(int courseId) {
 		String whereClause = COURSE_ID + " = ?";
-		String whereArgs[] = {Integer.toString(id)};
+		String whereArgs[] = {Integer.toString(courseId)};
+		
+		List<Assessment> assessments = getAssessmentsByCourse(courseId);
+		AlarmHelper.cancelAssessmentAlarms(assessments, context);
 		
 		db.delete(ASSESSMENT, whereClause, whereArgs);		
 	}
 
+	private List<Assessment> getAssessmentsByCourse(int courseId) {
+		
+		String selection = COURSE_ID + " = ? ";
+		String selectionArgs[] = {Integer.toString(courseId)};
+		List<Assessment> assessments = new ArrayList<Assessment>();
+		Assessment assessment;
+		
+		Cursor cursor = db.query(ASSESSMENT, new String[]{ID}, selection, selectionArgs, null, 
+				null, null);
+		
+		if(cursor.moveToFirst()){
+			do{
+				assessment = new Assessment();
+				assessment.setId(cursor.getInt(cursor.getColumnIndex(ID)));
+				assessments.add(assessment);
+			}while(cursor.moveToNext());
+			
+		}
+		
+		return assessments;
+	}
+
+	public void delete(int id)
+    {
+	
+        db.delete(ASSESSMENT, ID+ " = ?", new String[]{Integer.toString(id)});
+    }
+
+    public void disconnect()
+    {
+        db.close();
+    }
     
 }

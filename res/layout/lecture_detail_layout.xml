@@ -142,7 +142,7 @@
                 android:id="@id/lecture_detail_class_rep_hint" 
                 android:layout_width="fill_parent" 
                 android:layout_height="wrap_content" 
-                android:text="@string/class_rep_hint" 
+                android:text="@string/lecture_class_rep_header_hint" 
                 style="@style/detail_header_style" />
             
             <TextView 

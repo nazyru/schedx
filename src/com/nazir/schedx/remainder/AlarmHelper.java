@@ -1,18 +1,15 @@
 
 package com.nazir.schedx.remainder;
 
-import java.util.Date;
-
+import java.util.List;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
-
 import com.nazir.schedx.model.Assessment;
 import com.nazir.schedx.model.Lecture;
 import com.nazir.schedx.model.Todo;
-import com.nazir.schedx.persist.LecturesHelper;
 import com.nazir.schedx.types.Day;
 import com.nazir.schedx.ui.AssessmentActivity;
 import com.nazir.schedx.ui.LectureActivity;
@@ -129,7 +126,7 @@ public class AlarmHelper
     {
     	int id = lecture.getId();
         Intent intent = new Intent(context, ScheduleReceiver.class);
-        intent.setAction(LectureActivity.LECTURE_ACTION);
+        intent.setAction(LectureActivity.LECTURE_ACTION + lecture.getId());
         intent.putExtra(LectureActivity.LECTURE_ID, id);
         long repeatAtMillis = 7 * 24 * 60 * 60 * 1000; 
         long minuteMillis = 60 * 1000;
@@ -164,10 +161,35 @@ public class AlarmHelper
 			break;
         
         }
-        
-        Log.i("--TRiggering @ ", new Date(triggerAtMillis).toString());
-        
+             
         	alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, DateTimeHelper.stripSeconds(triggerAtMillis),
         			repeatAtMillis, pendingintent);
     }
+
+	public static void cancelAssessmentAlarms(List<Assessment> assessments, Context context) {
+		PendingIntent pendIntent;
+		AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+		Intent intent = new Intent(context, ScheduleReceiver.class);
+		
+		for(Assessment assessment: assessments){
+			intent.setAction(AssessmentActivity.ASSESSMENT_ACTION + assessment.getId());
+			pendIntent = PendingIntent.getBroadcast(context, assessment.getId(), intent, 
+					PendingIntent.FLAG_CANCEL_CURRENT);
+			alarmManager.cancel(pendIntent);
+		}
+		
+	}
+
+	public static void cancelLectureAlarms(List<Lecture> lectures, Context context) {
+		PendingIntent pendIntent;
+		AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+		Intent intent = new Intent(context, ScheduleReceiver.class);
+		
+		for(Lecture lecture: lectures){
+			intent.setAction(LectureActivity.LECTURE_ACTION + lecture.getId());
+			pendIntent = PendingIntent.getBroadcast(context, lecture.getId(), intent, PendingIntent.FLAG_CANCEL_CURRENT);
+			alarmManager.cancel(pendIntent);
+		}
+		
+	}
 }

@@ -94,7 +94,7 @@
         <item name="android:textAppearance">@null</item>
         <item name="android:textSize">12.0sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">?textColorPrimary</item>
+        <item name="android:textColor">@color/my_app_white_color</item>
         <item name="android:ellipsize">marquee</item>
         <item name="android:maxLines">2</item>
         <item name="android:textAllCaps">true</item>
@@ -153,7 +153,7 @@
     </style>
     <style name="Widget.Sherlock.Light.ListPopupWindow" parent="@style/Widget">
         <item name="android:dropDownSelector">@drawable/abs__list_selector_holo_light</item>
-        <item name="android:popupBackground">@drawable/abs__menu_dropdown_panel_holo_light</item>
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_schedx</item>
         <item name="android:dropDownWidth">wrap_content</item>
         <item name="android:dropDownHorizontalOffset">0.0dip</item>
         <item name="android:dropDownVerticalOffset">0.0dip</item>
@@ -263,43 +263,43 @@
     <style name="TextAppearance.Sherlock.Widget.ActionBar.Menu" parent="@style/Widget">
         <item name="android:textSize">12.0sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">?actionMenuTextColor</item>
+        <item name="android:textColor">@color/my_app_white_color</item>
         <item name="android:textAllCaps">@bool/abs__config_actionMenuItemAllCaps</item>
     </style>
     <style name="TextAppearance.Sherlock.Widget.ActionBar.Title" parent="@style/Widget">
         <item name="android:textSize">@dimen/abs__action_bar_title_text_size</item>
-        <item name="android:textColor">?android:textColorPrimary</item>
+        <item name="android:textColor">@color/my_app_white_color</item>
     </style>
     <style name="TextAppearance.Sherlock.Widget.ActionBar.Title.Inverse" parent="@style/Widget">
         <item name="android:textSize">@dimen/abs__action_bar_title_text_size</item>
-        <item name="android:textColor">?android:textColorPrimaryInverse</item>
+        <item name="android:textColor">@color/my_app_white_color</item>
     </style>
     <style name="TextAppearance.Sherlock.Widget.ActionBar.Subtitle" parent="@style/Widget">
         <item name="android:textSize">@dimen/abs__action_bar_subtitle_text_size</item>
-        <item name="android:textColor">?android:textColorSecondary</item>
+        <item name="android:textColor">@color/my_app_white_color</item>
     </style>
     <style name="TextAppearance.Sherlock.Widget.ActionBar.Subtitle.Inverse" parent="@style/Widget">
         <item name="android:textSize">@dimen/abs__action_bar_subtitle_text_size</item>
-        <item name="android:textColor">?android:textColorPrimaryInverse</item>
+        <item name="android:textColor">@color/my_app_white_color</item>
     </style>
     <style name="TextAppearance.Sherlock.Widget.ActionMode.Title" parent="@style/Widget">
         <item name="android:textSize">@dimen/abs__action_bar_title_text_size</item>
-        <item name="android:textColor">?android:textColorPrimary</item>
+        <item name="android:textColor">@color/my_app_white_color</item>
     </style>
     <style name="TextAppearance.Sherlock.Widget.ActionMode.Title.Inverse" parent="@style/Widget">
         <item name="android:textSize">@dimen/abs__action_bar_title_text_size</item>
-        <item name="android:textColor">?android:textColorPrimaryInverse</item>
+        <item name="android:textColor">@color/my_app_white_color</item>
     </style>
     <style name="TextAppearance.Sherlock.Widget.ActionMode.Subtitle" parent="@style/Widget">
         <item name="android:textSize">@dimen/abs__action_bar_subtitle_text_size</item>
-        <item name="android:textColor">?android:textColorSecondary</item>
+        <item name="android:textColor">@color/my_app_white_color</item>
     </style>
     <style name="TextAppearance.Sherlock.Widget.ActionMode.Subtitle.Inverse" parent="@style/Widget">
         <item name="android:textSize">@dimen/abs__action_bar_subtitle_text_size</item>
-        <item name="android:textColor">?android:textColorPrimaryInverse</item>
+        <item name="android:textColor">@color/my_app_white_color</item>
     </style>
     <style name="TextAppearance.Sherlock.Widget.PopupMenu" parent="@style/Widget">
-        <item name="android:textColor">?textColorPrimary</item>
+        <item name="android:textColor">@color/my_app_white_color</item>
     </style>
     <style name="TextAppearance.Sherlock.Widget.PopupMenu.Large" parent="@style/TextAppearance.Sherlock.Widget.PopupMenu">
         <item name="android:textSize">18.0sp</item>
@@ -369,7 +369,7 @@
         <item name="actionBarDivider">?dividerVertical</item>
         <item name="actionBarItemBackground">?selectableItemBackground</item>
         <item name="actionMenuTextAppearance">@style/TextAppearance.Sherlock.Widget.ActionBar.Menu</item>
-        <item name="actionMenuTextColor">?textColorPrimary</item>
+        <item name="actionMenuTextColor">@color/my_app_white_color</item>
         <item name="actionModeStyle">@style/Widget.Sherlock.ActionMode</item>
         <item name="actionModeCloseButtonStyle">@style/Widget.Sherlock.ActionButton.CloseMode</item>
         <item name="actionModeBackground">@drawable/abs__cab_background_top_holo_dark</item>
@@ -428,13 +428,13 @@
         <item name="actionBarDivider">?dividerVertical</item>
         <item name="actionBarItemBackground">?selectableItemBackground</item>
         <item name="actionMenuTextAppearance">@style/TextAppearance.Sherlock.Widget.ActionBar.Menu</item>
-        <item name="actionMenuTextColor">?textColorPrimary</item>
+        <item name="actionMenuTextColor">@color/my_app_white_color</item>
         <item name="actionModeStyle">@style/Widget.Sherlock.Light.ActionMode</item>
         <item name="actionModeCloseButtonStyle">@style/Widget.Sherlock.Light.ActionButton.CloseMode</item>
         <item name="actionModeBackground">@drawable/abs__cab_background_top_holo_light</item>
         <item name="actionModeSplitBackground">@drawable/abs__cab_background_bottom_holo_light</item>
-        <item name="actionModeCloseDrawable">@drawable/abs__ic_cab_done_holo_light</item>
-        <item name="actionModeShareDrawable">@drawable/abs__ic_menu_share_holo_light</item>
+        <item name="actionModeCloseDrawable">@drawable/abs__ic_cab_done_holo_dark</item>
+        <item name="actionModeShareDrawable">@drawable/abs__ic_menu_share_holo_dark</item>
         <item name="actionModePopupWindowStyle">@style/Widget.Sherlock.Light.PopupWindow.ActionMode</item>
         <item name="buttonStyleSmall">@style/Widget.Sherlock.Light.Button.Small</item>
         <item name="selectableItemBackground">@drawable/abs__item_background_holo_light</item>
@@ -463,7 +463,7 @@
         <item name="dividerVertical">@drawable/abs__list_divider_holo_light</item>
         <item name="actionDropDownStyle">@style/Widget.Sherlock.Light.Spinner.DropDown.ActionBar</item>
         <item name="actionButtonStyle">@style/Widget.Sherlock.Light.ActionButton</item>
-        <item name="homeAsUpIndicator">@drawable/abs__ic_ab_back_holo_light</item>
+        <item name="homeAsUpIndicator">@drawable/abs__ic_ab_back_holo_dark</item>
         <item name="dropDownListViewStyle">@style/Widget.Sherlock.Light.ListView.DropDown</item>
         <item name="popupMenuStyle">@style/Widget.Sherlock.Light.PopupMenu</item>
         <item name="dropdownListPreferredItemHeight">48.0dip</item>
@@ -472,7 +472,7 @@
         <item name="windowActionModeOverlay">false</item>
         <item name="listPopupWindowStyle">@style/Widget.Sherlock.Light.ListPopupWindow</item>
         <item name="activityChooserViewStyle">@style/Widget.Sherlock.Light.ActivityChooserView</item>
-        <item name="activatedBackgroundIndicator">@drawable/abs__activated_background_holo_light</item>
+        <item name="activatedBackgroundIndicator">@drawable/abs__activated_background_holo_dark</item>
         <item name="dropDownHintAppearance">@style/TextAppearance.Sherlock.Widget.DropDownHint</item>
     </style>
     <style name="Theme.Sherlock.Light.DarkActionBar" parent="@style/Sherlock.__Theme.DarkActionBar">
@@ -484,7 +484,7 @@
         <item name="actionBarWidgetTheme">@style/Theme.Sherlock</item>
         <item name="actionBarDivider">@drawable/abs__list_divider_holo_dark</item>
         <item name="actionBarItemBackground">@drawable/abs__item_background_holo_dark</item>
-        <item name="actionMenuTextColor">?textColorPrimaryInverse</item>
+        <item name="actionMenuTextColor">@color/my_app_white_color</item>
         <item name="actionModeStyle">@style/Widget.Sherlock.Light.ActionMode.Inverse</item>
         <item name="actionModeCloseButtonStyle">@style/Widget.Sherlock.ActionButton.CloseMode</item>
         <item name="actionModeBackground">@drawable/abs__cab_background_top_holo_dark</item>
@@ -566,7 +566,7 @@
     </style>
     <style name="ActionBarTabStyle.Schedx" parent="@style/Widget.Sherlock.Light.ActionBar.TabView">
         <item name="android:background">@drawable/tab_indicator_ab_schedx</item>
-    </style>
+     </style>
     <style name="DropDownNav.Schedx" parent="@style/Widget.Sherlock.Light.Spinner.DropDown.ActionBar">
         <item name="android:background">@drawable/spinner_background_ab_schedx</item>
         <item name="android:dropDownSelector">@drawable/selectable_background_schedx</item>

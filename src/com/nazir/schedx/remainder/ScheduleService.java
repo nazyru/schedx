@@ -1,4 +1,3 @@
-
 package com.nazir.schedx.remainder;
 
 import android.app.*;
@@ -11,6 +10,8 @@ import com.nazir.schedx.model.*;
 import com.nazir.schedx.persist.*;
 import com.nazir.schedx.ui.*;
 import java.util.Calendar;
+import static com.nazir.schedx.persist.MySqliteOpenHelper.Lectures.*;
+import static com.nazir.schedx.persist.MySqliteOpenHelper.Todos.*;
 
 public class ScheduleService extends IntentService
 {
@@ -47,8 +48,8 @@ public class ScheduleService extends IntentService
 
     private void notifyAssessment(Intent intent)
     {
-        int i = intent.getIntExtra(AssessmentActivity.ASSESSMENT_ID, -1);
-        Assessment assessment = (new AssessmentHelper(this)).getAssessment(i);
+        int id = intent.getIntExtra(AssessmentActivity.ASSESSMENT_ID, -1);
+        Assessment assessment = (new AssessmentHelper(this)).getAssessment(id);
         if(assessment == null)
         	return;
         
@@ -60,47 +61,54 @@ public class ScheduleService extends IntentService
             return;
         } else
         {
-            Intent intent1 = new Intent(this, MainActivity.class);
+            Intent intent1 = new Intent(this, AssessmentDetailActivity.class);
             intent1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent1.putExtra(MySqliteOpenHelper.Assessment.ID, id);
+            intent1.putExtra(AssessmentDetailActivity.ASSESSMENT_NOTIF_FLAG, true);
+            
             PendingIntent pendingintent = PendingIntent.getActivity(this, assessment.getId(),
             		intent1, PendingIntent.FLAG_CANCEL_CURRENT);
             notification = (new NotificationCompat.Builder(this))
-            		.setSmallIcon(R.drawable.ic_launcher)
+            		.setSmallIcon(R.drawable.notification)
             		.setTicker("Remainder about "+ assessment.getAssessmentType().toString())
             		.setAutoCancel(true)
             		.setContentIntent(pendingintent)
-            		.setContentTitle("Just A remainder about an Assessment")
+            		.setContentTitle("A remainder about an Assessment")
             		.setContentText(assessment.getCourse().getCourseCode() + " "+assessment.getAssessmentType().toString() +" Notification")
             		.setWhen(assessment.getDate())
             		.build();
             		
             notification.defaults = Notification.DEFAULT_ALL;
-            notifManager.notify(AssessmentActivity.ASSESSMENT_ID, i, notification);
+            notifManager.notify(AssessmentActivity.ASSESSMENT_ID, id, notification);
             return;
         }
     }
 
     private void notifyLecture(Intent intent)
     {
-        int i = intent.getIntExtra(LectureActivity.LECTURE_ID, -1);
+        int id = intent.getIntExtra(LectureActivity.LECTURE_ID, -1);
         LecturesHelper lectureshelper = new LecturesHelper(this);
-        Lecture lecture = lectureshelper.getLectureSchedlule(i);
+        Lecture lecture = lectureshelper.getLectureSchedlule(id);
         if(lecture == null)
         	return;
         
-        Intent intent1 = new Intent(this, MainActivity.class);
+        Intent intent1 = new Intent(this, LectureDetailActivity.class);
+        intent1.putExtra(_ID, id);
+        intent1.putExtra(LectureDetailActivity.LECTURE_NOTIF_FLAG, true);
         intent1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        PendingIntent pendingintent = PendingIntent.getActivity(this, i, intent1, PendingIntent.FLAG_CANCEL_CURRENT);
+        
+        PendingIntent pendingintent = PendingIntent.getActivity(this, id, intent1, PendingIntent.FLAG_CANCEL_CURRENT);
         notification = new NotificationCompat.Builder(this)
-        .setSmallIcon(R.drawable.ic_launcher)
+        .setSmallIcon(R.drawable.notification)
         .setContentTitle("Lecture Remainder")
         .setContentText(lecture.getCourse().getCourseCode() + " now @ "+ lecture.getVenue())
         .setTicker(lecture.getCourse().getCourseCode() + " now @ "+ lecture.getVenue())
         .setContentIntent(pendingintent)
         .setAutoCancel(true)
         .build();
+        
         notification.defaults = Notification.DEFAULT_ALL;
-        notifManager.notify(LectureActivity.LECTURE_ID, i, notification);
+        notifManager.notify(LectureActivity.LECTURE_ID, id, notification);
         lectureshelper.disconnect();
     }
 
@@ -119,11 +127,13 @@ public class ScheduleService extends IntentService
             return;
         } else
         {
-            Intent intent1 = new Intent(this, MainActivity.class);
+            Intent intent1 = new Intent(this, TodoDetailActivity.class);
+            intent1.putExtra(ID, id);
             intent1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            
             PendingIntent pendingintent = PendingIntent.getActivity(this, id, intent1, PendingIntent.FLAG_CANCEL_CURRENT);
             notification = new NotificationCompat.Builder(this)
-            .setSmallIcon(R.drawable.ic_launcher)
+            .setSmallIcon(R.drawable.notification)
             .setContentIntent(pendingintent)
             .setAutoCancel(true)
             .setContentTitle("Task Remainder")

@@ -39,6 +39,7 @@ public class LectureListActivity extends MyCustomFragment
     private ListView listView;
     private ActionMode mActionMode;
     private ActionMode.Callback mCallback;
+    private ArrayAdapter<Day> daysAdapter;
 
     public void onStart()
     {
@@ -48,14 +49,14 @@ public class LectureListActivity extends MyCustomFragment
         listView = getListView();
         filter = getFilter();
         
-        final ArrayAdapter<Day> adapter = new ArrayAdapter(getSherlockActivity(), 
+        daysAdapter = new ArrayAdapter(getSherlockActivity(), 
         		android.R.layout.simple_list_item_1, Day.values());
         
         filter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             public void onItemSelected(AdapterView adapterview, View view, int i, long l)
             {
-                Day day = (Day)adapter.getItem(i);
+                Day day = (Day)daysAdapter.getItem(i);
                 cursor = helper.getLectureSchedules(day);
                 cusAdapter.swapCursor(cursor);
             }
@@ -65,7 +66,7 @@ public class LectureListActivity extends MyCustomFragment
             }
         });
         
-        filter.setAdapter(adapter);
+        filter.setAdapter(daysAdapter);
         cursor = helper.getLectureSchedules();
         
         String from[] = {COURSE_ID, START_TIME, END_TIME, VENUE};
@@ -78,7 +79,7 @@ public class LectureListActivity extends MyCustomFragment
         listView.setAdapter(cusAdapter);
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 
-            public boolean onItemLongClick(AdapterView adapterview, View view, int i, long l)
+            public boolean onItemLongClick(AdapterView<?> adapterview, View view, int i, long l)
             {
                 if(mActionMode != null)
                 {
@@ -108,28 +109,30 @@ public class LectureListActivity extends MyCustomFragment
     
     private void doAssignClassRep()
     {
-        FragmentTransaction fragmenttransaction = getFragmentManager().beginTransaction();
-        ClassRepListFragment classreplistfragment = new ClassRepListFragment();
-        Bundle bundle = new Bundle();
-        bundle.putInt("_id", cursor.getInt(cursor.getColumnIndex("_id")));
-        classreplistfragment.setArguments(bundle);
-        fragmenttransaction.replace(R.id.main_activity_frame, classreplistfragment);
-        fragmenttransaction.addToBackStack(null);
-        fragmenttransaction.commit();
+     
+    	Intent intent = new Intent(getSherlockActivity(), ClassRepActivity.class);
+        intent.putExtra(_ID, cursor.getInt(cursor.getColumnIndex(_ID)));
+        startActivity(intent);
+        
     }
 
     private void doDelete()
     {
-        int i = cursor.getInt(cursor.getColumnIndex("_id"));
-        (new LecturesHelper(getSherlockActivity())).delete(i);
-        Toast.makeText(getSherlockActivity(), "Deleted", 0).show();
+        int id = cursor.getInt(cursor.getColumnIndex(_ID));
+        (new LecturesHelper(getSherlockActivity())).delete(id);
+        Toast.makeText(getSherlockActivity(), "Deleted", Toast.LENGTH_SHORT).show();
+        
         Intent intent = new Intent(getSherlockActivity(), ScheduleReceiver.class);
-        intent.setAction(LectureActivity.LECTURE_ACTION);
-        PendingIntent pendingintent = PendingIntent.getBroadcast(getSherlockActivity(), i, intent, 
+        intent.setAction(LectureActivity.LECTURE_ACTION + id);
+        PendingIntent pendingintent = PendingIntent.getBroadcast(getSherlockActivity(), id, intent, 
         		PendingIntent.FLAG_CANCEL_CURRENT);
         
         ((AlarmManager)getSherlockActivity().getSystemService(Context.ALARM_SERVICE))
         .cancel(pendingintent);
+        
+        //refresh list
+        cursor = helper.getLectureSchedules();
+        cusAdapter.changeCursor(cursor);
     }
 
     private void doEdit()
@@ -141,37 +144,7 @@ public class LectureListActivity extends MyCustomFragment
         intent.putExtra(LECTURE_BUNDLE, bundle);
         startActivity(intent);
     }
-
-    private Day getTodaysPosition()
-    {
-        switch(Calendar.getInstance().get(7))
-        {
-        default:
-            return Day.CHOOSE;
-
-        case 2: // '\002'
-            return Day.MONDAY;
-
-        case 3: // '\003'
-            return Day.TUESDAY;
-
-        case 4: // '\004'
-            return Day.WEDNESDAY;
-
-        case 5: // '\005'
-            return Day.THURSDAY;
-
-        case 6: // '\006'
-            return Day.FRIDAY;
-
-        case 7: // '\007'
-            return Day.SATURDAY;
-
-        case 1: // '\001'
-            return Day.SUNDAY;
-        }
-    }
-
+    
     private void initActionMode()
     {
         mCallback = new ActionMode.Callback() {
@@ -259,8 +232,6 @@ public class LectureListActivity extends MyCustomFragment
     	
 		if(lecture.getStatus().equals(status))
 			return;
-	
-		Log.i("-->Status HERE--->", status.getDescription());
 		
 		lecture.setStatus(status);
 		LecturesHelper helper = new LecturesHelper(getSherlockActivity());

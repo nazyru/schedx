@@ -17,7 +17,7 @@ import com.actionbarsherlock.view.*;
 import com.nazir.schedx.R;
 import com.nazir.schedx.model.Course;
 import com.nazir.schedx.persist.CoursesHelper;
-import com.nazir.schedx.types.CourseFlag;
+import com.nazir.schedx.types.Flag;
 
 import static com.nazir.schedx.persist.MySqliteOpenHelper.Courses.*;
 
@@ -65,6 +65,7 @@ public class CoursesListActivity extends MyCustomListActivity
                 }
             }
         });
+        getListView().setDrawSelectorOnTop(true);
     }
 
     private void initActionMode()
@@ -75,7 +76,7 @@ public class CoursesListActivity extends MyCustomListActivity
             {
                 switch(menuitem.getItemId()){
                 case R.id.edit_schedule_action_item:
-                	doAddCourse(CourseFlag.EDIT);
+                	doAddCourse(Flag.EDIT);
                     actionmode.finish();
                     break;
                 case R.id.action_delete_item:
@@ -116,7 +117,7 @@ public class CoursesListActivity extends MyCustomListActivity
 			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				return;
+				dialog.dismiss();
 			}
 		})
 		.setPositiveButton(R.string.delete_course_yes_button, new AlertDialog.OnClickListener() {
@@ -151,7 +152,7 @@ public class CoursesListActivity extends MyCustomListActivity
     {
         switch(menuitem.getItemId()){
         case R.id.action_item_new:
-        	doAddCourse(CourseFlag.NEW);
+        	doAddCourse(Flag.NEW);
         	break;
         case android.R.id.home:
         	Intent intent = new Intent(this, MainActivity.class);
@@ -164,16 +165,16 @@ public class CoursesListActivity extends MyCustomListActivity
         return true;
     }
 
-	private void doAddCourse(final CourseFlag flag) {
+	private void doAddCourse(final Flag flag) {
 		
-		String positiveButtonLabel = flag == CourseFlag.NEW ? "Add" : "Update";
+		String positiveButtonLabel = flag == Flag.NEW ? "Add" : "Update";
 		
 		dialogView = getLayoutInflater().inflate(R.layout.add_course_layout, null, false);
         courseCodeView = (EditText)dialogView.findViewById(R.id.course_code_widget);
         courseTitleView = (EditText)dialogView.findViewById(R.id.course_title_view);
         courseUnitView = (EditText)dialogView.findViewById(R.id.course_unit_view);
         
-        if(flag == CourseFlag.EDIT){
+        if(flag == Flag.EDIT){
         	int id = cursor.getInt(cursor.getColumnIndex(_ID));
         	CoursesHelper helper = new CoursesHelper(this);
     		Course course = helper.getCourse(id);
@@ -187,7 +188,7 @@ public class CoursesListActivity extends MyCustomListActivity
         
         View view = getLayoutInflater().inflate(R.layout.add_course_title_layout, null, false);
         TextView viewHeader = (TextView) view.findViewById(R.id.add_course_title_layout);
-        viewHeader.setText(flag == CourseFlag.NEW ? "Add Course" : "Update Course");
+        viewHeader.setText(flag == Flag.NEW ? "Add Course" : "Update Course");
         
 		AlertDialog alertDialog = new AlertDialog.Builder(this)
 		.setView(dialogView)
@@ -213,7 +214,7 @@ public class CoursesListActivity extends MyCustomListActivity
 		alertDialog.show();
 	}
 	
-	private void doSave(CourseFlag flag)
+	private void doSave(Flag flag)
     {
         Course course = new Course();
         
@@ -233,7 +234,7 @@ public class CoursesListActivity extends MyCustomListActivity
         CoursesHelper coursesHelper = new CoursesHelper(this);
         
         try{
-        if(flag == CourseFlag.EDIT){
+        if(flag == Flag.EDIT){
         	
         	int id = cursor.getInt(cursor.getColumnIndex(_ID));
         	course.setID(id);
@@ -258,7 +259,6 @@ public class CoursesListActivity extends MyCustomListActivity
     }
 	private boolean isValid(Course course)
     {
-		Log.i("--HERE--", course.getCourseCode() + course.getCourseTitle()+ course.getCourseUnit());
         boolean flag = true;
         
         if(course.getCourseCode().equals(""))

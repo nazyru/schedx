@@ -40,7 +40,7 @@ public class CoursesHelper
         assmentHelper.deleteByCourseId(id);
         assmentHelper.disconnect();
         
-        String whereClause = _ID + "= ?";
+        String whereClause = _ID + " = ?";
         String whereArgs[] = {Integer.toString(id)};
         db.delete(COURSES, whereClause, whereArgs);
     }
