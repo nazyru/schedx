@@ -11,6 +11,7 @@ import com.nazir.schedx.model.Assessment;
 import com.nazir.schedx.model.Lecture;
 import com.nazir.schedx.model.Todo;
 import com.nazir.schedx.types.Day;
+import com.nazir.schedx.types.Status;
 import com.nazir.schedx.ui.AssessmentActivity;
 import com.nazir.schedx.ui.LectureActivity;
 import com.nazir.schedx.ui.TodoActivity;
@@ -124,6 +125,10 @@ public class AlarmHelper
     
     public static void updateLectureRemainder(Lecture lecture, Context context)
     {
+    	if(lecture.getStatus() != null && lecture.getStatus() == Status.FINISHED)
+    		return;
+    	
+    	Log.i("-----STATUS----", lecture.getStatus().toString());
     	int id = lecture.getId();
         Intent intent = new Intent(context, ScheduleReceiver.class);
         intent.setAction(LectureActivity.LECTURE_ACTION + lecture.getId());
@@ -187,9 +192,30 @@ public class AlarmHelper
 		
 		for(Lecture lecture: lectures){
 			intent.setAction(LectureActivity.LECTURE_ACTION + lecture.getId());
-			pendIntent = PendingIntent.getBroadcast(context, lecture.getId(), intent, PendingIntent.FLAG_CANCEL_CURRENT);
+			pendIntent = PendingIntent.getBroadcast(context, lecture.getId(), intent, 
+					PendingIntent.FLAG_CANCEL_CURRENT);
 			alarmManager.cancel(pendIntent);
 		}
 		
 	}
+
+	public static void cancelLectureAlarm(int id, Context context) {
+		Intent intent = new Intent(context, ScheduleReceiver.class);
+		intent.setAction(LectureActivity.LECTURE_ACTION+ id);
+		PendingIntent operation = PendingIntent.getBroadcast(context, id, intent, 
+				PendingIntent.FLAG_CANCEL_CURRENT);
+		
+		AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+		manager.cancel(operation);
+		
+	}
+	
+	public static void cancelTodoAlarm(int id, Context context)
+    {
+        Intent intent = new Intent(context, ScheduleReceiver.class);
+        intent.setAction(TodoActivity.TODO_ACTION + id);
+        PendingIntent pendingintent = PendingIntent.getBroadcast(context, id, intent, 
+        		PendingIntent.FLAG_CANCEL_CURRENT);
+        ((AlarmManager)context.getSystemService(Context.ALARM_SERVICE)).cancel(pendingintent);
+    }
 }

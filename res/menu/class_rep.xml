@@ -2,8 +2,8 @@
 <menu
   xmlns:android="http://schemas.android.com/apk/res/android">
     <item 
-        android:id="@id/action_settings" 
-        android:orderInCategory="100" 
-        android:title="@string/action_settings" 
-        android:showAsAction="never" />
+        android:id="@+id/action_add_class_rep" 
+        android:icon="@drawable/ic_action_add_user"
+        android:title="@string/action_item_new_title" 
+        android:showAsAction="ifRoom" />
 </menu>

@@ -40,16 +40,6 @@ public class LecturesHelper
         return db.insertOrThrow(LECTURES, null, Mapper.mapToLecture(lecture));
     }
 
-    public void addMockLecture(int i)
-    {
-        
-    }
-
-    public void addMockLectures(int record)
-    {
-       
-    }
-
     public boolean assignClassRep(int classRepId, int lectureId)
     {
     		ClassRep classRep = new ClassRepHelper(context).getClassRep(classRepId);
@@ -118,9 +108,8 @@ public class LecturesHelper
             lecture.setEndTime(cursor.getLong(cursor.getColumnIndex(END_TIME)));
             lecture.setVenue(cursor.getString(cursor.getColumnIndex(VENUE)));
             
-            String s = cursor.getString(cursor.getColumnIndex(STATUS));
-            if(s != null)
-                lecture.setStatus(Status.valueOf(s));
+            String status = cursor.getString(cursor.getColumnIndex(STATUS));
+            lecture.setStatus(status != null ? Status.valueOf(status): null);
             
             CoursesHelper courseshelper = new CoursesHelper(context);
             lecture.setCourse(courseshelper.getCourse(cursor.getInt(cursor.getColumnIndex(COURSE_ID))));
@@ -163,8 +152,11 @@ public class LecturesHelper
     {
     	Lecture lecture;
     	List<Lecture> lectures = new ArrayList<Lecture>();
+    
+    	String selection = STATUS +" = ?";
+    	String selectionArgs[] = {Status.ONGOING.name()};
     	
-        Cursor cursor =  db.query(MySqliteOpenHelper.Tables.LECTURES, cols, null, null, null, null, null);
+        Cursor cursor =  db.query(MySqliteOpenHelper.Tables.LECTURES, cols, selection, selectionArgs, null, null, null);
         
         if(cursor.moveToFirst()){
         	do{
@@ -234,8 +226,6 @@ public class LecturesHelper
 				lecture.setId(cursor.getInt(cursor.getColumnIndex(MySqliteOpenHelper.Lectures._ID)));
 				lectures.add(lecture);
 			}while(cursor.moveToNext());
-			
-		
 		}
 		
 		return lectures;

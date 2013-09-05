@@ -117,7 +117,7 @@ public class LectureGridView extends MyCustomActivity
         ListView listview5 = (ListView)findViewById(0x7f050066);
         ListView listview6 = (ListView)findViewById(0x7f050067);
         LecturesHelper lectureshelper = new LecturesHelper(this);
-        lectureshelper.addMockLectures(5);
+      
         final Cursor mondayCursor = lectureshelper.getLectureSchedules(Day.MONDAY);
         Cursor cursor = lectureshelper.getLectureSchedules(Day.TUESDAY);
         Cursor cursor1 = lectureshelper.getLectureSchedules(Day.WEDNESDAY);

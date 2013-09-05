@@ -1,19 +1,12 @@
 package com.nazir.schedx.ui;
 
-import android.app.AlarmManager;
 import android.app.AlertDialog;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.support.v4.app.*;
-import android.util.Log;
 import android.view.*;
 import android.widget.*;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.*;
 import com.actionbarsherlock.view.ActionMode;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
@@ -21,16 +14,14 @@ import com.actionbarsherlock.view.MenuItem;
 import com.nazir.schedx.R;
 import com.nazir.schedx.model.Lecture;
 import com.nazir.schedx.persist.LecturesHelper;
-import com.nazir.schedx.remainder.ScheduleReceiver;
+import com.nazir.schedx.remainder.AlarmHelper;
 import com.nazir.schedx.types.Day;
 import com.nazir.schedx.types.Status;
 import com.nazir.schedx.util.MyCustomCursorAdapter;
-import java.util.Calendar;
 import static com.nazir.schedx.persist.MySqliteOpenHelper.Lectures.*;
 
 public class LectureListActivity extends MyCustomFragment
 {
-
     public static String LECTURE_BUNDLE = "com.nazir.schedx.ui.LECTURE";
     private Cursor cursor;
     private MyCustomCursorAdapter cusAdapter;
@@ -49,33 +40,26 @@ public class LectureListActivity extends MyCustomFragment
         listView = getListView();
         filter = getFilter();
         
-        daysAdapter = new ArrayAdapter(getSherlockActivity(), 
+        daysAdapter = new ArrayAdapter<Day>(getSherlockActivity(), 
         		android.R.layout.simple_list_item_1, Day.values());
         
         filter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
-            public void onItemSelected(AdapterView adapterview, View view, int i, long l)
+            public void onItemSelected(AdapterView<?> adapterview, View view, int i, long l)
             {
                 Day day = (Day)daysAdapter.getItem(i);
                 cursor = helper.getLectureSchedules(day);
-                cusAdapter.swapCursor(cursor);
+                cusAdapter.changeCursor(cursor);
             }
 
-            public void onNothingSelected(AdapterView adapterview)
+            public void onNothingSelected(AdapterView<?> adapterview)
             {
             }
         });
         
         filter.setAdapter(daysAdapter);
         cursor = helper.getLectureSchedules();
-        
-        String from[] = {COURSE_ID, START_TIME, END_TIME, VENUE};
-        
-        int to[] = {
-            R.id.custom_adapter_course_code_view, R.id.custom_adapter_starting_time_view,
-            R.id.custom_adapter_end_time_view, R.id.custom_adapter_venue_view };
-        
-        cusAdapter = new MyCustomCursorAdapter(getSherlockActivity(), cursor, from, to);
+        cusAdapter = new MyCustomCursorAdapter(getSherlockActivity(), cursor);
         listView.setAdapter(cusAdapter);
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 
@@ -90,8 +74,6 @@ public class LectureListActivity extends MyCustomFragment
                     return true;
                 }
             }
-
-            
         }
 );
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -109,11 +91,9 @@ public class LectureListActivity extends MyCustomFragment
     
     private void doAssignClassRep()
     {
-     
     	Intent intent = new Intent(getSherlockActivity(), ClassRepActivity.class);
         intent.putExtra(_ID, cursor.getInt(cursor.getColumnIndex(_ID)));
         startActivity(intent);
-        
     }
 
     private void doDelete()
@@ -121,15 +101,8 @@ public class LectureListActivity extends MyCustomFragment
         int id = cursor.getInt(cursor.getColumnIndex(_ID));
         (new LecturesHelper(getSherlockActivity())).delete(id);
         Toast.makeText(getSherlockActivity(), "Deleted", Toast.LENGTH_SHORT).show();
-        
-        Intent intent = new Intent(getSherlockActivity(), ScheduleReceiver.class);
-        intent.setAction(LectureActivity.LECTURE_ACTION + id);
-        PendingIntent pendingintent = PendingIntent.getBroadcast(getSherlockActivity(), id, intent, 
-        		PendingIntent.FLAG_CANCEL_CURRENT);
-        
-        ((AlarmManager)getSherlockActivity().getSystemService(Context.ALARM_SERVICE))
-        .cancel(pendingintent);
-        
+        AlarmHelper.cancelLectureAlarm(id, getSherlockActivity());
+      
         //refresh list
         cursor = helper.getLectureSchedules();
         cusAdapter.changeCursor(cursor);
@@ -138,7 +111,8 @@ public class LectureListActivity extends MyCustomFragment
     private void doEdit()
     {
         Bundle bundle = new Bundle();
-        bundle.putInt("_id", cursor.getInt(cursor.getColumnIndex("_id")));
+        bundle.putInt(_ID, cursor.getInt(cursor.getColumnIndex(_ID)));
+        bundle.putString(STATUS, cursor.getString(cursor.getColumnIndex(STATUS)));
         Intent intent = new Intent(getSherlockActivity(), LectureActivity.class);
         intent.setAction(Intent.ACTION_EDIT);
         intent.putExtra(LECTURE_BUNDLE, bundle);
@@ -191,7 +165,6 @@ public class LectureListActivity extends MyCustomFragment
             {
                 return false;
             }
-
         };
     }
 
@@ -201,8 +174,7 @@ public class LectureListActivity extends MyCustomFragment
         LecturesHelper helper = new LecturesHelper(getSherlockActivity());
 		final Lecture lecture = helper.getLectureSchedlule(id);
 		
-		Log.i("---Status---", lecture.getStatus() != null? lecture.getStatus().getDescription() + " "+ lecture.getId(): "NULL");
-        new AlertDialog.Builder(getSherlockActivity())
+		 new AlertDialog.Builder(getSherlockActivity())
         .setTitle(R.string.lecture_status_title)
         .setSingleChoiceItems(new String[]{Status.ONGOING.toString(), Status.FINISHED.toString()},
         		lecture.getStatus() != null ? lecture.getStatus().ordinal(): 0, new DialogInterface.OnClickListener() {
@@ -237,6 +209,16 @@ public class LectureListActivity extends MyCustomFragment
 		LecturesHelper helper = new LecturesHelper(getSherlockActivity());
 		helper.update(lecture);
 		
+		switch(status){
+		case FINISHED:
+			 AlarmHelper.cancelLectureAlarm(lecture.getId(), getSherlockActivity());
+			break;
+		case ONGOING:
+			AlarmHelper.updateLectureRemainder(lecture, getSherlockActivity());
+			break;
+		default:
+			break;
+		}
 		Toast.makeText(getSherlockActivity(), "Status Changed", Toast.LENGTH_SHORT).show();
 		helper.disconnect();
 	}
@@ -258,10 +240,11 @@ public class LectureListActivity extends MyCustomFragment
     }
 
     public void onDestroy()
-    {
-        super.onDestroy();
+    {   super.onDestroy();
+    
         if(cursor != null)
             cursor.close();
+        
         if(helper != null)
             helper.disconnect();
     }
@@ -279,15 +262,5 @@ public class LectureListActivity extends MyCustomFragment
         }
         
         return true;
-
     }
-
-    public void onResume()
-    {
-        super.onResume();
-        filter = getFilter();
-    }
-
-    
-
 }

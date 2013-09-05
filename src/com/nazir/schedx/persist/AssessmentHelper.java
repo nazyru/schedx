@@ -49,7 +49,7 @@ public class AssessmentHelper
     {
         Cursor cursor = db.query(ASSESSMENT, columns, null, null, null, null, null);
        
-        List<Assessment> list = null;
+        List<Assessment> list = new ArrayList<Assessment>();
         
         if(cursor.moveToFirst())
         {

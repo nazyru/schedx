@@ -1,6 +1,8 @@
 
 package com.nazir.schedx.ui;
 
+import java.util.zip.Inflater;
+
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -118,12 +120,15 @@ public class ClassRepListFragment extends MyCustomFragment
     public void onCreateOptionsMenu(Menu menu, MenuInflater menuinflater)
     {
         super.onCreateOptionsMenu(menu, menuinflater);
+        menuinflater.inflate(R.menu.class_rep, menu);
+        menu.removeItem(R.id.action_item_new);
+        
     }
 
     public boolean onOptionsItemSelected(MenuItem menuitem)
     {
     	switch(menuitem.getItemId()){
-    	case R.id.action_item_new:
+    	case R.id.action_add_class_rep:
     		manageClassRep(Flag.NEW);
     		break;
     	default :

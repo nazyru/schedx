@@ -31,6 +31,7 @@ public class LectureDetailFragment extends MyCustomFragment
     
     public LectureDetailFragment()
     {
+    
     }
 
     public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
@@ -55,6 +56,7 @@ public class LectureDetailFragment extends MyCustomFragment
         
         boolean flag = getArguments().getBoolean(LectureDetailActivity.LECTURE_NOTIF_FLAG);
         StringBuilder extraMessage = new StringBuilder();
+        
         
         if(flag){
         	switch(lecture.getAlarmTrigger()){
@@ -88,7 +90,7 @@ public class LectureDetailFragment extends MyCustomFragment
         dayView.setText(lecture.getDay());
         
         if(lecture.getStatus() != null)
-            statusView.setText(lecture.getStatus().getDescription());
+            statusView.setText(lecture.getStatus().toString());
         
         classRepView.setText(lecture.getClassRep() != null ? lecture.getClassRep().getName(): "Not Assigned");
         classRepView.setOnClickListener(new View.OnClickListener() {

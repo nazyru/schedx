@@ -941,13 +941,17 @@ containing a value of this type.
         public static final int contextual_item_save=0x7f020085;
         public static final int email_icon=0x7f02009f;
         public static final int ic_action_add_schedule=0x7f020086;
+        public static final int ic_action_add_user=0x7f0200a0;
         public static final int ic_action_overflow=0x7f020087;
+        public static final int ic_angle_right=0x7f0200a1;
+        public static final int ic_arrow_right=0x7f0200a2;
         public static final int ic_launcher=0x7f020088;
+        public static final int ic_notification=0x7f0200a3;
         public static final int list_focused_schedx=0x7f020089;
         public static final int menu_dropdown_panel_schedx=0x7f02008a;
-        public static final int navigation_collapse=0x7f0200a0;
-        public static final int navigation_expand=0x7f0200a1;
-        public static final int notification=0x7f0200a2;
+        public static final int navigation_collapse=0x7f0200a4;
+        public static final int navigation_expand=0x7f0200a5;
+        public static final int notification=0x7f0200a6;
         public static final int pressed_background_schedx=0x7f02008b;
         public static final int progress_bg_schedx=0x7f02008c;
         public static final int progress_horizontal_schedx=0x7f02008d;
@@ -1008,6 +1012,7 @@ containing a value of this type.
         public static final int abs__textButton=0x7f050013;
         public static final int abs__title=0x7f05001b;
         public static final int abs__up=0x7f05000b;
+        public static final int action_add_class_rep=0x7f050099;
         public static final int action_delete_item=0x7f050075;
         public static final int action_item_new=0x7f05007b;
         public static final int action_settings=0x7f050073;
@@ -1031,7 +1036,7 @@ containing a value of this type.
         public static final int assessment_type_spinner=0x7f050036;
         public static final int assessment_venue_view=0x7f050038;
         public static final int assign_class_rep_item=0x7f050077;
-        public static final int call_class_rep_item=0x7f050099;
+        public static final int call_class_rep_item=0x7f05009a;
         public static final int call_id=0x7f050085;
         public static final int class_rep_email=0x7f050040;
         public static final int class_rep_fragment_container=0x7f050087;
@@ -1053,7 +1058,7 @@ containing a value of this type.
         public static final int edit_query=0x7f050026;
         public static final int edit_schedule_action_item=0x7f050074;
         public static final int email_class_rep=0x7f050086;
-        public static final int email_class_rep_item=0x7f05009a;
+        public static final int email_class_rep_item=0x7f05009b;
         public static final int end_time_picker=0x7f05005b;
         public static final int expand_collapse_button=0x7f05008d;
         public static final int expand_collapse_button2=0x7f050091;
@@ -1344,8 +1349,12 @@ containing a value of this type.
     public static final class style {
         public static final int ActionBar_Solid_Schedx=0x7f0b0060;
         public static final int ActionBar_Transparent_Schedx=0x7f0b0061;
+        public static final int ActionBarMode=0x7f0b006b;
         public static final int ActionBarTabStyle_Schedx=0x7f0b0064;
+        public static final int ActionBarTabText=0x7f0b006c;
+        public static final int ActionBarTitleText=0x7f0b0069;
         public static final int ActionButton_CloseMode_Schedx=0x7f0b0067;
+        public static final int ActionModeStyle=0x7f0b006a;
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
@@ -1374,6 +1383,7 @@ containing a value of this type.
         public static final int AppTheme=0x7f0b005a;
         public static final int DropDownListView_Schedx=0x7f0b0063;
         public static final int DropDownNav_Schedx=0x7f0b0065;
+        public static final int OverflowTitle=0x7f0b006f;
         public static final int PopupMenu_Schedx=0x7f0b0062;
         public static final int ProgressBar_Schedx=0x7f0b0066;
         public static final int Sherlock___TextAppearance_Small=0x7f0b0046;
@@ -1387,6 +1397,7 @@ containing a value of this type.
         public static final int Sherlock___Widget_Holo_ListView=0x7f0b0026;
         public static final int Sherlock___Widget_Holo_Spinner=0x7f0b0023;
         public static final int Sherlock___Widget_SearchAutoCompleteTextView=0x7f0b0033;
+        public static final int SpinnerDropDown=0x7f0b006e;
         public static final int TextAppearance_Sherlock=0x7f0b004a;
         public static final int TextAppearance_Sherlock_Light_SearchResult=0x7f0b004e;
         public static final int TextAppearance_Sherlock_Light_SearchResult_Subtitle=0x7f0b0050;
@@ -1413,8 +1424,6 @@ containing a value of this type.
         public static final int TextAppearance_Sherlock_Widget_PopupMenu_Large=0x7f0b0040;
         public static final int TextAppearance_Sherlock_Widget_PopupMenu_Small=0x7f0b0042;
         public static final int TextAppearance_Sherlock_Widget_TextView_SpinnerItem=0x7f0b0044;
-        /**  Selected theme 
-         */
         public static final int Theme_Schedx=0x7f0b005e;
         /**  this style is only referenced in a Light.DarkActionBar based theme 
  this style is only referenced in a Light.DarkActionBar based theme 
@@ -1473,7 +1482,7 @@ containing a value of this type.
         public static final int Widget_Sherlock_Spinner_DropDown_ActionBar=0x7f0b0024;
         public static final int Widget_Sherlock_TextView_SpinnerItem=0x7f0b0032;
         public static final int arrow=0x7f0b005d;
-        public static final int detail_header_style=0x7f0b0069;
+        public static final int detail_header_style=0x7f0b006d;
         public static final int list_item=0x7f0b005c;
         public static final int my_custom_overflow=0x7f0b005f;
         public static final int text_header_style=0x7f0b005b;

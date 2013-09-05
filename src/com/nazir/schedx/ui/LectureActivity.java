@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.os.Bundle;
 import android.widget.*;
+
 import com.actionbarsherlock.view.*;
 import com.nazir.schedx.R;
 import com.nazir.schedx.model.Course;
@@ -15,6 +16,7 @@ import com.nazir.schedx.persist.MySqliteOpenHelper;
 import com.nazir.schedx.remainder.AlarmHelper;
 import com.nazir.schedx.types.Day;
 import com.nazir.schedx.types.LectureAlarmTrigger;
+import com.nazir.schedx.types.Status;
 import com.nazir.schedx.util.DateTimeHelper;
 import com.nazir.schedx.util.PreferenceHelper;
 import static com.nazir.schedx.persist.MySqliteOpenHelper.Lectures.*;
@@ -45,6 +47,7 @@ public class LectureActivity extends MyCustomActivity
             lecturerEditView = (EditText)findViewById(R.id.lecturer_edit_view);
             lecturerEditView.setVisibility(EditText.VISIBLE);
         }
+        
         startTimePicker = (TimePicker)findViewById(R.id.start_time_picker);
         endTimePicker = (TimePicker)findViewById(R.id.end_time_picker);
         venue = (EditText)findViewById(R.id.lecture_venue_view);
@@ -79,6 +82,7 @@ public class LectureActivity extends MyCustomActivity
         int k = startTimePicker.getCurrentMinute();
         int l = endTimePicker.getCurrentHour();
         int i1 = endTimePicker.getCurrentMinute();
+        
         lecture = new Lecture(course, day.name(), DateTimeHelper.getTimeMillis(j, k));
         lecture.setEndTime(DateTimeHelper.getTimeMillis(l, i1));
         lecture.setVenue(venue.getText().toString().trim());
@@ -95,12 +99,13 @@ public class LectureActivity extends MyCustomActivity
         try{
         if(action != null && action.equals(Intent.ACTION_EDIT)){ 
         	lecture.setId(bundle.getInt(_ID));
+        	lecture.setStatus(Status.valueOf(bundle.getString(STATUS)));
         	lectureshelper.update(lecture);
         	Toast.makeText(this, "Updated", Toast.LENGTH_SHORT).show();
         }
         else{
         	int id = (int)lectureshelper.addLecture(lecture);
-        	lecture.setId(id);
+        	lecture.setId(id);	//I am setting the returned ID here because AlarmHelper needs ID
             Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show();
             
         }

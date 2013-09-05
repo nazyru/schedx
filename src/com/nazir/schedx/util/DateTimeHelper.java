@@ -112,20 +112,24 @@ public class DateTimeHelper
 
     public static String getTimeToString(long l)
     {
-     
         StringBuilder stringbuilder;
         cal.setTimeInMillis(l);
         int hour = cal.get(Calendar.HOUR);
+        int minute  = cal.get(Calendar.MINUTE);
         int AM_PM = cal.get(Calendar.AM_PM);
         stringbuilder = new StringBuilder();
-        stringbuilder.append(hour);
+        
+        if(hour == 0)
+        	hour = 12;
+        
+        stringbuilder.append(hour+":"+ minute);
    
         switch(AM_PM){
         case Calendar.AM:
-        	stringbuilder.append("am");
+        	stringbuilder.append(" am");
         	break;
         case Calendar.PM:
-        	stringbuilder.append("pm");
+        	stringbuilder.append(" pm");
         	break;
         }
       
@@ -148,7 +152,7 @@ public class DateTimeHelper
     }
 
 	public static String getDisplayableDate(long date) {
-		SimpleDateFormat formatter = new SimpleDateFormat("EE M dd, yyyy hh:MM a");
+		SimpleDateFormat formatter = new SimpleDateFormat("EE MMM dd, yyyy hh:MM a");
 		return formatter.format(new Date(date));
 	}
 

@@ -69,7 +69,7 @@ public class ScheduleService extends IntentService
             PendingIntent pendingintent = PendingIntent.getActivity(this, assessment.getId(),
             		intent1, PendingIntent.FLAG_CANCEL_CURRENT);
             notification = (new NotificationCompat.Builder(this))
-            		.setSmallIcon(R.drawable.notification)
+            		.setSmallIcon(R.drawable.ic_notification)
             		.setTicker("Remainder about "+ assessment.getAssessmentType().toString())
             		.setAutoCancel(true)
             		.setContentIntent(pendingintent)
@@ -99,7 +99,7 @@ public class ScheduleService extends IntentService
         
         PendingIntent pendingintent = PendingIntent.getActivity(this, id, intent1, PendingIntent.FLAG_CANCEL_CURRENT);
         notification = new NotificationCompat.Builder(this)
-        .setSmallIcon(R.drawable.notification)
+        .setSmallIcon(R.drawable.ic_notification)
         .setContentTitle("Lecture Remainder")
         .setContentText(lecture.getCourse().getCourseCode() + " now @ "+ lecture.getVenue())
         .setTicker(lecture.getCourse().getCourseCode() + " now @ "+ lecture.getVenue())
@@ -133,7 +133,7 @@ public class ScheduleService extends IntentService
             
             PendingIntent pendingintent = PendingIntent.getActivity(this, id, intent1, PendingIntent.FLAG_CANCEL_CURRENT);
             notification = new NotificationCompat.Builder(this)
-            .setSmallIcon(R.drawable.notification)
+            .setSmallIcon(R.drawable.ic_notification)
             .setContentIntent(pendingintent)
             .setAutoCancel(true)
             .setContentTitle("Task Remainder")

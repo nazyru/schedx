@@ -102,11 +102,9 @@ public class TodosHelper
                 todo.setAlarmTrigger(alarmtrigger);
                 arraylist.add(todo);
             } while(cursor.moveToNext());
-            return arraylist;
-        } else
-        {
-            return null;
-        }
+            
+        } 
+        return arraylist;
     }
 
     public Todo getTodo(int i)
