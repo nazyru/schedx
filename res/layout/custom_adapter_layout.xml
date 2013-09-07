@@ -4,6 +4,7 @@
     android:padding="@dimen/padding" 
     android:layout_width="fill_parent" 
     android:layout_height="fill_parent"
+    android:animateLayoutChanges="true"
     xmlns:android="http://schemas.android.com/apk/res/android">
     
     <TextView 
@@ -15,6 +16,7 @@
     <LinearLayout 
         android:orientation="horizontal" 
         android:padding="4.0dip" 
+        android:animateLayoutChanges="true"
         android:layout_width="fill_parent" 
         android:layout_height="wrap_content">
         

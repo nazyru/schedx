@@ -47,6 +47,7 @@
     <string name="title_activity_my_custom">MyCustomActivity</string>
     <string name="action_settings">Settings</string>
     <string name="help_action_title">Help</string>
+    <string name="generate_report_action_hint">Generate Report</string>
     <string name="title_activity_my_custom_list">MyCustomListActivity</string>
     <string name="title_activity_assessment_list">AssessmentListActivity</string>
     <string name="title_activity_course">Course Manager</string>

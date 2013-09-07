@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.*;
 import android.widget.*;
+
 import com.actionbarsherlock.app.SherlockFragment;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.*;
@@ -12,6 +13,7 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 import com.nazir.schedx.R;
+import com.nazir.schedx.reports.ReportHelper;
 
 public class MyCustomFragment extends SherlockFragment
 {
@@ -50,8 +52,12 @@ public class MyCustomFragment extends SherlockFragment
         	 startActivity(new Intent(getSherlockActivity(), SettingsActivity.class));
         	 break;
         case R.id.help_action_item:
-        	 Toast.makeText(getActivity(), "Help", Toast.LENGTH_SHORT).show();
+        	 Toast.makeText(getActivity(), "Coming Soon!!!", Toast.LENGTH_SHORT).show();
         	 break;
+        case R.id.action_generate_report:
+        	ReportHelper.genetareReport(getSherlockActivity());
+        	Toast.makeText(getSherlockActivity(), "Report Generated", Toast.LENGTH_SHORT).show();
+        	break;
         default: return super.onOptionsItemSelected(menuitem);
         }
         return true;

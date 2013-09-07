@@ -9,6 +9,7 @@ import android.support.v4.widget.SimpleCursorAdapter;
 import android.util.Log;
 import android.widget.*;
 import com.actionbarsherlock.view.*;
+import com.itextpdf.text.Document;
 import com.nazir.schedx.R;
 import com.nazir.schedx.model.Assessment;
 import com.nazir.schedx.model.Course;

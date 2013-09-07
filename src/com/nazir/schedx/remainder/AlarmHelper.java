@@ -128,7 +128,6 @@ public class AlarmHelper
     	if(lecture.getStatus() != null && lecture.getStatus() == Status.FINISHED)
     		return;
     	
-    	Log.i("-----STATUS----", lecture.getStatus().toString());
     	int id = lecture.getId();
         Intent intent = new Intent(context, ScheduleReceiver.class);
         intent.setAction(LectureActivity.LECTURE_ACTION + lecture.getId());
@@ -201,7 +200,7 @@ public class AlarmHelper
 
 	public static void cancelLectureAlarm(int id, Context context) {
 		Intent intent = new Intent(context, ScheduleReceiver.class);
-		intent.setAction(LectureActivity.LECTURE_ACTION+ id);
+		intent.setAction(LectureActivity.LECTURE_ACTION + id);
 		PendingIntent operation = PendingIntent.getBroadcast(context, id, intent, 
 				PendingIntent.FLAG_CANCEL_CURRENT);
 		

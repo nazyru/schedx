@@ -3,6 +3,7 @@ package com.nazir.schedx.ui;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.*;
@@ -34,6 +35,7 @@ public class LectureListActivity extends MyCustomFragment
 
     public void onStart()
     {
+    	
         super.onStart();
         initActionMode();
         helper = new LecturesHelper(getSherlockActivity());
@@ -54,6 +56,7 @@ public class LectureListActivity extends MyCustomFragment
 
             public void onNothingSelected(AdapterView<?> adapterview)
             {
+            	
             }
         });
         

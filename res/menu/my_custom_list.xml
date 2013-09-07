@@ -4,7 +4,12 @@
         android:icon="@drawable/action_content_new" 
         android:id="@+id/action_item_new" 
         android:title="@string/action_item_new_title" 
-        android:showAsAction="ifRoom|withText" />
+        android:showAsAction="ifRoom" />
+    
+    <item 
+        android:id="@+id/action_generate_report"
+        android:title="@string/generate_report_action_hint"
+        android:showAsAction="never"/>
     
     <item 
         android:icon="@drawable/action_settings" 

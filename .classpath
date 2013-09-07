@@ -6,6 +6,10 @@
 	<classpathentry kind="lib" path="/home/nazir/EclipseProject/actionbarsherlock"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
-	<classpathentry kind="lib" path="/home/nazir/EclipseProject/5.4.3.zip"/>
+	<classpathentry kind="lib" path="libs/itextg-5.4.3.jar" sourcepath="/home/nazir/EclipseProject/iText/itextg-5.4.3-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/home/nazir/EclipseProject/iText/itextg-5.4.3-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

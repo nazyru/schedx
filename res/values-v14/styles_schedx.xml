@@ -48,7 +48,7 @@
     </style>
 	
     <style name="PopupMenu.Schedx" parent="@style/Widget.Sherlock.Light.ListPopupWindow">	
-        <item name="android:popupBackground">@drawable/menu_dropdown_panel_schedx</item>
+        <item name="android:popupBackground">@drawable/abs__menu_dropdown_panel_holo_light</item>
         
     </style>
 	

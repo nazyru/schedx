@@ -12,7 +12,11 @@ public class MySqliteOpenHelper extends SQLiteOpenHelper
 
 {
     public static String DB_NAME = "schedX.db";
-    private static int VERSION_NUMBER = 22;
+    private static int VERSION_NUMBER = 24;
+    private static String CREATE_TEMP_TABLE = "CREATE TEMP TABLE ";
+    private static String TEMP_SELECT = " AS SELECT * FROM ";
+    private static String INSERT_STATEMENT = " INSERT INTO ";
+    private static String INSERT_VALUES = " SELECT * FROM ";
 
     public interface Assessment
     {
@@ -56,7 +60,7 @@ public class MySqliteOpenHelper extends SQLiteOpenHelper
         String COURSE_ID = "course_id";
     }
 
-    public static interface Tables
+    public interface Tables
     {
 
         String ASSESSMENT = "assessment";
@@ -66,7 +70,14 @@ public class MySqliteOpenHelper extends SQLiteOpenHelper
         String TODOS = "todos";
     }
 
-    public static interface Todos
+    public interface TempTables{
+    	String LECTURES_TEMP = "lecture_temp";
+    	String COURSES_TEMP = "courses_temp";
+    	String ASSESSMENT_TEMP = "assessment_temp";
+    	String TODO_TEMP = "todo_temp";
+    	String CLASS_REP_TEMP ="class_rep_temp";
+    }
+    public interface Todos
     {
         String DESCRIPTION = "description";
         String ID = "_id";
@@ -139,13 +150,30 @@ public class MySqliteOpenHelper extends SQLiteOpenHelper
         Log.w("~SchedX Database Upgrade~", ("Upgrading From "+ " "+ i + " To "+ j+ " On "
         		+ new Date().toString()));
         
-        db.execSQL("DROP TABLE IF EXISTS lectures");
-        db.execSQL("DROP TABLE IF EXISTS class_rep");
-        db.execSQL("DROP TABLE IF EXISTS todos");
-        db.execSQL("DROP TABLE IF EXISTS assessment");
-        db.execSQL("DROP TABLE IF EXISTS courses");
+        //BACK UP DATA
+        db.execSQL(CREATE_TEMP_TABLE + TempTables.LECTURES_TEMP + TEMP_SELECT + Tables.LECTURES);
+        db.execSQL(CREATE_TEMP_TABLE + TempTables.COURSES_TEMP + TEMP_SELECT + Tables.COURSES);
+        db.execSQL(CREATE_TEMP_TABLE + TempTables.ASSESSMENT_TEMP + TEMP_SELECT + Tables.ASSESSMENT);
+        db.execSQL(CREATE_TEMP_TABLE + TempTables.CLASS_REP_TEMP + TEMP_SELECT + Tables.CLASS_REP);
+        db.execSQL(CREATE_TEMP_TABLE + TempTables.TODO_TEMP + TEMP_SELECT + Tables.TODOS);
         
+        //DROP OLD TABLES
+        db.execSQL("DROP TABLE IF EXISTS " + Tables.LECTURES);
+        db.execSQL("DROP TABLE IF EXISTS " + Tables.CLASS_REP);
+        db.execSQL("DROP TABLE IF EXISTS " + Tables.TODOS);
+        db.execSQL("DROP TABLE IF EXISTS " + Tables.ASSESSMENT);
+        db.execSQL("DROP TABLE IF EXISTS " + Tables.COURSES);
+    
+        //RECREATE TABLES
         onCreate(db);
+        
+        //RE-INSERT VALUES FROM TEMP TABLES
+        db.execSQL(INSERT_STATEMENT + Tables.LECTURES + INSERT_VALUES + TempTables.LECTURES_TEMP);
+        db.execSQL(INSERT_STATEMENT + Tables.ASSESSMENT + INSERT_VALUES + TempTables.ASSESSMENT_TEMP);
+        db.execSQL(INSERT_STATEMENT + Tables.CLASS_REP + INSERT_VALUES + TempTables.CLASS_REP_TEMP);
+        db.execSQL(INSERT_STATEMENT + Tables.COURSES + INSERT_VALUES + TempTables.COURSES_TEMP);
+        db.execSQL(INSERT_STATEMENT + Tables.TODOS + INSERT_VALUES + TempTables.TODO_TEMP);
+        
     }
 
 }
