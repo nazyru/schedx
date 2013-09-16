@@ -52,23 +52,27 @@ public class CoursesHelper
 
     public List<Course> getAllCourses()
     {
-        ArrayList<Course> arraylist = new ArrayList<Course>();
-        Course course = new Course();
+        ArrayList<Course> list = new ArrayList<Course>();
+        Course course;
         Cursor cursor = db.query(COURSES, cols, null, null, null, null, null);
+        
         if(cursor.moveToFirst())
         {
-            int i = cursor.getColumnIndex("course_code");
-            int j = cursor.getColumnIndex("course_title");
-            int k = cursor.getColumnIndex("course_unit");
+            int i = cursor.getColumnIndex(COURSE_CODE);
+            int j = cursor.getColumnIndex(COURSE_TITLE);
+            int k = cursor.getColumnIndex(COURSE_UNIT);
+            
             do
             {
+            	course = new Course();
                 course.setCourseCode(cursor.getString(i));
                 course.setCourseTitle(cursor.getString(j));
                 course.setCourseUnit(cursor.getInt(k));
-                arraylist.add(course);
+                
+                list.add(course);
             } while(cursor.moveToNext());
         }
-        return arraylist;
+        return list;
     }
 
     public Cursor getCourses()

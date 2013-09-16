@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import com.nazir.schedx.model.Assessment;
+import com.nazir.schedx.model.Course;
 import com.nazir.schedx.remainder.AlarmHelper;
 import com.nazir.schedx.types.AssessmentTriggerMode;
 import com.nazir.schedx.types.AssessmentType;
@@ -47,9 +48,12 @@ public class AssessmentHelper
 
     public List<Assessment> getAllAssessments()
     {
-        Cursor cursor = db.query(ASSESSMENT, columns, null, null, null, null, null);
+        Cursor cursor = db.query(ASSESSMENT, columns, null, null, null, null, TYPE + " ASC");
        
         List<Assessment> list = new ArrayList<Assessment>();
+        Assessment assessment1;
+        CoursesHelper coursesHelper = new CoursesHelper(context);
+        Course course;
         
         if(cursor.moveToFirst())
         {
@@ -61,12 +65,16 @@ public class AssessmentHelper
             idIndx = cursor.getColumnIndex(ID);
             do
             {
-                Assessment assessment1 = new Assessment();
+                assessment1 = new Assessment();
                 assessment1.setId(cursor.getInt(idIndx));
-                assessment1.setCourse(new CoursesHelper(context).getCourse(cursor.getInt(courseCodeIndx)));
+               
+                course = coursesHelper.getCourse(cursor.getInt(courseCodeIndx));
+                assessment1.setCourse(course);
+                
                 assessment1.setDate(cursor.getLong(dateIndx));
                 assessment1.setLocation(cursor.getString(locationIndx));
                 assessment1.setAssessmentType(AssessmentType.valueOf(cursor.getString(typeIndx)));
+                
                 String s = cursor.getString(triggerIndx);
                 AssessmentTriggerMode assessmenttriggermode;
                 if(s != null)
@@ -74,9 +82,9 @@ public class AssessmentHelper
                 else
                     assessmenttriggermode = null;
                 assessment1.setTriggerMode(assessmenttriggermode);
-                assessments.add(assessment1);
+                
+                list.add(assessment1);
             } while(cursor.moveToNext());
-            list = assessments;
         }
         return list;
     }

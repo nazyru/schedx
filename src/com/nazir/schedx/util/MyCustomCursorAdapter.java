@@ -18,13 +18,13 @@ public class MyCustomCursorAdapter extends SimpleCursorAdapter
     private TextView startingTime;
     private TextView venue;
     
-    @SuppressWarnings("deprecation")
+  
 	public MyCustomCursorAdapter(Context context, Cursor cursor)
     {
         super(context, R.layout.custom_adapter_layout, cursor, 
         		new String[]{COURSE_ID, START_TIME, END_TIME, VENUE}, new int[]{
         				R.id.custom_adapter_course_code_view, R.id.custom_adapter_starting_time_view,
-        	            R.id.custom_adapter_end_time_view, R.id.custom_adapter_venue_view });
+        	            R.id.custom_adapter_end_time_view, R.id.custom_adapter_venue_view }, 0);
     }
 
     public void bindView(View view, Context context, Cursor cursor1)
@@ -46,7 +46,6 @@ public class MyCustomCursorAdapter extends SimpleCursorAdapter
             startingTime.setText(DateTimeHelper.getTimeToString(cursor1.getLong(cursor1.getColumnIndex(START_TIME))));
             endTime.setText(DateTimeHelper.getTimeToString(cursor1.getLong(cursor1.getColumnIndex(END_TIME))));
             venue.setText(cursor1.getString(cursor1.getColumnIndex(VENUE)));
-            
             
         }
     }

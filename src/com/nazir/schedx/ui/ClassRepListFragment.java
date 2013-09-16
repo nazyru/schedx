@@ -1,11 +1,8 @@
 
 package com.nazir.schedx.ui;
 
-import java.util.zip.Inflater;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteException;
@@ -16,7 +13,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.*;
 
-import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.*;
 import com.nazir.schedx.R;
 import com.nazir.schedx.model.ClassRep;
@@ -280,7 +276,7 @@ public class ClassRepListFragment extends MyCustomFragment
                 int lectureId = getArguments().getInt(_ID);
                 if(lectureId == -1)
                 	return;
-                Log.i("~~~HERE~~~", "Problem Here  ID = "+ lectureId );
+                
                 int classRepId = cursor.getInt(cursor.getColumnIndex(_ID));
                 LecturesHelper lectureshelper = new LecturesHelper(getSherlockActivity());
                 

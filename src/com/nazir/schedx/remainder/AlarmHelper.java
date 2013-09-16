@@ -1,6 +1,7 @@
 
 package com.nazir.schedx.remainder;
 
+import java.util.Date;
 import java.util.List;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -165,7 +166,6 @@ public class AlarmHelper
 			break;
         
         }
-             
         	alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, DateTimeHelper.stripSeconds(triggerAtMillis),
         			repeatAtMillis, pendingintent);
     }

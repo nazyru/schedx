@@ -42,7 +42,6 @@ public class LectureDetailActivity extends MyFragmentActivity {
 		LectureDetailFragment detailFragment = new LectureDetailFragment();
 		detailFragment.setArguments(bundle);
 		transaction.replace(R.id.lecture_detail_container, detailFragment);
-		transaction.addToBackStack(null);
 		transaction.commit();
 	}
 

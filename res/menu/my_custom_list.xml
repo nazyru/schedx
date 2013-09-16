@@ -9,6 +9,7 @@
     <item 
         android:id="@+id/action_generate_report"
         android:title="@string/generate_report_action_hint"
+        android:icon="@drawable/ic_stats"
         android:showAsAction="never"/>
     
     <item 

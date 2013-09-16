@@ -1,8 +1,14 @@
 
 package com.nazir.schedx.util;
 
+import android.annotation.SuppressLint;
+import android.util.Log;
+
 import com.nazir.schedx.types.Day;
 
+import java.text.DateFormat;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -10,6 +16,7 @@ import java.util.Locale;
 
 import static java.util.Calendar.*;
 
+@SuppressLint("SimpleDateFormat")
 public class DateTimeHelper
 {
 	private static Calendar cal = Calendar.getInstance();
@@ -101,40 +108,22 @@ public class DateTimeHelper
         Calendar now = Calendar.getInstance();
         now.set(HOUR_OF_DAY, cal.get(HOUR_OF_DAY));
         now.set(MINUTE, cal.get(MINUTE));
+        now.set(DAY_OF_WEEK, cal.get(DAY_OF_WEEK));
         
         	if(now.getTimeInMillis() < getInstance().getTimeInMillis()){
-        		now.add(DAY_OF_WEEK, 7);
+        		now.add(DAY_OF_WEEK, 7);	//Add One Week
         	}
 
         return now.getTimeInMillis();
 
     }
 
-    public static String getTimeToString(long l)
+    
+	public static String getTimeToString(long millis)
     {
-        StringBuilder stringbuilder;
-        cal.setTimeInMillis(l);
-        int hour = cal.get(Calendar.HOUR);
-        int minute  = cal.get(Calendar.MINUTE);
-        int AM_PM = cal.get(Calendar.AM_PM);
-        stringbuilder = new StringBuilder();
-        
-        if(hour == 0)
-        	hour = 12;
-        
-        stringbuilder.append(hour+":"+ minute);
-   
-        switch(AM_PM){
-        case Calendar.AM:
-        	stringbuilder.append(" am");
-        	break;
-        case Calendar.PM:
-        	stringbuilder.append(" pm");
-        	break;
-        }
-      
-        return stringbuilder.toString();
-
+        Date date = new Date(millis);
+    	SimpleDateFormat formatter = new SimpleDateFormat("hh:mm a");
+        return formatter.format(date);
     }
 
     public static int getYear(long l)
@@ -143,7 +132,8 @@ public class DateTimeHelper
         return cal.get(1);
     }
 
-    public static long stripSeconds(long l)
+  
+	public static long stripSeconds(long l)
     {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(l);
@@ -151,6 +141,7 @@ public class DateTimeHelper
         return calendar.getTimeInMillis();
     }
 
+	@SuppressLint("SimpleDateFormat")
 	public static String getDisplayableDate(long date) {
 		SimpleDateFormat formatter = new SimpleDateFormat("EE MMM dd, yyyy hh:MM a");
 		return formatter.format(new Date(date));

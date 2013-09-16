@@ -947,11 +947,12 @@ containing a value of this type.
         public static final int ic_arrow_right=0x7f0200a2;
         public static final int ic_launcher=0x7f020088;
         public static final int ic_notification=0x7f0200a3;
+        public static final int ic_stats=0x7f0200a4;
         public static final int list_focused_schedx=0x7f020089;
         public static final int menu_dropdown_panel_schedx=0x7f02008a;
-        public static final int navigation_collapse=0x7f0200a4;
-        public static final int navigation_expand=0x7f0200a5;
-        public static final int notification=0x7f0200a6;
+        public static final int navigation_collapse=0x7f0200a5;
+        public static final int navigation_expand=0x7f0200a6;
+        public static final int notification=0x7f0200a7;
         public static final int pressed_background_schedx=0x7f02008b;
         public static final int progress_bg_schedx=0x7f02008c;
         public static final int progress_horizontal_schedx=0x7f02008d;

@@ -238,5 +238,31 @@ public class LecturesHelper
 		db.execSQL(query);
 				
 	}
+	
+	public List<Lecture> getLectures(Day day){
+		
+		List<Lecture> lectures = new ArrayList<Lecture>();
+		Lecture lecture;
+		Cursor cursor = getLectureSchedules(day);
+		CoursesHelper coursesHelper = new CoursesHelper(context);
+		
+		if(cursor.moveToFirst()){
+			do{
+				lecture = new Lecture();
+				lecture.setCourse(coursesHelper.getCourse(cursor.getInt(cursor.getColumnIndex(COURSE_ID))));
+				lecture.setDay(cursor.getString(cursor.getColumnIndex(DAY)));
+				lecture.setStartTime(cursor.getLong(cursor.getColumnIndex(START_TIME)));
+				lecture.setEndTime(cursor.getLong(cursor.getColumnIndex(END_TIME)));
+				lecture.setVenue(cursor.getString(cursor.getColumnIndex(VENUE)));
+				lecture.setLecturer(cursor.getString(cursor.getColumnIndex(LECTURER)));
+				
+				lectures.add(lecture);
+				
+			}while(cursor.moveToNext());
+			
+			coursesHelper.disconnect();
+		}
+		return lectures;
+	}
 
 }

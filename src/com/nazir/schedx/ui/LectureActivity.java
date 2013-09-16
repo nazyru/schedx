@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.inputmethod.EditorInfo;
 import android.widget.*;
 
 import com.actionbarsherlock.view.*;
@@ -42,15 +44,18 @@ public class LectureActivity extends MyCustomActivity
         super.onCreate(bundle1);
         setContentView(R.layout.lecture_layout);
         
+        venue = (EditText)findViewById(R.id.lecture_venue_view);
+        
         if((new PreferenceHelper(this)).isStudentMode())
         {
             lecturerEditView = (EditText)findViewById(R.id.lecturer_edit_view);
             lecturerEditView.setVisibility(EditText.VISIBLE);
+   
+            venue.setImeOptions(EditorInfo.IME_ACTION_NEXT);
         }
         
         startTimePicker = (TimePicker)findViewById(R.id.start_time_picker);
         endTimePicker = (TimePicker)findViewById(R.id.end_time_picker);
-        venue = (EditText)findViewById(R.id.lecture_venue_view);
         daysAdapter = new ArrayAdapter<Day>(this, android.R.layout.simple_list_item_1, Day.values());
         daySpinner = (Spinner)findViewById(R.id.lecture_day_spinner);
         lectureTriggerList = (Spinner) findViewById(R.id.lecture_trigger_spinner);
@@ -68,6 +73,7 @@ public class LectureActivity extends MyCustomActivity
             bundle = getIntent().getBundleExtra(LectureListActivity.LECTURE_BUNDLE);
             populateViews();
         }
+        
     }
 
     private void doSave()
@@ -170,4 +176,12 @@ public class LectureActivity extends MyCustomActivity
         return true;
     }
 
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if(keyCode == EditorInfo.IME_ACTION_DONE){
+			doSave();
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
+	}
 }
