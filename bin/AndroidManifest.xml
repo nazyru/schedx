@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.nazir.schedx"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="7"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Schedx" >
+        <activity
+            android:name="com.nazir.schedx.ui.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.nazir.schedx.ui.LectureActivity"
+            android:label="Lecture Schedule" />
+        <activity
+            android:name="com.nazir.schedx.ui.TodoActivity"
+            android:label="Todo" />
+        <activity
+            android:name="com.nazir.schedx.ui.AssessmentActivity"
+            android:label="Assessment" />
+        <activity
+            android:name="com.nazir.schedx.ui.CoursesListActivity"
+            android:label="List Of Courses" />
+        <activity
+            android:name="com.nazir.schedx.ui.LectureGridView"
+            android:label="Lecture Schedule - Grid" />
+        <activity
+            android:name="com.nazir.schedx.ui.TodoListActivity"
+            android:label="List of Task" />
+        <activity
+            android:name="com.nazir.schedx.ui.LectureListActivity"
+            android:label="Lecture Schedule" />
+        <activity
+            android:name="com.nazir.schedx.ui.MyCustomActivity"
+            android:label="@string/title_activity_my_custom" />
+        <activity
+            android:name="com.nazir.schedx.ui.MyCustomListActivity"
+            android:label="@string/title_activity_my_custom_list" />
+        <activity
+            android:name="com.nazir.schedx.ui.AssessmentListActivity"
+            android:label="@string/title_activity_assessment_list" />
+        <activity
+            android:name="com.nazir.schedx.ui.CourseActivity"
+            android:label="@string/title_activity_course" />
+        <activity
+            android:name="com.nazir.schedx.ui.ClassRepActivity"
+            android:label="@string/title_activity_class_rep" />
+        <activity
+            android:name="com.nazir.schedx.ui.ClassRepFragment"
+            android:label="Class Rep" />
+        <activity
+            android:name="com.nazir.schedx.ui.SettingsActivity"
+            android:label="Settings" />
+
+        <receiver
+            android:name="com.nazir.schedx.remainder.ScheduleReceiver"
+            android:enabled="true" />
+
+        <service
+            android:name="com.nazir.schedx.remainder.ScheduleService"
+            android:enabled="true" />
+
+        <receiver
+            android:name="com.nazir.schedx.remainder.RebootReceiver"
+            android:enabled="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.nazir.schedx.remainder.RebootService" />
+
+        <activity
+            android:name="com.nazir.schedx.ui.LectureDetailActivity"
+            android:label="@string/title_activity_lecture_detail"
+            android:parentActivityName="com.nazir.schedx.ui.LectureListActivity" >
+        </activity>
+        <activity
+            android:name="com.nazir.schedx.ui.AssessmentDetailActivity"
+            android:label="@string/title_activity_assessment_detail" >
+        </activity>
+        <activity
+            android:name="com.nazir.schedx.ui.TodoDetailActivity"
+            android:label="@string/title_activity_todo_detail" >
+        </activity>
+    </application>
+
+</manifest>

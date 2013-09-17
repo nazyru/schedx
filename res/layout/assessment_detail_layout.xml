@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView 
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <LinearLayout 
+        android:orientation="vertical" 
+        android:layout_margin="@dimen/padding" 
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content">
+        
+        <LinearLayout 
+            android:orientation="vertical" 
+            android:layout_width="fill_parent" 
+            android:layout_height="wrap_content" 
+            android:padding="@dimen/detail_header_to_content_pad">
+            
+            <TextView 
+                android:layout_width="fill_parent" 
+                android:layout_height="wrap_content" 
+                android:text="@string/assessment_detail_type_hint" 
+                style="@style/detail_header_style" />
+            
+            <TextView 
+                android:id="@+id/assessment_detail_type_view" 
+                android:layout_width="wrap_content" 
+                android:layout_height="wrap_content" 
+                />
+            
+        </LinearLayout>
+            
+           
+        <LinearLayout 
+            android:orientation="vertical" 
+            android:layout_width="fill_parent" 
+            android:layout_height="wrap_content" 
+            android:padding="@dimen/detail_header_to_content_pad">
+            
+            <TextView 
+                android:layout_width="fill_parent" 
+                android:layout_height="wrap_content" 
+                android:text="@string/assessment_detail_course_code_hint" 
+                style="@style/detail_header_style" />
+            
+            <TextView 
+                android:id="@+id/assessment_detail_course_code_view" 
+                android:layout_width="wrap_content" 
+                android:layout_height="wrap_content" 
+                 />
+            </LinearLayout>
+            
+        <LinearLayout 
+            android:orientation="vertical" 
+            android:layout_width="fill_parent" 
+            android:layout_height="wrap_content" 
+            android:padding="@dimen/detail_header_to_content_pad">
+            
+            <TextView 
+                android:layout_width="fill_parent" 
+                android:layout_height="wrap_content" 
+                android:text="@string/assessment_detail_time_hint" 
+                style="@style/detail_header_style" />
+            
+            <TextView 
+                android:id="@+id/assessment_detail_time_view" 
+                android:layout_width="wrap_content" 
+                android:layout_height="wrap_content" 
+                 />
+            </LinearLayout>
+            
+           <LinearLayout 
+            android:orientation="vertical" 
+            android:layout_width="fill_parent" 
+            android:layout_height="wrap_content" 
+            android:padding="@dimen/detail_header_to_content_pad">
+            
+            <TextView 
+                android:layout_width="fill_parent" 
+                android:layout_height="wrap_content" 
+                android:text="@string/assessment_detail_location_hint" 
+                style="@style/detail_header_style" />
+            
+            <TextView 
+                android:id="@+id/assessment_detail_location" 
+                android:layout_width="wrap_content" 
+                android:layout_height="wrap_content" 
+                 />
+            </LinearLayout>
+            
+           <LinearLayout 
+            	android:orientation="vertical" 
+            	android:layout_width="fill_parent" 
+            	android:layout_height="wrap_content" 
+            	android:padding="@dimen/detail_header_to_content_pad">
+            
+            <TextView 
+                android:layout_width="fill_parent" 
+                android:layout_height="wrap_content" 
+                android:text="@string/assessment_detail_memo_hint" 
+                style="@style/detail_header_style" />
+            
+            <TextView 
+                android:id="@+id/assessment_detail_memo" 
+                android:layout_width="wrap_content" 
+                android:layout_height="wrap_content" 
+                 />
+            </LinearLayout>
+           
+    </LinearLayout>
+</ScrollView>
