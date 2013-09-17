@@ -111,5 +111,12 @@
     <style name="my_custom_overflow" parent="@style/Widget.Sherlock.Light.ActionButton.Overflow">
         <item name="android:src">@drawable/ic_action_overflow</item>
     </style>
+    
+    <style name="my_pickers">
+        <item name ="android:background">#f2f2f2</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
 
 </resources>

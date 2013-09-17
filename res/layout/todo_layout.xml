@@ -14,42 +14,46 @@
         android:layout_height="wrap_content">
         
         <EditText 
-            android:id="@id/todo_name_view" 
+            android:id="@+id/todo_name_view" 
             android:layout_width="wrap_content" 
             android:layout_height="wrap_content" 
             android:hint="@string/todo_name_hint" />
         
         <EditText 
             android:gravity="top" 
-            android:id="@id/todo_desc_view" 
+            android:id="@+id/todo_desc_view" 
             android:layout_width="fill_parent" 
             android:layout_height="wrap_content" 
             android:hint="@string/todo_desc_view" 
             android:minLines="3" />
         
-        <DatePicker 
-            android:id="@id/todo_date_picker" 
+        <TextView 
+            android:id="@+id/todo_date_picker" 
             android:layout_width="wrap_content" 
             android:layout_height="wrap_content" 
-            android:calendarViewShown="false" />
+            android:text="@string/date_picker_hint"
+            style="@style/my_pickers"
+            />
         
-        <TimePicker 
-            android:id="@id/todo_time_picker" 
+        <TextView 
+            android:id="@+id/todo_time_picker" 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content"
+            android:text="@string/time_picker_hint" 
+            style="@style/my_pickers"/>
+        
+        <Spinner 
+            android:id="@+id/alarm_trigger_spinner" 
             android:layout_width="wrap_content" 
             android:layout_height="wrap_content" />
         
         <Spinner 
-            android:id="@id/alarm_trigger_spinner" 
-            android:layout_width="wrap_content" 
-            android:layout_height="wrap_content" />
-        
-        <Spinner 
-            android:id="@id/alarm_repeat_mode_spinner" 
+            android:id="@+id/alarm_repeat_mode_spinner" 
             android:layout_width="wrap_content" 
             android:layout_height="wrap_content" />
         
         <RatingBar 
-            android:id="@id/todo_rating_bar" 
+            android:id="@+id/todo_rating_bar" 
             android:layout_width="wrap_content" 
             android:layout_height="wrap_content" 
             android:rating="3.0" />

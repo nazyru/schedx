@@ -1,12 +1,18 @@
 
 package com.nazir.schedx.ui;
 
+import java.util.Calendar;
+
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.widget.SearchViewCompat.OnCloseListenerCompat;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.*;
 import com.actionbarsherlock.view.*;
 import com.itextpdf.text.Document;
@@ -19,15 +25,21 @@ import com.nazir.schedx.remainder.AlarmHelper;
 import com.nazir.schedx.types.AssessmentTriggerMode;
 import com.nazir.schedx.types.AssessmentType;
 import com.nazir.schedx.util.DateTimeHelper;
+import com.nazir.schedx.util.MyDatePickerDialog;
+import com.nazir.schedx.util.MyDatePickerDialog.OnDateChangeCallback;
+import com.nazir.schedx.util.MyTimePickerDialog;
+import com.nazir.schedx.util.MyTimePickerDialog.OnTimeChangedCallback;
+
 import static com.nazir.schedx.persist.MySqliteOpenHelper.Assessment.*;
 import static com.nazir.schedx.persist.MySqliteOpenHelper.Courses.*;
 
-public class AssessmentActivity extends MyCustomActivity
+public class AssessmentActivity extends MyCustomActivity implements OnDateChangeCallback,
+	OnTimeChangedCallback
 {
     public static String ASSESSMENT_ACTION = "com.nazir.schedx.ui.ASSESSMENT_ACTION_STRING";
     public static String ASSESSMENT_ID = "com.nazir.schedx.ui.ASSESSMENT_ID_STRING";
-    private DatePicker assessDatePicker;
-    private TimePicker assessTimePicker;
+    private TextView assessDatePicker;
+    private TextView assessTimePicker;
     private Spinner assessTypeSpinner;
     private ArrayAdapter<AssessmentTriggerMode> assessmentTriggerAdapter;
     private Spinner assessmentTriggerModeSpinner;
@@ -37,8 +49,10 @@ public class AssessmentActivity extends MyCustomActivity
     private EditText memoTextView;
     private EditText venueTextView;
     private int id;
+    private Calendar dateTimeCal = Calendar.getInstance();
     
-    public void onCreate(Bundle bundle)
+    @SuppressWarnings("deprecation")
+	public void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
         setContentView(R.layout.assessment_layout);
@@ -46,8 +60,12 @@ public class AssessmentActivity extends MyCustomActivity
         		AssessmentType.values());
         coursesSpinner = (Spinner)findViewById(R.id.assessment_course_spinner);
         assessTypeSpinner = (Spinner)findViewById(R.id.assessment_type_spinner);
-        assessDatePicker = (DatePicker)findViewById(R.id.assessment_date_picker);
-        assessTimePicker = (TimePicker)findViewById(R.id.assessment_time_picker);
+        assessDatePicker = (TextView)findViewById(R.id.assessment_date_picker);
+        assessTimePicker = (TextView)findViewById(R.id.assessment_time_picker);
+     
+        assessDatePicker.setOnClickListener(new MyClickHandler());
+        assessTimePicker.setOnClickListener(new MyClickHandler());
+        
         venueTextView = (EditText)findViewById(R.id.assessment_venue_view);
         memoTextView = (EditText)findViewById(R.id.assessment_memo_view);
         assessmentTriggerModeSpinner = (Spinner)findViewById(R.id.assessment_trigger_mode);
@@ -57,7 +75,8 @@ public class AssessmentActivity extends MyCustomActivity
         
         CoursesHelper courseshelper = new CoursesHelper(this);
         cursor = courseshelper.getCourses();
-        SimpleCursorAdapter coursesAdapter = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1, 
+        
+		SimpleCursorAdapter coursesAdapter = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1, 
         		cursor, new String[] {COURSE_CODE}, new int[] {android.R.id.text1});
         
         assessTypeSpinner.setAdapter(assessmentTypeAdapter);
@@ -76,9 +95,7 @@ public class AssessmentActivity extends MyCustomActivity
         assessment.setCourse(course);
      
         assessment.setAssessmentType((AssessmentType)assessTypeSpinner.getSelectedItem());
-        assessment.setDate(DateTimeHelper.getDateMillis(assessDatePicker.getYear(), 
-        		assessDatePicker.getMonth(), assessDatePicker.getDayOfMonth(), 
-        		assessTimePicker.getCurrentHour(), assessTimePicker.getCurrentMinute()));
+        assessment.setDate(dateTimeCal.getTimeInMillis());
         assessment.setLocation(venueTextView.getText().toString().trim());
         
         assessment.setMemo(memoTextView.getText().toString().trim());
@@ -117,13 +134,14 @@ public class AssessmentActivity extends MyCustomActivity
         AssessmentHelper assessmenthelper = new AssessmentHelper(this);
         Assessment assessment = assessmenthelper.getAssessment(i);
         assessmenthelper.disconnect();
-        long l = assessment.getDate();
         
-        assessTimePicker.setCurrentMinute(Integer.valueOf(DateTimeHelper.getMinute(l)));
-        assessTimePicker.setCurrentHour(Integer.valueOf(DateTimeHelper.getHour(l)));
+        long l = assessment.getDate();
+        dateTimeCal.setTimeInMillis(l);
+        assessTimePicker.setText(DateTimeHelper.getTimeToString(l));
+        assessDatePicker.setText(DateTimeHelper.getDateToString(l));
+        
         venueTextView.setText(assessment.getLocation());
         memoTextView.setText(assessment.getMemo());
-        assessDatePicker.updateDate(DateTimeHelper.getYear(l), DateTimeHelper.getMonth(l), DateTimeHelper.getDay(l));
         assessmentTriggerModeSpinner.setSelection(assessmentTriggerAdapter.getPosition(assessment.getTriggerMode()), true);
         assessTypeSpinner.setSelection(assessmentTypeAdapter.getPosition(assessment.getAssessmentType()), true);
     }
@@ -148,4 +166,58 @@ public class AssessmentActivity extends MyCustomActivity
         return true;
     }
 
+	@Override
+	public void onTimeChanged(DialogFragment dialog, Calendar date) {
+		dateTimeCal.set(Calendar.HOUR_OF_DAY, date.get(Calendar.HOUR_OF_DAY));
+		dateTimeCal.set(Calendar.MINUTE, date.get(Calendar.MINUTE));
+		
+		assessTimePicker.setText(DateTimeHelper.getTimeToString(dateTimeCal.getTimeInMillis()));
+		
+	}
+
+	@Override
+	public void onDateChanged(Calendar newDate) {
+		dateTimeCal.set(Calendar.DAY_OF_MONTH, newDate.get(Calendar.DAY_OF_MONTH));
+		dateTimeCal.set(Calendar.MONTH, newDate.get(Calendar.MONTH));
+		dateTimeCal.set(Calendar.YEAR, newDate.get(Calendar.YEAR));
+		
+		assessDatePicker.setText(DateTimeHelper.getDateToString(dateTimeCal.getTimeInMillis()));
+		
+	}
+	
+	private class MyClickHandler implements OnClickListener{
+
+		@Override
+		public void onClick(View v) {
+			switch(v.getId()){
+			case R.id.assessment_date_picker:
+				showDatePicker();
+				break;
+			case R.id.assessment_time_picker:
+				showTimePicker();
+				break;
+			default:
+				break;
+			}
+		}
+
+		private void showTimePicker() {
+			
+			DialogFragment dialog = new MyTimePickerDialog();
+			Bundle bundle = new Bundle();
+			bundle.putLong(MyTimePickerDialog.INIT_TIME_BUNDLE, dateTimeCal.getTimeInMillis());
+			dialog.setArguments(bundle);
+			dialog.show(getSupportFragmentManager(), "AssessmrntTimePicker");
+		}
+
+		private void showDatePicker() {
+			DialogFragment fragment = new MyDatePickerDialog();
+			Bundle bundle = new Bundle();
+			bundle.putLong(MyDatePickerDialog.INIT_DATE_BUNDLE, dateTimeCal.getTimeInMillis());
+			fragment.setArguments(bundle);
+			fragment.show(getSupportFragmentManager(), "MyDatePicker");
+			
+			
+		}
+	}
 }

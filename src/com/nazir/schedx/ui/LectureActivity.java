@@ -1,12 +1,18 @@
 package com.nazir.schedx.ui;
 
+import java.util.Calendar;
+
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.view.KeyEvent;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
 import android.widget.*;
+import android.widget.TimePicker.OnTimeChangedListener;
 
 import com.actionbarsherlock.view.*;
 import com.nazir.schedx.R;
@@ -17,29 +23,38 @@ import com.nazir.schedx.persist.LecturesHelper;
 import com.nazir.schedx.persist.MySqliteOpenHelper;
 import com.nazir.schedx.remainder.AlarmHelper;
 import com.nazir.schedx.types.Day;
+import com.nazir.schedx.types.DialogFlag;
 import com.nazir.schedx.types.LectureAlarmTrigger;
 import com.nazir.schedx.types.Status;
 import com.nazir.schedx.util.DateTimeHelper;
+import com.nazir.schedx.util.MyDatePickerDialog;
+import com.nazir.schedx.util.MyTimePickerDialog;
+import com.nazir.schedx.util.MyDatePickerDialog.OnDateChangeCallback;
+import com.nazir.schedx.util.MyTimePickerDialog.OnTimeChangedCallback;
 import com.nazir.schedx.util.PreferenceHelper;
 import static com.nazir.schedx.persist.MySqliteOpenHelper.Lectures.*;
 import static com.nazir.schedx.persist.MySqliteOpenHelper.Courses.COURSE_CODE;
 
-public class LectureActivity extends MyCustomActivity
+public class LectureActivity extends MyCustomActivity implements OnTimeChangedCallback
 {
     public static String LECTURE_ACTION = "com.nazir.schedx.ui.LECTURE_ACTION";
     public static String LECTURE_ID = "com.nazir.schedx.ui.LECTURE_ID";
+    public static String FLAG = "com.nazir.schedx.ui.START_FINISH_FLAG";
     private Bundle bundle;
     private Cursor cursor;
     private Spinner daySpinner;
     private ArrayAdapter<Day> daysAdapter;
-    private TimePicker endTimePicker;
+    private TextView endTimePicker;
     private EditText lecturerEditView;
-    private TimePicker startTimePicker;
+    private TextView startTimePicker;
     private EditText venue;
     private Spinner lectureTriggerList;
     private ArrayAdapter<LectureAlarmTrigger> lectureTriggerAdapter;
+    private long startTime;
+    private long endTime;
 
-    public void onCreate(Bundle bundle1)
+    @SuppressWarnings("deprecation")
+	public void onCreate(Bundle bundle1)
     {
         super.onCreate(bundle1);
         setContentView(R.layout.lecture_layout);
@@ -54,8 +69,12 @@ public class LectureActivity extends MyCustomActivity
             venue.setImeOptions(EditorInfo.IME_ACTION_NEXT);
         }
         
-        startTimePicker = (TimePicker)findViewById(R.id.start_time_picker);
-        endTimePicker = (TimePicker)findViewById(R.id.end_time_picker);
+        startTimePicker = (TextView)findViewById(R.id.start_time_picker);
+        endTimePicker = (TextView)findViewById(R.id.end_time_picker);
+        startTimePicker.setOnClickListener(new MyClickhandler());
+        endTimePicker.setOnClickListener(new MyClickhandler());
+        startTime = endTime = Calendar.getInstance().getTimeInMillis();
+        
         daysAdapter = new ArrayAdapter<Day>(this, android.R.layout.simple_list_item_1, Day.values());
         daySpinner = (Spinner)findViewById(R.id.lecture_day_spinner);
         lectureTriggerList = (Spinner) findViewById(R.id.lecture_trigger_spinner);
@@ -84,13 +103,9 @@ public class LectureActivity extends MyCustomActivity
         int courseId = cursor.getInt(i);
         Course course = new CoursesHelper(this).getCourse(courseId);
         Day day = (Day)daySpinner.getSelectedItem();
-        int j = startTimePicker.getCurrentHour();
-        int k = startTimePicker.getCurrentMinute();
-        int l = endTimePicker.getCurrentHour();
-        int i1 = endTimePicker.getCurrentMinute();
         
-        lecture = new Lecture(course, day.name(), DateTimeHelper.getTimeMillis(j, k));
-        lecture.setEndTime(DateTimeHelper.getTimeMillis(l, i1));
+        lecture = new Lecture(course, day.name(), startTime);
+        lecture.setEndTime(endTime);
         lecture.setVenue(venue.getText().toString().trim());
         lecture.setAlarmTrigger(lectureTriggerAdapter.getItem(lectureTriggerList
         		.getSelectedItemPosition()));
@@ -132,12 +147,12 @@ public class LectureActivity extends MyCustomActivity
         LecturesHelper lectureshelper = new LecturesHelper(this);
         Lecture lecture = lectureshelper.getLectureSchedlule(i);
         lectureshelper.disconnect();
-        long startTime = lecture.getStartTime();
-        long endTime = lecture.getEndTime();
-        startTimePicker.setCurrentHour(DateTimeHelper.getHour(startTime));
-        startTimePicker.setCurrentMinute(DateTimeHelper.getMinute(startTime));
-        endTimePicker.setCurrentHour(DateTimeHelper.getHour(endTime));
-        endTimePicker.setCurrentMinute(DateTimeHelper.getMinute(endTime));
+        startTime = lecture.getStartTime();
+        endTime = lecture.getEndTime();
+        
+        startTimePicker.setText(DateTimeHelper.getTimeToString(startTime));
+        endTimePicker.setText(DateTimeHelper.getTimeToString(endTime));
+        
         venue.setText(lecture.getVenue());
         
         if(lecturerEditView != null)
@@ -183,5 +198,49 @@ public class LectureActivity extends MyCustomActivity
 			return true;
 		}
 		return super.onKeyDown(keyCode, event);
+	}
+
+	@Override
+	public void onTimeChanged(DialogFragment dialog, Calendar date) {
+		int flag = dialog.getArguments().getInt(FLAG);
+		
+		switch(flag){
+		case 1:
+			startTime = date.getTimeInMillis();
+			startTimePicker.setText(DateTimeHelper.getTimeToString(startTime));
+			break;
+		case 2:
+			endTime = date.getTimeInMillis();
+			endTimePicker.setText(DateTimeHelper.getTimeToString(endTime));
+			break;
+		default:
+			break;
+		}
+	}
+	
+	private class MyClickhandler implements OnClickListener{
+
+		@Override
+		public void onClick(View v) {
+			int flag;
+			long initTime;
+			
+			if((TextView)v == startTimePicker){
+				flag = 1;
+				initTime = startTime;
+			}
+			else{
+				flag=2;
+				initTime = endTime;
+			}
+			
+			DialogFragment dialog = new MyTimePickerDialog();
+			Bundle bundle = new Bundle();
+			bundle.putInt(FLAG, flag);
+			bundle.putLong(MyTimePickerDialog.INIT_TIME_BUNDLE, initTime);
+			dialog.setArguments(bundle);
+			dialog.show(getSupportFragmentManager(), "TimePickerDialog");
+		}
+		
 	}
 }

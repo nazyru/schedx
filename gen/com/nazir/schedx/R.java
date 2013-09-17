@@ -1289,6 +1289,7 @@ containing a value of this type.
         public static final int courses=0x7f0a0023;
         public static final int create_assessment_button_hint=0x7f0a0018;
         public static final int custom_adapter_arrow_desc=0x7f0a001a;
+        public static final int date_picker_hint=0x7f0a0071;
         /**  Delete Course Dialog 
          */
         public static final int delete_course_message=0x7f0a0057;
@@ -1298,6 +1299,7 @@ containing a value of this type.
         public static final int edit_schedule_action_title=0x7f0a0025;
         public static final int email_class_rep_title=0x7f0a006d;
         public static final int end_time_hint=0x7f0a003f;
+        public static final int end_time_picker_hint=0x7f0a006f;
         /**  TODO  
          */
         public static final int expand_image_button_description=0x7f0a0067;
@@ -1322,9 +1324,13 @@ containing a value of this type.
         public static final int notification_key=0x7f0a004a;
         public static final int saturday_header_label=0x7f0a0021;
         public static final int start_time_hint=0x7f0a003e;
+        /**  Date And Time Picker Dialogs 
+         */
+        public static final int start_time_picker_hint=0x7f0a006e;
         public static final int status_hint=0x7f0a0042;
         public static final int sunday_header_label=0x7f0a0022;
         public static final int thursday_header_label=0x7f0a001f;
+        public static final int time_picker_hint=0x7f0a0070;
         public static final int title_activity_assessment_detail=0x7f0a0061;
         public static final int title_activity_assessment_list=0x7f0a002d;
         public static final int title_activity_class_rep=0x7f0a0038;
@@ -1386,7 +1392,7 @@ containing a value of this type.
         public static final int AppTheme=0x7f0b005a;
         public static final int DropDownListView_Schedx=0x7f0b0063;
         public static final int DropDownNav_Schedx=0x7f0b0065;
-        public static final int OverflowTitle=0x7f0b006f;
+        public static final int OverflowTitle=0x7f0b0070;
         public static final int PopupMenu_Schedx=0x7f0b0062;
         public static final int ProgressBar_Schedx=0x7f0b0066;
         public static final int Sherlock___TextAppearance_Small=0x7f0b0046;
@@ -1400,7 +1406,7 @@ containing a value of this type.
         public static final int Sherlock___Widget_Holo_ListView=0x7f0b0026;
         public static final int Sherlock___Widget_Holo_Spinner=0x7f0b0023;
         public static final int Sherlock___Widget_SearchAutoCompleteTextView=0x7f0b0033;
-        public static final int SpinnerDropDown=0x7f0b006e;
+        public static final int SpinnerDropDown=0x7f0b006f;
         public static final int TextAppearance_Sherlock=0x7f0b004a;
         public static final int TextAppearance_Sherlock_Light_SearchResult=0x7f0b004e;
         public static final int TextAppearance_Sherlock_Light_SearchResult_Subtitle=0x7f0b0050;
@@ -1488,6 +1494,7 @@ containing a value of this type.
         public static final int detail_header_style=0x7f0b006d;
         public static final int list_item=0x7f0b005c;
         public static final int my_custom_overflow=0x7f0b005f;
+        public static final int my_pickers=0x7f0b006e;
         public static final int text_header_style=0x7f0b005b;
     }
     public static final class xml {

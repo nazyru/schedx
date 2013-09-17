@@ -134,4 +134,9 @@
     <string name="call_class_rep_title"> Call Class Rep</string>
     <string name="email_class_rep_title">Email Class Rep</string>
 
+    <!-- Date And Time Picker Dialogs -->
+    <string name="start_time_picker_hint">Starting At</string>
+    <string name="end_time_picker_hint">Finshing By</string>
+    <string name="time_picker_hint">Time</string>
+    <string name="date_picker_hint">Date</string>
 </resources>

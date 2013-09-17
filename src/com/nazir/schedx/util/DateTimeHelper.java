@@ -143,8 +143,13 @@ public class DateTimeHelper
 
 	@SuppressLint("SimpleDateFormat")
 	public static String getDisplayableDate(long date) {
-		SimpleDateFormat formatter = new SimpleDateFormat("EE MMM dd, yyyy hh:MM a");
+		SimpleDateFormat formatter = new SimpleDateFormat("EE MMM dd, yyyy hh:mm a ");
 		return formatter.format(new Date(date));
+	}
+
+	public static CharSequence getDateToString(long l) {
+		SimpleDateFormat formatter = new SimpleDateFormat("MMM dd, yyyy");
+		return formatter.format(new Date(l));
 	}
 
 }

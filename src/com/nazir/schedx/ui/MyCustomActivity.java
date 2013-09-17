@@ -5,10 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.app.SherlockFragment;
+import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.*;
 import com.nazir.schedx.R;
 
-public class MyCustomActivity extends SherlockActivity
+public class MyCustomActivity extends SherlockFragmentActivity
 {
 
     public MyCustomActivity()
