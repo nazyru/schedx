@@ -55,8 +55,8 @@ public class MyCustomFragment extends SherlockFragment
         	 Toast.makeText(getActivity(), "Coming Soon!!!", Toast.LENGTH_SHORT).show();
         	 break;
         case R.id.action_generate_report:
-        	ReportHelper.genetareReport(getSherlockActivity());
-        	Toast.makeText(getSherlockActivity(), "Report Generated", Toast.LENGTH_SHORT).show();
+        	ReportHelper helper = new ReportHelper(getSherlockActivity());
+        	helper.doReport();
         	break;
         default: return super.onOptionsItemSelected(menuitem);
         }

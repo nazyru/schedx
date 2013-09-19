@@ -3,22 +3,33 @@ package com.nazir.schedx.reports;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Environment;
 import android.util.Log;
+import android.webkit.MimeTypeMap;
+
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Image;
+import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
+import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -33,19 +44,38 @@ import com.nazir.schedx.types.Day;
 import com.nazir.schedx.util.DateTimeHelper;
 
 public class ReportHelper {
+	private Context context;
+	private HashMap<Day, List<Lecture>> lectures = new HashMap<Day, List<Lecture>>();
+	private HashMap<Day, Iterator<Lecture>> iterators = new HashMap<Day, Iterator<Lecture>>();
+	private BaseColor lightGreen = new BaseColor(0x99, 0xcc, 0x00);
+	private BaseColor darkWhite = new BaseColor(0xf2, 0xf2, 0xf2);
+	private Font darkWhiteFont = new Font(Font.FontFamily.COURIER, 16, Font.BOLD, darkWhite);
 	
-	@SuppressLint("NewApi")
-	public static void genetareReport(Context context) {
-		Document document = new Document();
+	public ReportHelper(Context context) {
+		this.context = context;
+	}
+	
+	public void doReport(){
+		MyAsyncTask task = new MyAsyncTask();
+		task.execute();
+	}
+
+	@SuppressLint({ "NewApi", "SimpleDateFormat" })
+	public File genetareReport() {
+		Document document = new Document(PageSize.A4.rotate());	 //landscape mode
+		
 		File dir;
-		Font green = new Font(Font.FontFamily.HELVETICA, 16, Font.BOLD, BaseColor.GREEN);
+		
+		Font green = new Font(Font.FontFamily.TIMES_ROMAN, 20, Font.BOLD, lightGreen);
 		
 		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.FROYO)
 			dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
 		else
 			dir = Environment.getExternalStorageDirectory();
 		
-		File file = new File(dir, "schedules.pdf");
+		String dateAppend = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
+		String filename = "schedX"+dateAppend+".pdf";
+		File file = new File(dir,  filename);
 		
 		try{
 			PdfWriter.getInstance(document, new FileOutputStream(file));
@@ -85,9 +115,10 @@ public class ReportHelper {
 		}catch(Exception e){
 			Log.e("--Report Generation--", e.getMessage());
 		}
+		return file;
 	}
 
-	private static void addAssessmentTable(Document document, Context context) throws DocumentException {
+	private void addAssessmentTable(Document document, Context context) throws DocumentException {
 		
 		PdfPTable assessmentTable = new PdfPTable(new float[]{1f, 1f, 2f, 1f});
 		assessmentTable.setWidthPercentage(100);
@@ -96,10 +127,25 @@ public class ReportHelper {
 		List<Assessment> assessments = helper.getAllAssessments();
 		helper.disconnect();
 		
-		assessmentTable.addCell(new PdfPCell(new Phrase("Type")));
-		assessmentTable.addCell(new PdfPCell(new Phrase("Course")));
-		assessmentTable.addCell(new PdfPCell(new Phrase("Date/Time")));
-		assessmentTable.addCell(new PdfPCell(new Phrase("Venue")));
+		PdfPCell typeHeader = new PdfPCell(new Phrase("Type", darkWhiteFont));
+		PdfPCell courseHeader = new PdfPCell(new Phrase("Course", darkWhiteFont));
+		PdfPCell dateTimeHeader = new PdfPCell(new Phrase("Date/Time", darkWhiteFont));
+		PdfPCell venueHeader = new PdfPCell(new Phrase("Venue", darkWhiteFont));
+		
+		typeHeader.setBackgroundColor(lightGreen);
+		courseHeader.setBackgroundColor(lightGreen);
+		dateTimeHeader.setBackgroundColor(lightGreen);
+		venueHeader.setBackgroundColor(lightGreen);
+		
+		typeHeader.setBorder(0);
+		courseHeader.setBorder(0);
+		dateTimeHeader.setBorder(0);
+		venueHeader.setBorder(0);
+		
+		assessmentTable.addCell(typeHeader);
+		assessmentTable.addCell(courseHeader);
+		assessmentTable.addCell(dateTimeHeader);
+		assessmentTable.addCell(venueHeader);
 		assessmentTable.setHeaderRows(1);
 		
 		for(Assessment assessment : assessments){
@@ -112,48 +158,42 @@ public class ReportHelper {
 		document.add(assessmentTable);
 	}
 
-	private static void addParagraph(Document doc, String text) throws DocumentException {
+	private void addParagraph(Document doc, String text) throws DocumentException {
 		doc.add(new Paragraph(text));
 		
 	}
 
-	private static void addLectureTable(Document document, Context context) throws Exception {
-		PdfPTable lectureTable = new PdfPTable(7);
+	private void addLectureTable(Document document, Context context) throws Exception {
+		PdfPTable lectureTable = new PdfPTable(14);
 		lectureTable.setWidthPercentage(100);
 		
 		LecturesHelper helper = new LecturesHelper(context);
+		PdfPCell headerCell;
 		
-		lectureTable.addCell(new PdfPCell(new Phrase("Monday")));
-		lectureTable.addCell(new PdfPCell(new Phrase("Tuesday")));
-		lectureTable.addCell(new PdfPCell(new Phrase("Wednesday")));
-		lectureTable.addCell(new PdfPCell(new Phrase("Thursday")));
-		lectureTable.addCell(new PdfPCell(new Phrase("Friday")));
-		lectureTable.addCell(new PdfPCell(new Phrase("Saturday")));
-		lectureTable.addCell(new PdfPCell(new Phrase("Sunday")));
+		for(Day day: Day.values()){
+			if(day == Day.CHOOSE)
+				continue;
+			
+			headerCell = new PdfPCell(new Phrase(day.toString(), darkWhiteFont));
+			headerCell.setColspan(2);
+			headerCell.setBackgroundColor(lightGreen);
+			headerCell.setBorder(0);
+			lectureTable.addCell(headerCell);
+		}
+		
 		lectureTable.setHeaderRows(1);
 		
-		lectureTable.addCell(new PdfPCell(new Phrase("1.1")));
-		lectureTable.addCell(new PdfPCell(new Phrase("1.2")));
-		lectureTable.addCell(new PdfPCell(new Phrase("1.3")));
-		lectureTable.addCell(new PdfPCell(new Phrase("1.4")));
-		lectureTable.addCell(new PdfPCell(new Phrase("1.5")));
-		lectureTable.addCell(new PdfPCell(new Phrase("1.6")));
-		lectureTable.addCell(new PdfPCell(new Phrase("1.7")));
+		for(Day day: Day.values()){
+			if(day == Day.CHOOSE)
+				continue;
+			lectures.put(day, helper.getLectures(day));
+			iterators.put(day, lectures.get(day).iterator());
+		}
 		
-		/*List<Lecture> mondayLectures = helper.getLectures(Day.MONDAY);
-		
-		List<Lecture> wednesdayLectures = helper.getLectures(Day.WEDNESDAY);
-		List<Lecture> thursdayLectures = helper.getLectures(Day.THURSDAY);
-		List<Lecture> fridayLectures = helper.getLectures(Day.FRIDAY);
-		List<Lecture> saturdayLectures = helper.getLectures(Day.SATURDAY);
-		List<Lecture> sundayLectures = helper.getLectures(Day.SUNDAY);
-		*/
-		
-		List<Lecture> tuesdayLectures = helper.getLectures(Day.TUESDAY);
-		
-		
-		for(Lecture lecture: tuesdayLectures){
-			lectureTable.addCell(getLectureEntry(lecture));
+		for(List<PdfPCell> row: getTableContent()){
+			for(PdfPCell cell: row){
+				lectureTable.addCell(cell);
+			}
 		}
 		
 		document.add(lectureTable);
@@ -161,18 +201,21 @@ public class ReportHelper {
 		helper.disconnect();
 	}
 
-	private static PdfPCell getLectureEntry(Lecture lecture) {
+	private PdfPCell getLectureEntry(Lecture lecture) {
 		
 		String startingTime = DateTimeHelper.getTimeToString(lecture.getStartTime());
 		String endTime = DateTimeHelper.getTimeToString(lecture.getEndTime());
 		
 		PdfPCell cell = new PdfPCell();
+		cell.setColspan(2);
+		
 		Paragraph courseCodePara = new Paragraph(lecture.getCourse().getCourseCode());
 		Paragraph timePara = new Paragraph(startingTime + " - "+ endTime);
 		Paragraph venuePara = new Paragraph(lecture.getVenue());
 		
 		courseCodePara.setAlignment(Element.ALIGN_CENTER);
-		timePara.setAlignment(Element.ALIGN_JUSTIFIED);
+		timePara.setAlignment(Element.ALIGN_CENTER);
+		
 		venuePara.setAlignment(Element.ALIGN_CENTER);
 		
 		cell.addElement(courseCodePara);
@@ -181,14 +224,83 @@ public class ReportHelper {
 		
 		return cell;
 	}
+	
+	private PdfPCell getEmptyEntry(){
+		Paragraph emptyPara = new Paragraph("---");
+		emptyPara.setAlignment(Element.ALIGN_CENTER);
+		PdfPCell emptyCell = new PdfPCell(emptyPara);
+		emptyCell.setColspan(2);
+		return emptyCell;
+	} 
+	
+	private List<PdfPCell> getNextRow(){
+		List<PdfPCell> cells = new ArrayList<PdfPCell>();
+			
+		while(hasNext()){
+			for(Day day: Day.values()){
+				if(day == Day.CHOOSE)
+					continue;
+				
+				if(iterators.get(day).hasNext()){
+					Lecture lecture = iterators.get(day).next();
+					cells.add(getLectureEntry(lecture));
+					
+				}else{
+					cells.add(getEmptyEntry());
+				}
+			}
+		}
+		return cells;
+	}
+	
+	private boolean hasNext() {
+		boolean status = false;
+		
+		for(Day day: Day.values()){
+			if(day == Day.CHOOSE)
+				continue;
+			
+			if(iterators.get(day).hasNext() == true)
+				status = true;
+		}
+		return status;
+	}
 
-	private static void addCourseTable(Document doc, Context context) throws DocumentException {
+	private List<List<PdfPCell>> getTableContent(){
+		List<List<PdfPCell>> contents = new ArrayList<List<PdfPCell>>();
+		List<PdfPCell> nextRow = new ArrayList<PdfPCell>();
+		
+		do{
+			nextRow = getNextRow();
+			if(nextRow.isEmpty())
+				break;
+			
+			contents.add(nextRow);
+		}
+		while(true);
+		
+		return contents;
+	}
+
+	private void addCourseTable(Document doc, Context context) throws DocumentException {
 		PdfPTable courseTable = new PdfPTable(new float[]{1f, 2f, 1f});
 		courseTable.setWidthPercentage(100);
 		
-		courseTable.addCell(new PdfPCell(new Phrase("Course Code")));
-		courseTable.addCell(new PdfPCell(new Phrase("Course Title")));
-		courseTable.addCell(new PdfPCell(new Phrase("Course Unit")));
+		PdfPCell courseCodeHeader = new PdfPCell(new Phrase("Course Code", darkWhiteFont));
+		PdfPCell courseTitleheader = new PdfPCell(new Phrase("Course Title", darkWhiteFont));
+		PdfPCell courseunitHeader = new PdfPCell(new Phrase("Course Unit", darkWhiteFont));
+		
+		courseCodeHeader.setBackgroundColor(lightGreen);
+		courseTitleheader.setBackgroundColor(lightGreen);
+		courseunitHeader.setBackgroundColor(lightGreen);
+		
+		courseCodeHeader.setBorder(0);
+		courseTitleheader.setBorder(0);
+		courseunitHeader.setBorder(0);
+		
+		courseTable.addCell(courseCodeHeader);
+		courseTable.addCell(courseTitleheader);
+		courseTable.addCell(courseunitHeader);
 		courseTable.setHeaderRows(1);
 		
 		CoursesHelper helper = new CoursesHelper(context);
@@ -204,7 +316,7 @@ public class ReportHelper {
 		doc.add(courseTable);
 	}
 	
-	private static void addMetaData(Document doc) {
+	private void addMetaData(Document doc) {
 		doc.addTitle("SchedX App Report");
 		doc.addAuthor("nazir bunu <nazyru@gmail.com>");
 		doc.addCreationDate();
@@ -212,8 +324,26 @@ public class ReportHelper {
 		
 	}
 
-	private static void addEmptyLine(Document document, int num) throws DocumentException{
+	private void addEmptyLine(Document document, int num) throws DocumentException{
 		for(int i=0; i<num; i++)
 			document.add(new Paragraph(" "));
+	}
+	
+	private class MyAsyncTask extends AsyncTask<Void, Void, File>{
+
+		@Override
+		protected File doInBackground(Void... params) {
+			
+			return genetareReport();
+		}
+
+		@Override
+		protected void onPostExecute(File result) {
+			Intent intent = new Intent(Intent.ACTION_VIEW);
+			intent.setType("application/pdf");
+			intent.setData(Uri.fromFile(result));
+			context.startActivity(Intent.createChooser(intent, "Share Schedules Via..."));
+			
+		}
 	}
 }
