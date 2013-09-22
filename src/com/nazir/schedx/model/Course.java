@@ -12,10 +12,10 @@ public class Course
     {
     }
 
-    public Course(String s, String s1)
+    public Course(String courseCode, String courseTitle)
     {
-        courseCode = s;
-        courseTitle = s1;
+        this.courseCode = courseCode;
+        this.courseTitle = courseTitle;
     }
 
     public boolean equals(Object obj)
@@ -66,20 +66,25 @@ public class Course
         courseTitle = s;
     }
 
-    public void setCourseUnit(int i)
+    public void setCourseUnit(int courseUnit)
     {
-        courseUnit = i;
+        this.courseUnit = courseUnit;
     }
 
     public void setID(int i)
     {
         ID = i;
     }
+    
+    public static Course getSampleCourse(){
+    	Course sample = new Course("Course Code", "Course Title");
+    	sample.setCourseUnit(3);
+    	return sample;
+    }
 
     public String toString()
     {
         return (new StringBuilder(String.valueOf(courseCode))).append(" ").append(courseTitle).toString();
     }
-
-    
+ 
 }

@@ -43,6 +43,7 @@ public class LectureActivity extends MyCustomActivity implements OnTimeChangedCa
     private Bundle bundle;
     private Cursor cursor;
     private Spinner daySpinner;
+    private Spinner courseSpinner;
     private ArrayAdapter<Day> daysAdapter;
     private TextView endTimePicker;
     private EditText lecturerEditView;
@@ -65,7 +66,6 @@ public class LectureActivity extends MyCustomActivity implements OnTimeChangedCa
         {
             lecturerEditView = (EditText)findViewById(R.id.lecturer_edit_view);
             lecturerEditView.setVisibility(EditText.VISIBLE);
-   
             venue.setImeOptions(EditorInfo.IME_ACTION_NEXT);
         }
         
@@ -81,9 +81,9 @@ public class LectureActivity extends MyCustomActivity implements OnTimeChangedCa
         lectureTriggerAdapter = new ArrayAdapter<LectureAlarmTrigger>(this, android.R.layout.simple_list_item_1, LectureAlarmTrigger.values());
         lectureTriggerList.setAdapter(lectureTriggerAdapter);
         daySpinner.setAdapter(daysAdapter);
-        Spinner spinner = (Spinner)findViewById(R.id.courses_spinner);
+        courseSpinner = (Spinner)findViewById(R.id.courses_spinner);
         cursor = (new CoursesHelper(this)).getCourses();
-        spinner.setAdapter(new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1, cursor,
+        courseSpinner.setAdapter(new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1, cursor,
         		new String[] {COURSE_CODE}, new int[] {android.R.id.text1}));
         
         String action = getIntent().getAction();
@@ -100,6 +100,7 @@ public class LectureActivity extends MyCustomActivity implements OnTimeChangedCa
         Lecture lecture;
         LecturesHelper lectureshelper;
         int i = cursor.getColumnIndex(MySqliteOpenHelper.Courses._ID);
+        
         int courseId = cursor.getInt(i);
         Course course = new CoursesHelper(this).getCourse(courseId);
         Day day = (Day)daySpinner.getSelectedItem();
@@ -116,6 +117,9 @@ public class LectureActivity extends MyCustomActivity implements OnTimeChangedCa
         lectureshelper = new LecturesHelper(this);
         
         String action = getIntent().getAction();
+        
+        if(!isValid(lecture))
+        	return;
         
         try{
         if(action != null && action.equals(Intent.ACTION_EDIT)){ 
@@ -139,6 +143,16 @@ public class LectureActivity extends MyCustomActivity implements OnTimeChangedCa
             finish();
         }
         
+    }
+    
+    private boolean isValid(Lecture lecture){
+    	boolean valid = true;
+    	
+    	if(lecture.getVenue().equals("")){
+    		venue.setError("Venue Can't be Empty");
+    		valid = false;
+    	}
+    	return valid;
     }
 
     private void populateViews()

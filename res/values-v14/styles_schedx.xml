@@ -15,6 +15,7 @@
       	<item name="android:actionBarTabTextStyle">@style/ActionBarTabText</item>
       	<item name="android:actionOverflowButtonStyle">@style/my_custom_overflow</item>
       	<item name="android:actionMenuTextColor">@color/my_app_white_color</item>
+      	<item name="android:actionModeCloseDrawable">@drawable/abs__ic_cab_done_holo_dark</item>
       	<item name="android:spinnerItemStyle">@style/SpinnerDropDown</item>
     </style>
 

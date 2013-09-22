@@ -17,6 +17,7 @@
         <item name="actionModeCloseDrawable">@drawable/abs__ic_cab_done_holo_dark</item>
         <item name="actionModeStyle">@style/ActionModeStyle</item>
         <item name="actionMenuTextColor">@color/my_app_white_color</item>
+      
     </style>
 
     <style name="ActionBar.Solid.Schedx" parent="@style/Widget.Sherlock.Light.ActionBar.Solid">

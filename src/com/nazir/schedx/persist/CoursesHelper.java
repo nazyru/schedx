@@ -77,21 +77,31 @@ public class CoursesHelper
 
     public Cursor getCourses()
     {
-        return db.query(COURSES, new String[] {_ID, COURSE_CODE, COURSE_TITLE, COURSE_UNIT},
-        		null, null, null, null, null);
+        Cursor c = db.query(COURSES, cols, null, null, null, null, null);
+        if(c.moveToFirst()){
+        	return c;
+        }
+        addSampleData();
+        
+        return db.query(COURSES, cols, null, null, null, null, null);
     }
 
     public void insertMockData(int i)
     {
-        db.delete("courses", null, null);
+        db.delete(COURSES, null, null);
         int j = 0;
         do
         {
             if(j >= i)
                 return;
-            addCourse(new Course((new StringBuilder("Course Code ")).append(j).toString(), (new StringBuilder("Course Title ")).append(j).toString()));
+            addCourse(new Course((new StringBuilder("Course Code ")).append(j).toString(),
+            		(new StringBuilder("Course Title ")).append(j).toString()));
             j++;
         } while(true);
+    }
+    
+    private void addSampleData(){
+    	addCourse(Course.getSampleCourse());
     }
 
     public void terminate()

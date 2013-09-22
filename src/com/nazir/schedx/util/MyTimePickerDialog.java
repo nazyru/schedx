@@ -67,7 +67,6 @@ public class MyTimePickerDialog extends DialogFragment implements OnTimeSetListe
 	@Override
 	public void onClick(DialogInterface dialog, int which) {
 		if(which == Dialog.BUTTON_NEGATIVE)
-			Toast.makeText(getActivity(), "Dismiss", Toast.LENGTH_SHORT).show();
 			dialog.dismiss();
 	}
 	

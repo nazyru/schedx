@@ -101,14 +101,31 @@ public class LectureListActivity extends MyCustomFragment
 
     private void doDelete()
     {
-        int id = cursor.getInt(cursor.getColumnIndex(_ID));
-        (new LecturesHelper(getSherlockActivity())).delete(id);
-        Toast.makeText(getSherlockActivity(), "Deleted", Toast.LENGTH_SHORT).show();
-        AlarmHelper.cancelLectureAlarm(id, getSherlockActivity());
+       final int id = cursor.getInt(cursor.getColumnIndex(_ID));
+       helper = new LecturesHelper(getSherlockActivity());
+       
+        new AlertDialog.Builder(getSherlockActivity())
+        .setTitle("Delete Lecture")
+        .setMessage("Are Sure You Want to Delete This Lecture ?")
+        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				helper.delete(id);
+				cursor = helper.getLectureSchedules();
+				cusAdapter.swapCursor(cursor);
+		        Toast.makeText(getSherlockActivity(), "Deleted", Toast.LENGTH_SHORT).show();
+		        AlarmHelper.cancelLectureAlarm(id, getSherlockActivity());
+			}
+		})
+		.setNegativeButton("No", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.dismiss();
+				return;
+			}
+		}).show();
       
-        //refresh list
-        cursor = helper.getLectureSchedules();
-        cusAdapter.changeCursor(cursor);
     }
 
     private void doEdit()
