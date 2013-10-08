@@ -17,10 +17,10 @@ public class AssessmentCursorAdapter extends SimpleCursorAdapter{
 private TextView courseCodeView;
 private TextView assessmentTypeView;
 
+	@SuppressWarnings("deprecation")
 	public AssessmentCursorAdapter(Context context, Cursor c) {
-		super(context, R.layout.lecture_list_layout, c, new String[] {TYPE}, 
-				new int[] {R.id.venue_item_text_view});
-		
+		super(context, R.layout.courses_list_layout, c, new String[] {TYPE}, 
+				new int[] {R.id.course_title_list_item});
 	}
 
 	@Override
@@ -32,12 +32,11 @@ private TextView assessmentTypeView;
 			int courseId = cursor.getInt(cursor.getColumnIndex(COURSE_ID));
 			Course course = new CoursesHelper(context).getCourse(courseId);
 			
-			courseCodeView = (TextView) view.findViewById(R.id.course_item_text_view);
-			assessmentTypeView = (TextView) view.findViewById(R.id.venue_item_text_view);
+			courseCodeView = (TextView) view.findViewById(R.id.course_code_list_item);
+			assessmentTypeView = (TextView) view.findViewById(R.id.course_title_list_item);
 			
 			courseCodeView.setText(course.getCourseCode());
 			assessmentTypeView.setText(cursor.getString(cursor.getColumnIndex(TYPE)));
-			
 		}
 		
 	}
@@ -45,7 +44,7 @@ private TextView assessmentTypeView;
 	@Override
 	public View newView(Context context, Cursor cursor, ViewGroup parent) {
 		 super.newView(context, cursor, parent);
-		 return LayoutInflater.from(context).inflate(R.layout.lecture_list_layout, null, false);
+		 return LayoutInflater.from(context).inflate(R.layout.courses_list_layout, null, false);
 	}
 
 }

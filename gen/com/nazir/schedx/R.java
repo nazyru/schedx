@@ -8,6 +8,9 @@
 package com.nazir.schedx;
 
 public final class R {
+    public static final class anim {
+        public static final int my_anim=0x7f0e0000;
+    }
     public static final class array {
         public static final int app_mode=0x7f0c0000;
         public static final int assessment_delay_list=0x7f0c0002;
@@ -1013,13 +1016,11 @@ containing a value of this type.
         public static final int abs__textButton=0x7f050013;
         public static final int abs__title=0x7f05001b;
         public static final int abs__up=0x7f05000b;
-        public static final int action_add_class_rep=0x7f050099;
+        public static final int action_add_class_rep=0x7f050090;
         public static final int action_delete_item=0x7f050075;
-        public static final int action_generate_report=0x7f05009c;
+        public static final int action_generate_report=0x7f050093;
         public static final int action_item_new=0x7f05007b;
         public static final int action_settings=0x7f050073;
-        public static final int add_button2=0x7f050093;
-        public static final int add_button3=0x7f050097;
         public static final int add_course_title_layout=0x7f05007f;
         public static final int add_scedule_action_item=0x7f050079;
         public static final int alarm_repeat_mode_spinner=0x7f05006f;
@@ -1038,15 +1039,17 @@ containing a value of this type.
         public static final int assessment_type_spinner=0x7f050036;
         public static final int assessment_venue_view=0x7f050038;
         public static final int assign_class_rep_item=0x7f050077;
-        public static final int call_class_rep_item=0x7f05009a;
+        public static final int call_class_rep_item=0x7f050091;
         public static final int call_id=0x7f050085;
         public static final int class_rep_email=0x7f050040;
         public static final int class_rep_fragment_container=0x7f050087;
         public static final int class_rep_name=0x7f05003d;
         public static final int class_rep_phone_number=0x7f05003f;
         public static final int class_rep_reg_num=0x7f05003e;
+        public static final int course_code_list_item=0x7f050088;
         public static final int course_code_widget=0x7f050033;
         public static final int course_item_text_view=0x7f05005e;
+        public static final int course_title_list_item=0x7f050089;
         public static final int course_title_view=0x7f050034;
         public static final int course_unit_view=0x7f050035;
         public static final int courses_action_item=0x7f050076;
@@ -1057,14 +1060,12 @@ containing a value of this type.
         public static final int custom_adapter_to_arrow=0x7f050043;
         public static final int custom_adapter_venue_view=0x7f050045;
         public static final int disableHome=0x7f050009;
+        public static final int done_tasks=0x7f050094;
         public static final int edit_query=0x7f050026;
         public static final int edit_schedule_action_item=0x7f050074;
         public static final int email_class_rep=0x7f050086;
-        public static final int email_class_rep_item=0x7f05009b;
+        public static final int email_class_rep_item=0x7f050092;
         public static final int end_time_picker=0x7f05005b;
-        public static final int expand_collapse_button=0x7f05008d;
-        public static final int expand_collapse_button2=0x7f050091;
-        public static final int expand_collapse_button3=0x7f050095;
         public static final int friday_schedule_list_view=0x7f050065;
         public static final int help_action_item=0x7f05007a;
         public static final int homeAsUp=0x7f050006;
@@ -1088,7 +1089,7 @@ containing a value of this type.
         public static final int lecture_detail_venue=0x7f050055;
         public static final int lecture_detail_venue_hint=0x7f05004d;
         public static final int lecture_status=0x7f050078;
-        public static final int lecture_trigger_spinner=0x7f050088;
+        public static final int lecture_trigger_spinner=0x7f05008a;
         public static final int lecture_venue_view=0x7f05005c;
         public static final int lecturer_edit_view=0x7f05005d;
         public static final int listMode=0x7f050002;
@@ -1108,25 +1109,19 @@ containing a value of this type.
         public static final int tabMode=0x7f050003;
         public static final int thursday_schedule_list_view=0x7f050064;
         public static final int time_range_item_text_view=0x7f05005f;
-        public static final int today_add_image_view=0x7f05008f;
-        public static final int today_field=0x7f05008e;
-        public static final int today_list_view=0x7f050090;
         public static final int todo_date_picker=0x7f05006c;
         public static final int todo_desc_view=0x7f05006b;
         public static final int todo_detail_container=0x7f05007e;
-        public static final int todo_detail_memo_view=0x7f05008b;
-        public static final int todo_detail_name_view=0x7f050089;
-        public static final int todo_detail_rating_view=0x7f05008c;
-        public static final int todo_detail_time_view=0x7f05008a;
+        public static final int todo_detail_memo_view=0x7f05008d;
+        public static final int todo_detail_name_view=0x7f05008b;
+        public static final int todo_detail_rating_view=0x7f05008e;
+        public static final int todo_detail_time_view=0x7f05008c;
         public static final int todo_list_item=0x7f050071;
+        public static final int todo_list_view=0x7f05008f;
         public static final int todo_name_view=0x7f05006a;
         public static final int todo_rating_bar=0x7f050070;
         public static final int todo_time_picker=0x7f05006d;
-        public static final int tomorrow_field=0x7f050092;
-        public static final int tomorrow_list_view=0x7f050094;
         public static final int tuesday_schedule_list_view=0x7f050062;
-        public static final int upcoming_field=0x7f050096;
-        public static final int upcoming_list_view=0x7f050098;
         public static final int useLogo=0x7f050004;
         public static final int venue_item_text_view=0x7f050060;
         public static final int wednesday_schedule_list_view=0x7f050063;
@@ -1171,6 +1166,7 @@ containing a value of this type.
         public static final int class_rep_contextual_popup_layout=0x7f03002a;
         public static final int class_rep_fragment=0x7f03002b;
         public static final int class_rep_layout=0x7f03001b;
+        public static final int courses_list_layout=0x7f03002c;
         public static final int custom_adapter_layout=0x7f03001c;
         public static final int custom_list_header=0x7f03001d;
         public static final int lecture_detail_layout=0x7f03001e;
@@ -1179,9 +1175,10 @@ containing a value of this type.
         public static final int lecture_schedule_grid_view=0x7f030021;
         public static final int sherlock_spinner_dropdown_item=0x7f030023;
         public static final int sherlock_spinner_item=0x7f030024;
-        public static final int todo_detail_layout=0x7f03002c;
+        public static final int todo_detail_layout=0x7f03002d;
         public static final int todo_layout=0x7f030025;
-        public static final int todo_list=0x7f03002d;
+        public static final int todo_list=0x7f03002e;
+        public static final int todo_list_layout=0x7f03002f;
     }
     public static final class menu {
         public static final int action_bar_lecture=0x7f0d0000;
@@ -1196,10 +1193,11 @@ containing a value of this type.
         public static final int my_custom=0x7f0d0006;
         public static final int my_custom_list=0x7f0d0007;
         public static final int todo_detail=0x7f0d000b;
+        public static final int todo_list_menu=0x7f0d000c;
     }
     public static final class plurals {
-        public static final int assessment_extra_message=0x7f0e0001;
-        public static final int lecture_extra_message=0x7f0e0000;
+        public static final int assessment_extra_message=0x7f0f0001;
+        public static final int lecture_extra_message=0x7f0f0000;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -1245,7 +1243,7 @@ containing a value of this type.
         public static final int action_item_lecture_save=0x7f0a0027;
         public static final int action_item_new_title=0x7f0a0028;
         public static final int action_settings=0x7f0a002a;
-        public static final int add_button_description=0x7f0a0069;
+        public static final int add_button_description=0x7f0a006a;
         public static final int add_course_button=0x7f0a0010;
         public static final int add_course_cancel_button_hint=0x7f0a003d;
         public static final int add_course_custom_title=0x7f0a0053;
@@ -1262,13 +1260,13 @@ containing a value of this type.
         public static final int app_mode_title=0x7f0a0045;
         public static final int app_name=0x7f0a000d;
         public static final int assessment_cat_title=0x7f0a004f;
-        public static final int assessment_detail_course_code_hint=0x7f0a005d;
-        public static final int assessment_detail_location_hint=0x7f0a005f;
-        public static final int assessment_detail_memo_hint=0x7f0a0060;
-        public static final int assessment_detail_time_hint=0x7f0a005e;
+        public static final int assessment_detail_course_code_hint=0x7f0a005e;
+        public static final int assessment_detail_location_hint=0x7f0a0060;
+        public static final int assessment_detail_memo_hint=0x7f0a0061;
+        public static final int assessment_detail_time_hint=0x7f0a005f;
         /**  Assessment Detail 
          */
-        public static final int assessment_detail_type_hint=0x7f0a005c;
+        public static final int assessment_detail_type_hint=0x7f0a005d;
         public static final int assessment_memo_hint=0x7f0a0019;
         public static final int assessment_notif_dialog_title=0x7f0a0052;
         public static final int assessment_notif_key=0x7f0a0050;
@@ -1277,8 +1275,8 @@ containing a value of this type.
         public static final int assign_class_rep=0x7f0a0037;
         /** Class Rep Context Menu  
          */
-        public static final int call_class_rep_title=0x7f0a006c;
-        public static final int class_rep_cancel_button_label=0x7f0a0055;
+        public static final int call_class_rep_title=0x7f0a006d;
+        public static final int class_rep_cancel_button_label=0x7f0a0056;
         public static final int class_rep_email_address=0x7f0a0036;
         public static final int class_rep_hint=0x7f0a0033;
         public static final int class_rep_phone=0x7f0a0035;
@@ -1289,25 +1287,26 @@ containing a value of this type.
         public static final int courses=0x7f0a0023;
         public static final int create_assessment_button_hint=0x7f0a0018;
         public static final int custom_adapter_arrow_desc=0x7f0a001a;
-        public static final int date_picker_hint=0x7f0a0071;
+        public static final int date_picker_hint=0x7f0a0072;
         /**  Delete Course Dialog 
          */
-        public static final int delete_course_message=0x7f0a0057;
-        public static final int delete_course_no_button=0x7f0a005a;
-        public static final int delete_course_title=0x7f0a0058;
-        public static final int delete_course_yes_button=0x7f0a0059;
+        public static final int delete_course_message=0x7f0a0058;
+        public static final int delete_course_no_button=0x7f0a005b;
+        public static final int delete_course_title=0x7f0a0059;
+        public static final int delete_course_yes_button=0x7f0a005a;
+        public static final int done_tasks_title=0x7f0a0054;
         public static final int edit_schedule_action_title=0x7f0a0025;
-        public static final int email_class_rep_title=0x7f0a006d;
+        public static final int email_class_rep_title=0x7f0a006e;
         public static final int end_time_hint=0x7f0a003f;
-        public static final int end_time_picker_hint=0x7f0a006f;
+        public static final int end_time_picker_hint=0x7f0a0070;
         /**  TODO  
          */
-        public static final int expand_image_button_description=0x7f0a0067;
+        public static final int expand_image_button_description=0x7f0a0068;
         public static final int friday_header_label=0x7f0a0020;
-        public static final int generate_report_action_hint=0x7f0a0054;
+        public static final int generate_report_action_hint=0x7f0a0055;
         public static final int hello_world=0x7f0a000e;
         public static final int help_action_title=0x7f0a002b;
-        public static final int lecture_class_rep_header_hint=0x7f0a0056;
+        public static final int lecture_class_rep_header_hint=0x7f0a0057;
         public static final int lecture_day_hint=0x7f0a0040;
         public static final int lecture_finished=0x7f0a003b;
         public static final int lecture_notif_cat_title=0x7f0a004b;
@@ -1326,32 +1325,32 @@ containing a value of this type.
         public static final int start_time_hint=0x7f0a003e;
         /**  Date And Time Picker Dialogs 
          */
-        public static final int start_time_picker_hint=0x7f0a006e;
+        public static final int start_time_picker_hint=0x7f0a006f;
         public static final int status_hint=0x7f0a0042;
         public static final int sunday_header_label=0x7f0a0022;
         public static final int thursday_header_label=0x7f0a001f;
-        public static final int time_picker_hint=0x7f0a0070;
-        public static final int title_activity_assessment_detail=0x7f0a0061;
+        public static final int time_picker_hint=0x7f0a0071;
+        public static final int title_activity_assessment_detail=0x7f0a0062;
         public static final int title_activity_assessment_list=0x7f0a002d;
         public static final int title_activity_class_rep=0x7f0a0038;
         public static final int title_activity_course=0x7f0a002e;
-        public static final int title_activity_lecture_detail=0x7f0a005b;
+        public static final int title_activity_lecture_detail=0x7f0a005c;
         public static final int title_activity_my_custom=0x7f0a0029;
         public static final int title_activity_my_custom_list=0x7f0a002c;
-        public static final int title_activity_todo_detail=0x7f0a0066;
-        public static final int today_field=0x7f0a0068;
+        public static final int title_activity_todo_detail=0x7f0a0067;
+        public static final int today_field=0x7f0a0069;
         public static final int todo_desc_view=0x7f0a0015;
-        public static final int todo_detail_memo_hint=0x7f0a0064;
+        public static final int todo_detail_memo_hint=0x7f0a0065;
         /**  TODO Detail 
          */
-        public static final int todo_detail_name_hint=0x7f0a0062;
-        public static final int todo_detail_rating_hint=0x7f0a0065;
-        public static final int todo_detail_time_hint=0x7f0a0063;
+        public static final int todo_detail_name_hint=0x7f0a0063;
+        public static final int todo_detail_rating_hint=0x7f0a0066;
+        public static final int todo_detail_time_hint=0x7f0a0064;
         public static final int todo_go_button_label=0x7f0a0016;
         public static final int todo_name_hint=0x7f0a0014;
-        public static final int tomorrow_field=0x7f0a006a;
+        public static final int tomorrow_field=0x7f0a006b;
         public static final int tuesday_header_label=0x7f0a001d;
-        public static final int upcoming_field=0x7f0a006b;
+        public static final int upcoming_field=0x7f0a006c;
         public static final int venue_hint=0x7f0a0041;
         public static final int wednesday_header_label=0x7f0a001e;
     }
@@ -1392,7 +1391,7 @@ containing a value of this type.
         public static final int AppTheme=0x7f0b005a;
         public static final int DropDownListView_Schedx=0x7f0b0063;
         public static final int DropDownNav_Schedx=0x7f0b0065;
-        public static final int OverflowTitle=0x7f0b0070;
+        public static final int OverflowTitle=0x7f0b0071;
         public static final int PopupMenu_Schedx=0x7f0b0062;
         public static final int ProgressBar_Schedx=0x7f0b0066;
         public static final int Sherlock___TextAppearance_Small=0x7f0b0046;
@@ -1406,7 +1405,7 @@ containing a value of this type.
         public static final int Sherlock___Widget_Holo_ListView=0x7f0b0026;
         public static final int Sherlock___Widget_Holo_Spinner=0x7f0b0023;
         public static final int Sherlock___Widget_SearchAutoCompleteTextView=0x7f0b0033;
-        public static final int SpinnerDropDown=0x7f0b006f;
+        public static final int SpinnerDropDown=0x7f0b0070;
         public static final int TextAppearance_Sherlock=0x7f0b004a;
         public static final int TextAppearance_Sherlock_Light_SearchResult=0x7f0b004e;
         public static final int TextAppearance_Sherlock_Light_SearchResult_Subtitle=0x7f0b0050;
@@ -1493,8 +1492,9 @@ containing a value of this type.
         public static final int arrow=0x7f0b005d;
         public static final int detail_header_style=0x7f0b006d;
         public static final int list_item=0x7f0b005c;
+        public static final int list_item_sub_item=0x7f0b006e;
         public static final int my_custom_overflow=0x7f0b005f;
-        public static final int my_pickers=0x7f0b006e;
+        public static final int my_pickers=0x7f0b006f;
         public static final int text_header_style=0x7f0b005b;
     }
     public static final class xml {
@@ -1565,8 +1565,9 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#background}.
-          @attr name android:background
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#background}.
+          @attr name com.nazir.schedx:background
         */
         public static final int SherlockActionBar_background = 2;
         /**
@@ -1579,8 +1580,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#backgroundSplit}.
-          @attr name android:backgroundSplit
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#backgroundSplit}.
+          @attr name com.nazir.schedx:backgroundSplit
         */
         public static final int SherlockActionBar_backgroundSplit = 3;
         /**
@@ -1593,8 +1595,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#backgroundStacked}.
-          @attr name android:backgroundStacked
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#backgroundStacked}.
+          @attr name com.nazir.schedx:backgroundStacked
         */
         public static final int SherlockActionBar_backgroundStacked = 12;
         /**
@@ -1605,8 +1608,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#customNavigationLayout}.
-          @attr name android:customNavigationLayout
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#customNavigationLayout}.
+          @attr name com.nazir.schedx:customNavigationLayout
         */
         public static final int SherlockActionBar_customNavigationLayout = 13;
         /**
@@ -1628,8 +1632,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>showCustom</code></td><td>0x10</td><td></td></tr>
 <tr><td><code>disableHome</code></td><td>0x20</td><td></td></tr>
 </table>
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#displayOptions}.
-          @attr name android:displayOptions
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#displayOptions}.
+          @attr name com.nazir.schedx:displayOptions
         */
         public static final int SherlockActionBar_displayOptions = 7;
         /**
@@ -1640,8 +1645,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#divider}.
-          @attr name android:divider
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#divider}.
+          @attr name com.nazir.schedx:divider
         */
         public static final int SherlockActionBar_divider = 5;
         /**
@@ -1658,8 +1664,9 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#height}.
-          @attr name android:height
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#height}.
+          @attr name com.nazir.schedx:height
         */
         public static final int SherlockActionBar_height = 4;
         /**
@@ -1670,8 +1677,9 @@ containing a value of this type.
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#homeLayout}.
-          @attr name android:homeLayout
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#homeLayout}.
+          @attr name com.nazir.schedx:homeLayout
         */
         public static final int SherlockActionBar_homeLayout = 14;
         /**
@@ -1682,8 +1690,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#icon}.
-          @attr name android:icon
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#icon}.
+          @attr name com.nazir.schedx:icon
         */
         public static final int SherlockActionBar_icon = 10;
         /**
@@ -1694,8 +1703,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#indeterminateProgressStyle}.
-          @attr name android:indeterminateProgressStyle
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#indeterminateProgressStyle}.
+          @attr name com.nazir.schedx:indeterminateProgressStyle
         */
         public static final int SherlockActionBar_indeterminateProgressStyle = 16;
         /**
@@ -1713,8 +1723,9 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#itemPadding}.
-          @attr name android:itemPadding
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#itemPadding}.
+          @attr name com.nazir.schedx:itemPadding
         */
         public static final int SherlockActionBar_itemPadding = 18;
         /**
@@ -1725,8 +1736,9 @@ containing a value of this type.
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#logo}.
-          @attr name android:logo
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#logo}.
+          @attr name com.nazir.schedx:logo
         */
         public static final int SherlockActionBar_logo = 11;
         /**
@@ -1745,8 +1757,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>listMode</code></td><td>1</td><td> The action bar will use a selection list for navigation. </td></tr>
 <tr><td><code>tabMode</code></td><td>2</td><td> The action bar will use a series of horizontal tabs for navigation. </td></tr>
 </table>
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#navigationMode}.
-          @attr name android:navigationMode
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#navigationMode}.
+          @attr name com.nazir.schedx:navigationMode
         */
         public static final int SherlockActionBar_navigationMode = 6;
         /**
@@ -1763,8 +1776,9 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#progressBarPadding}.
-          @attr name android:progressBarPadding
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#progressBarPadding}.
+          @attr name com.nazir.schedx:progressBarPadding
         */
         public static final int SherlockActionBar_progressBarPadding = 17;
         /**
@@ -1775,8 +1789,9 @@ containing a value of this type.
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#progressBarStyle}.
-          @attr name android:progressBarStyle
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#progressBarStyle}.
+          @attr name com.nazir.schedx:progressBarStyle
         */
         public static final int SherlockActionBar_progressBarStyle = 15;
         /**
@@ -1791,8 +1806,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#subtitle}.
-          @attr name android:subtitle
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#subtitle}.
+          @attr name com.nazir.schedx:subtitle
         */
         public static final int SherlockActionBar_subtitle = 9;
         /**
@@ -1803,8 +1819,9 @@ containing a value of this type.
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#subtitleTextStyle}.
-          @attr name android:subtitleTextStyle
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#subtitleTextStyle}.
+          @attr name com.nazir.schedx:subtitleTextStyle
         */
         public static final int SherlockActionBar_subtitleTextStyle = 1;
         /**
@@ -1819,8 +1836,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#title}.
-          @attr name android:title
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#title}.
+          @attr name com.nazir.schedx:title
         */
         public static final int SherlockActionBar_title = 8;
         /**
@@ -1831,8 +1849,9 @@ containing a value of this type.
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#titleTextStyle}.
-          @attr name android:titleTextStyle
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#titleTextStyle}.
+          @attr name com.nazir.schedx:titleTextStyle
         */
         public static final int SherlockActionBar_titleTextStyle = 0;
         /** Attributes that can be used with a SherlockActionMenuItemView.
@@ -1841,7 +1860,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #SherlockActionMenuItemView_android_minWidth com.nazir.schedx:android_minWidth}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockActionMenuItemView_android_minWidth android:minWidth}</code></td><td></td></tr>
            </table>
            @see #SherlockActionMenuItemView_android_minWidth
          */
@@ -1849,9 +1868,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
             0x0101013f
         };
         /**
-          <p>This symbol is the offset where the {@link com.nazir.schedx.R.attr#android_minWidth}
+          <p>This symbol is the offset where the {@link android.R.attr#minWidth}
           attribute's value can be found in the {@link #SherlockActionMenuItemView} array.
-          @attr name android:android_minWidth
+          @attr name android:minWidth
         */
         public static final int SherlockActionMenuItemView_android_minWidth = 0;
         /** Attributes that can be used with a SherlockActionMode.
@@ -1886,8 +1905,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#background}.
-          @attr name android:background
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#background}.
+          @attr name com.nazir.schedx:background
         */
         public static final int SherlockActionMode_background = 2;
         /**
@@ -1900,8 +1920,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#backgroundSplit}.
-          @attr name android:backgroundSplit
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#backgroundSplit}.
+          @attr name com.nazir.schedx:backgroundSplit
         */
         public static final int SherlockActionMode_backgroundSplit = 3;
         /**
@@ -1918,8 +1939,9 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#height}.
-          @attr name android:height
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#height}.
+          @attr name com.nazir.schedx:height
         */
         public static final int SherlockActionMode_height = 4;
         /**
@@ -1930,8 +1952,9 @@ containing a value of this type.
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#subtitleTextStyle}.
-          @attr name android:subtitleTextStyle
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#subtitleTextStyle}.
+          @attr name com.nazir.schedx:subtitleTextStyle
         */
         public static final int SherlockActionMode_subtitleTextStyle = 1;
         /**
@@ -1942,8 +1965,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#titleTextStyle}.
-          @attr name android:titleTextStyle
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#titleTextStyle}.
+          @attr name com.nazir.schedx:titleTextStyle
         */
         public static final int SherlockActionMode_titleTextStyle = 0;
         /** Attributes that can be used with a SherlockActivityChooserView.
@@ -1952,7 +1976,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #SherlockActivityChooserView_android_background com.nazir.schedx:android_background}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockActivityChooserView_android_background android:background}</code></td><td></td></tr>
            <tr><td><code>{@link #SherlockActivityChooserView_expandActivityOverflowButtonDrawable com.nazir.schedx:expandActivityOverflowButtonDrawable}</code></td><td> The drawable to show in the button for expanding the activities overflow popup.</td></tr>
            <tr><td><code>{@link #SherlockActivityChooserView_initialActivityCount com.nazir.schedx:initialActivityCount}</code></td><td> The maximal number of items initially shown in the activity list.</td></tr>
            </table>
@@ -1964,9 +1988,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
             0x010100d4, 0x7f01005e, 0x7f01005f
         };
         /**
-          <p>This symbol is the offset where the {@link com.nazir.schedx.R.attr#android_background}
+          <p>This symbol is the offset where the {@link android.R.attr#background}
           attribute's value can be found in the {@link #SherlockActivityChooserView} array.
-          @attr name android:android_background
+          @attr name android:background
         */
         public static final int SherlockActivityChooserView_android_background = 0;
         /**
@@ -1982,8 +2006,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#expandActivityOverflowButtonDrawable}.
-          @attr name android:expandActivityOverflowButtonDrawable
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#expandActivityOverflowButtonDrawable}.
+          @attr name com.nazir.schedx:expandActivityOverflowButtonDrawable
         */
         public static final int SherlockActivityChooserView_expandActivityOverflowButtonDrawable = 2;
         /**
@@ -1998,8 +2023,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#initialActivityCount}.
-          @attr name android:initialActivityCount
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#initialActivityCount}.
+          @attr name com.nazir.schedx:initialActivityCount
         */
         public static final int SherlockActivityChooserView_initialActivityCount = 1;
         /**  Base attributes that are available to all groups. 
@@ -2008,12 +2034,12 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #SherlockMenuGroup_android_checkableBehavior com.nazir.schedx:android_checkableBehavior}</code></td><td> Whether the items are capable of displaying a check mark.</td></tr>
-           <tr><td><code>{@link #SherlockMenuGroup_android_enabled com.nazir.schedx:android_enabled}</code></td><td> Whether the items are enabled.</td></tr>
-           <tr><td><code>{@link #SherlockMenuGroup_android_id com.nazir.schedx:android_id}</code></td><td> The ID of the group.</td></tr>
-           <tr><td><code>{@link #SherlockMenuGroup_android_menuCategory com.nazir.schedx:android_menuCategory}</code></td><td> The category applied to all items within this group.</td></tr>
-           <tr><td><code>{@link #SherlockMenuGroup_android_orderInCategory com.nazir.schedx:android_orderInCategory}</code></td><td> The order within the category applied to all items within this group.</td></tr>
-           <tr><td><code>{@link #SherlockMenuGroup_android_visible com.nazir.schedx:android_visible}</code></td><td> Whether the items are shown/visible.</td></tr>
+           <tr><td><code>{@link #SherlockMenuGroup_android_checkableBehavior android:checkableBehavior}</code></td><td> Whether the items are capable of displaying a check mark.</td></tr>
+           <tr><td><code>{@link #SherlockMenuGroup_android_enabled android:enabled}</code></td><td> Whether the items are enabled.</td></tr>
+           <tr><td><code>{@link #SherlockMenuGroup_android_id android:id}</code></td><td> The ID of the group.</td></tr>
+           <tr><td><code>{@link #SherlockMenuGroup_android_menuCategory android:menuCategory}</code></td><td> The category applied to all items within this group.</td></tr>
+           <tr><td><code>{@link #SherlockMenuGroup_android_orderInCategory android:orderInCategory}</code></td><td> The order within the category applied to all items within this group.</td></tr>
+           <tr><td><code>{@link #SherlockMenuGroup_android_visible android:visible}</code></td><td> Whether the items are shown/visible.</td></tr>
            </table>
            @see #SherlockMenuGroup_android_checkableBehavior
            @see #SherlockMenuGroup_android_enabled
@@ -2030,24 +2056,27 @@ containing a value of this type.
           <p>
           @attr description
            Whether the items are capable of displaying a check mark. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#android_checkableBehavior}.
-          @attr name android:android_checkableBehavior
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#checkableBehavior}.
+          @attr name android:checkableBehavior
         */
         public static final int SherlockMenuGroup_android_checkableBehavior = 5;
         /**
           <p>
           @attr description
            Whether the items are enabled. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#android_enabled}.
-          @attr name android:android_enabled
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#enabled}.
+          @attr name android:enabled
         */
         public static final int SherlockMenuGroup_android_enabled = 0;
         /**
           <p>
           @attr description
            The ID of the group. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#android_id}.
-          @attr name android:android_id
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#id}.
+          @attr name android:id
         */
         public static final int SherlockMenuGroup_android_id = 1;
         /**
@@ -2055,8 +2084,9 @@ containing a value of this type.
           @attr description
            The category applied to all items within this group.
              (This will be or'ed with the orderInCategory attribute.) 
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#android_menuCategory}.
-          @attr name android:android_menuCategory
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#menuCategory}.
+          @attr name android:menuCategory
         */
         public static final int SherlockMenuGroup_android_menuCategory = 3;
         /**
@@ -2064,16 +2094,18 @@ containing a value of this type.
           @attr description
            The order within the category applied to all items within this group.
              (This will be or'ed with the category attribute.) 
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#android_orderInCategory}.
-          @attr name android:android_orderInCategory
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#orderInCategory}.
+          @attr name android:orderInCategory
         */
         public static final int SherlockMenuGroup_android_orderInCategory = 4;
         /**
           <p>
           @attr description
            Whether the items are shown/visible. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#android_visible}.
-          @attr name android:android_visible
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#visible}.
+          @attr name android:visible
         */
         public static final int SherlockMenuGroup_android_visible = 2;
         /**  Base attributes that are available to all Item objects. 
@@ -2082,26 +2114,26 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_actionLayout com.nazir.schedx:android_actionLayout}</code></td><td> An optional layout to be used as an action view.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_actionProviderClass com.nazir.schedx:android_actionProviderClass}</code></td><td> The name of an optional ActionProvider class to instantiate an action view
+           <tr><td><code>{@link #SherlockMenuItem_android_actionLayout android:actionLayout}</code></td><td> An optional layout to be used as an action view.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_actionProviderClass android:actionProviderClass}</code></td><td> The name of an optional ActionProvider class to instantiate an action view
              and perform operations such as default action for that menu item.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_actionViewClass com.nazir.schedx:android_actionViewClass}</code></td><td> The name of an optional View class to instantiate and use as an
+           <tr><td><code>{@link #SherlockMenuItem_android_actionViewClass android:actionViewClass}</code></td><td> The name of an optional View class to instantiate and use as an
              action view.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_alphabeticShortcut com.nazir.schedx:android_alphabeticShortcut}</code></td><td> The alphabetic shortcut key.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_checkable com.nazir.schedx:android_checkable}</code></td><td> Whether the item is capable of displaying a check mark.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_checked com.nazir.schedx:android_checked}</code></td><td> Whether the item is checked.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_enabled com.nazir.schedx:android_enabled}</code></td><td> Whether the item is enabled.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_icon com.nazir.schedx:android_icon}</code></td><td> The icon associated with this item.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_id com.nazir.schedx:android_id}</code></td><td> The ID of the item.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_menuCategory com.nazir.schedx:android_menuCategory}</code></td><td> The category applied to the item.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_numericShortcut com.nazir.schedx:android_numericShortcut}</code></td><td> The numeric shortcut key.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_onClick com.nazir.schedx:android_onClick}</code></td><td> Name of a method on the Context used to inflate the menu that will be
+           <tr><td><code>{@link #SherlockMenuItem_android_alphabeticShortcut android:alphabeticShortcut}</code></td><td> The alphabetic shortcut key.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_checkable android:checkable}</code></td><td> Whether the item is capable of displaying a check mark.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_checked android:checked}</code></td><td> Whether the item is checked.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_enabled android:enabled}</code></td><td> Whether the item is enabled.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_icon android:icon}</code></td><td> The icon associated with this item.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_id android:id}</code></td><td> The ID of the item.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_menuCategory android:menuCategory}</code></td><td> The category applied to the item.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_numericShortcut android:numericShortcut}</code></td><td> The numeric shortcut key.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_onClick android:onClick}</code></td><td> Name of a method on the Context used to inflate the menu that will be
              called when the item is clicked.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_orderInCategory com.nazir.schedx:android_orderInCategory}</code></td><td> The order within the category applied to the item.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_showAsAction com.nazir.schedx:android_showAsAction}</code></td><td> How this item should display in the Action Bar, if present.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_title com.nazir.schedx:android_title}</code></td><td> The title associated with the item.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_titleCondensed com.nazir.schedx:android_titleCondensed}</code></td><td> The condensed title associated with the item.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_visible com.nazir.schedx:android_visible}</code></td><td> Whether the item is shown/visible.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_orderInCategory android:orderInCategory}</code></td><td> The order within the category applied to the item.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_showAsAction android:showAsAction}</code></td><td> How this item should display in the Action Bar, if present.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_title android:title}</code></td><td> The title associated with the item.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_titleCondensed android:titleCondensed}</code></td><td> The condensed title associated with the item.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_visible android:visible}</code></td><td> Whether the item is shown/visible.</td></tr>
            </table>
            @see #SherlockMenuItem_android_actionLayout
            @see #SherlockMenuItem_android_actionProviderClass
@@ -2134,8 +2166,9 @@ containing a value of this type.
            An optional layout to be used as an action view.
              See {@link android.view.MenuItem#setActionView(android.view.View)}
              for more info. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#android_actionLayout}.
-          @attr name android:android_actionLayout
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#actionLayout}.
+          @attr name android:actionLayout
         */
         public static final int SherlockMenuItem_android_actionLayout = 14;
         /**
@@ -2145,8 +2178,9 @@ containing a value of this type.
              and perform operations such as default action for that menu item.
              See {@link android.view.MenuItem#setActionProvider(android.view.ActionProvider)}
              for more info. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#android_actionProviderClass}.
-          @attr name android:android_actionProviderClass
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#actionProviderClass}.
+          @attr name android:actionProviderClass
         */
         public static final int SherlockMenuItem_android_actionProviderClass = 16;
         /**
@@ -2155,8 +2189,9 @@ containing a value of this type.
            The name of an optional View class to instantiate and use as an
              action view. See {@link android.view.MenuItem#setActionView(android.view.View)}
              for more info. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#android_actionViewClass}.
-          @attr name android:android_actionViewClass
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#actionViewClass}.
+          @attr name android:actionViewClass
         */
         public static final int SherlockMenuItem_android_actionViewClass = 15;
         /**
@@ -2164,16 +2199,18 @@ containing a value of this type.
           @attr description
            The alphabetic shortcut key.  This is the shortcut when using a keyboard
              with alphabetic keys. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#android_alphabeticShortcut}.
-          @attr name android:android_alphabeticShortcut
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#alphabeticShortcut}.
+          @attr name android:alphabeticShortcut
         */
         public static final int SherlockMenuItem_android_alphabeticShortcut = 9;
         /**
           <p>
           @attr description
            Whether the item is capable of displaying a check mark. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#android_checkable}.
-          @attr name android:android_checkable
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#checkable}.
+          @attr name android:checkable
         */
         public static final int SherlockMenuItem_android_checkable = 11;
         /**
@@ -2181,16 +2218,18 @@ containing a value of this type.
           @attr description
            Whether the item is checked.  Note that you must first have enabled checking with
              the checkable attribute or else the check mark will not appear. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#android_checked}.
-          @attr name android:android_checked
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#checked}.
+          @attr name android:checked
         */
         public static final int SherlockMenuItem_android_checked = 3;
         /**
           <p>
           @attr description
            Whether the item is enabled. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#android_enabled}.
-          @attr name android:android_enabled
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#enabled}.
+          @attr name android:enabled
         */
         public static final int SherlockMenuItem_android_enabled = 1;
         /**
@@ -2198,16 +2237,18 @@ containing a value of this type.
           @attr description
            The icon associated with this item.  This icon will not always be shown, so
              the title should be sufficient in describing this item. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#android_icon}.
-          @attr name android:android_icon
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#icon}.
+          @attr name android:icon
         */
         public static final int SherlockMenuItem_android_icon = 0;
         /**
           <p>
           @attr description
            The ID of the item. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#android_id}.
-          @attr name android:android_id
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#id}.
+          @attr name android:id
         */
         public static final int SherlockMenuItem_android_id = 2;
         /**
@@ -2215,8 +2256,9 @@ containing a value of this type.
           @attr description
            The category applied to the item.
              (This will be or'ed with the orderInCategory attribute.) 
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#android_menuCategory}.
-          @attr name android:android_menuCategory
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#menuCategory}.
+          @attr name android:menuCategory
         */
         public static final int SherlockMenuItem_android_menuCategory = 5;
         /**
@@ -2224,8 +2266,9 @@ containing a value of this type.
           @attr description
            The numeric shortcut key.  This is the shortcut when using a numeric (e.g., 12-key)
              keyboard. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#android_numericShortcut}.
-          @attr name android:android_numericShortcut
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#numericShortcut}.
+          @attr name android:numericShortcut
         */
         public static final int SherlockMenuItem_android_numericShortcut = 10;
         /**
@@ -2233,8 +2276,9 @@ containing a value of this type.
           @attr description
            Name of a method on the Context used to inflate the menu that will be
              called when the item is clicked. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#android_onClick}.
-          @attr name android:android_onClick
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#onClick}.
+          @attr name android:onClick
         */
         public static final int SherlockMenuItem_android_onClick = 12;
         /**
@@ -2242,24 +2286,27 @@ containing a value of this type.
           @attr description
            The order within the category applied to the item.
              (This will be or'ed with the category attribute.) 
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#android_orderInCategory}.
-          @attr name android:android_orderInCategory
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#orderInCategory}.
+          @attr name android:orderInCategory
         */
         public static final int SherlockMenuItem_android_orderInCategory = 6;
         /**
           <p>
           @attr description
            How this item should display in the Action Bar, if present. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#android_showAsAction}.
-          @attr name android:android_showAsAction
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#showAsAction}.
+          @attr name android:showAsAction
         */
         public static final int SherlockMenuItem_android_showAsAction = 13;
         /**
           <p>
           @attr description
            The title associated with the item. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#android_title}.
-          @attr name android:android_title
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#title}.
+          @attr name android:title
         */
         public static final int SherlockMenuItem_android_title = 7;
         /**
@@ -2267,16 +2314,18 @@ containing a value of this type.
           @attr description
            The condensed title associated with the item.  This is used in situations where the
              normal title may be too long to be displayed. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#android_titleCondensed}.
-          @attr name android:android_titleCondensed
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#titleCondensed}.
+          @attr name android:titleCondensed
         */
         public static final int SherlockMenuItem_android_titleCondensed = 8;
         /**
           <p>
           @attr description
            Whether the item is shown/visible. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#android_visible}.
-          @attr name android:android_visible
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#visible}.
+          @attr name android:visible
         */
         public static final int SherlockMenuItem_android_visible = 4;
         /** Attributes that can be used with a SherlockMenuView.
@@ -2317,8 +2366,9 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#headerBackground}.
-          @attr name android:headerBackground
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#headerBackground}.
+          @attr name com.nazir.schedx:headerBackground
         */
         public static final int SherlockMenuView_headerBackground = 3;
         /**
@@ -2329,8 +2379,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#horizontalDivider}.
-          @attr name android:horizontalDivider
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#horizontalDivider}.
+          @attr name com.nazir.schedx:horizontalDivider
         */
         public static final int SherlockMenuView_horizontalDivider = 1;
         /**
@@ -2343,8 +2394,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#itemBackground}.
-          @attr name android:itemBackground
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#itemBackground}.
+          @attr name com.nazir.schedx:itemBackground
         */
         public static final int SherlockMenuView_itemBackground = 4;
         /**
@@ -2359,8 +2411,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#itemIconDisabledAlpha}.
-          @attr name android:itemIconDisabledAlpha
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#itemIconDisabledAlpha}.
+          @attr name com.nazir.schedx:itemIconDisabledAlpha
         */
         public static final int SherlockMenuView_itemIconDisabledAlpha = 6;
         /**
@@ -2371,8 +2424,9 @@ containing a value of this type.
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#itemTextAppearance}.
-          @attr name android:itemTextAppearance
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#itemTextAppearance}.
+          @attr name com.nazir.schedx:itemTextAppearance
         */
         public static final int SherlockMenuView_itemTextAppearance = 0;
         /**
@@ -2387,8 +2441,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#preserveIconSpacing}.
-          @attr name android:preserveIconSpacing
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#preserveIconSpacing}.
+          @attr name com.nazir.schedx:preserveIconSpacing
         */
         public static final int SherlockMenuView_preserveIconSpacing = 7;
         /**
@@ -2399,8 +2454,9 @@ containing a value of this type.
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#verticalDivider}.
-          @attr name android:verticalDivider
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#verticalDivider}.
+          @attr name com.nazir.schedx:verticalDivider
         */
         public static final int SherlockMenuView_verticalDivider = 2;
         /**
@@ -2411,8 +2467,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#windowAnimationStyle}.
-          @attr name android:windowAnimationStyle
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#windowAnimationStyle}.
+          @attr name com.nazir.schedx:windowAnimationStyle
         */
         public static final int SherlockMenuView_windowAnimationStyle = 5;
         /** Attributes that can be used with a SherlockSearchView.
@@ -2421,9 +2478,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #SherlockSearchView_android_imeOptions com.nazir.schedx:android_imeOptions}</code></td><td> The IME options to set on the query text field.</td></tr>
-           <tr><td><code>{@link #SherlockSearchView_android_inputType com.nazir.schedx:android_inputType}</code></td><td> The input type to set on the query text field.</td></tr>
-           <tr><td><code>{@link #SherlockSearchView_android_maxWidth com.nazir.schedx:android_maxWidth}</code></td><td> An optional maximum width of the SearchView.</td></tr>
+           <tr><td><code>{@link #SherlockSearchView_android_imeOptions android:imeOptions}</code></td><td> The IME options to set on the query text field.</td></tr>
+           <tr><td><code>{@link #SherlockSearchView_android_inputType android:inputType}</code></td><td> The input type to set on the query text field.</td></tr>
+           <tr><td><code>{@link #SherlockSearchView_android_maxWidth android:maxWidth}</code></td><td> An optional maximum width of the SearchView.</td></tr>
            <tr><td><code>{@link #SherlockSearchView_iconifiedByDefault com.nazir.schedx:iconifiedByDefault}</code></td><td> The default state of the SearchView.</td></tr>
            <tr><td><code>{@link #SherlockSearchView_queryHint com.nazir.schedx:queryHint}</code></td><td> An optional query hint string to be displayed in the empty query field.</td></tr>
            </table>
@@ -2441,24 +2498,27 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>
           @attr description
            The IME options to set on the query text field. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#android_imeOptions}.
-          @attr name android:android_imeOptions
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#imeOptions}.
+          @attr name android:imeOptions
         */
         public static final int SherlockSearchView_android_imeOptions = 2;
         /**
           <p>
           @attr description
            The input type to set on the query text field. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#android_inputType}.
-          @attr name android:android_inputType
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#inputType}.
+          @attr name android:inputType
         */
         public static final int SherlockSearchView_android_inputType = 1;
         /**
           <p>
           @attr description
            An optional maximum width of the SearchView. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#android_maxWidth}.
-          @attr name android:android_maxWidth
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#maxWidth}.
+          @attr name android:maxWidth
         */
         public static final int SherlockSearchView_android_maxWidth = 0;
         /**
@@ -2474,8 +2534,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#iconifiedByDefault}.
-          @attr name android:iconifiedByDefault
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#iconifiedByDefault}.
+          @attr name com.nazir.schedx:iconifiedByDefault
         */
         public static final int SherlockSearchView_iconifiedByDefault = 3;
         /**
@@ -2490,8 +2551,9 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#queryHint}.
-          @attr name android:queryHint
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#queryHint}.
+          @attr name com.nazir.schedx:queryHint
         */
         public static final int SherlockSearchView_queryHint = 4;
         /** Attributes that can be used with a SherlockSpinner.
@@ -2500,17 +2562,17 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #SherlockSpinner_android_dropDownHorizontalOffset com.nazir.schedx:android_dropDownHorizontalOffset}</code></td><td> Horizontal offset from the spinner widget for positioning the dropdown
+           <tr><td><code>{@link #SherlockSpinner_android_dropDownHorizontalOffset android:dropDownHorizontalOffset}</code></td><td> Horizontal offset from the spinner widget for positioning the dropdown
              in spinnerMode="dropdown".</td></tr>
-           <tr><td><code>{@link #SherlockSpinner_android_dropDownSelector com.nazir.schedx:android_dropDownSelector}</code></td><td> List selector to use for spinnerMode="dropdown" display.</td></tr>
-           <tr><td><code>{@link #SherlockSpinner_android_dropDownVerticalOffset com.nazir.schedx:android_dropDownVerticalOffset}</code></td><td> Vertical offset from the spinner widget for positioning the dropdown in
+           <tr><td><code>{@link #SherlockSpinner_android_dropDownSelector android:dropDownSelector}</code></td><td> List selector to use for spinnerMode="dropdown" display.</td></tr>
+           <tr><td><code>{@link #SherlockSpinner_android_dropDownVerticalOffset android:dropDownVerticalOffset}</code></td><td> Vertical offset from the spinner widget for positioning the dropdown in
              spinnerMode="dropdown".</td></tr>
-           <tr><td><code>{@link #SherlockSpinner_android_dropDownWidth com.nazir.schedx:android_dropDownWidth}</code></td><td> Width of the dropdown in spinnerMode="dropdown".</td></tr>
-           <tr><td><code>{@link #SherlockSpinner_android_gravity com.nazir.schedx:android_gravity}</code></td><td> Gravity setting for positioning the currently selected item.</td></tr>
-           <tr><td><code>{@link #SherlockSpinner_android_popupBackground com.nazir.schedx:android_popupBackground}</code></td><td> Background drawable to use for the dropdown in spinnerMode="dropdown".</td></tr>
-           <tr><td><code>{@link #SherlockSpinner_android_popupPromptView com.nazir.schedx:android_popupPromptView}</code></td><td> Reference to a layout to use for displaying a prompt in the dropdown for
+           <tr><td><code>{@link #SherlockSpinner_android_dropDownWidth android:dropDownWidth}</code></td><td> Width of the dropdown in spinnerMode="dropdown".</td></tr>
+           <tr><td><code>{@link #SherlockSpinner_android_gravity android:gravity}</code></td><td> Gravity setting for positioning the currently selected item.</td></tr>
+           <tr><td><code>{@link #SherlockSpinner_android_popupBackground android:popupBackground}</code></td><td> Background drawable to use for the dropdown in spinnerMode="dropdown".</td></tr>
+           <tr><td><code>{@link #SherlockSpinner_android_popupPromptView android:popupPromptView}</code></td><td> Reference to a layout to use for displaying a prompt in the dropdown for
              spinnerMode="dropdown".</td></tr>
-           <tr><td><code>{@link #SherlockSpinner_android_prompt com.nazir.schedx:android_prompt}</code></td><td> The prompt to display when the spinner's dialog is shown.</td></tr>
+           <tr><td><code>{@link #SherlockSpinner_android_prompt android:prompt}</code></td><td> The prompt to display when the spinner's dialog is shown.</td></tr>
            </table>
            @see #SherlockSpinner_android_dropDownHorizontalOffset
            @see #SherlockSpinner_android_dropDownSelector
@@ -2530,16 +2592,18 @@ containing a value of this type.
           @attr description
            Horizontal offset from the spinner widget for positioning the dropdown
              in spinnerMode="dropdown". 
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#android_dropDownHorizontalOffset}.
-          @attr name android:android_dropDownHorizontalOffset
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#dropDownHorizontalOffset}.
+          @attr name android:dropDownHorizontalOffset
         */
         public static final int SherlockSpinner_android_dropDownHorizontalOffset = 5;
         /**
           <p>
           @attr description
            List selector to use for spinnerMode="dropdown" display. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#android_dropDownSelector}.
-          @attr name android:android_dropDownSelector
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#dropDownSelector}.
+          @attr name android:dropDownSelector
         */
         public static final int SherlockSpinner_android_dropDownSelector = 1;
         /**
@@ -2547,32 +2611,36 @@ containing a value of this type.
           @attr description
            Vertical offset from the spinner widget for positioning the dropdown in
              spinnerMode="dropdown". 
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#android_dropDownVerticalOffset}.
-          @attr name android:android_dropDownVerticalOffset
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#dropDownVerticalOffset}.
+          @attr name android:dropDownVerticalOffset
         */
         public static final int SherlockSpinner_android_dropDownVerticalOffset = 6;
         /**
           <p>
           @attr description
            Width of the dropdown in spinnerMode="dropdown". 
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#android_dropDownWidth}.
-          @attr name android:android_dropDownWidth
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#dropDownWidth}.
+          @attr name android:dropDownWidth
         */
         public static final int SherlockSpinner_android_dropDownWidth = 4;
         /**
           <p>
           @attr description
            Gravity setting for positioning the currently selected item. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#android_gravity}.
-          @attr name android:android_gravity
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#gravity}.
+          @attr name android:gravity
         */
         public static final int SherlockSpinner_android_gravity = 0;
         /**
           <p>
           @attr description
            Background drawable to use for the dropdown in spinnerMode="dropdown". 
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#android_popupBackground}.
-          @attr name android:android_popupBackground
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#popupBackground}.
+          @attr name android:popupBackground
         */
         public static final int SherlockSpinner_android_popupBackground = 2;
         /**
@@ -2582,15 +2650,16 @@ containing a value of this type.
              spinnerMode="dropdown". This layout must contain a TextView with the id
              @android:id/text1 to be populated with the prompt text. 
           <p>This is a private symbol.
-          @attr name android:android_popupPromptView
+          @attr name android:popupPromptView
         */
         public static final int SherlockSpinner_android_popupPromptView = 7;
         /**
           <p>
           @attr description
            The prompt to display when the spinner's dialog is shown. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#android_prompt}.
-          @attr name android:android_prompt
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#prompt}.
+          @attr name android:prompt
         */
         public static final int SherlockSpinner_android_prompt = 3;
         /** Attributes that can be used with a SherlockTheme.
@@ -2766,8 +2835,9 @@ containing a value of this type.
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#actionBarDivider}.
-          @attr name android:actionBarDivider
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#actionBarDivider}.
+          @attr name com.nazir.schedx:actionBarDivider
         */
         public static final int SherlockTheme_actionBarDivider = 8;
         /**
@@ -2778,8 +2848,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#actionBarItemBackground}.
-          @attr name android:actionBarItemBackground
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#actionBarItemBackground}.
+          @attr name com.nazir.schedx:actionBarItemBackground
         */
         public static final int SherlockTheme_actionBarItemBackground = 9;
         /**
@@ -2805,8 +2876,9 @@ containing a value of this type.
 <tr><th>Constant</th><th>Value</th><th>Description</th></tr>
 <tr><td><code>wrap_content</code></td><td>0</td><td></td></tr>
 </table>
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#actionBarSize}.
-          @attr name android:actionBarSize
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#actionBarSize}.
+          @attr name com.nazir.schedx:actionBarSize
         */
         public static final int SherlockTheme_actionBarSize = 7;
         /**
@@ -2820,8 +2892,9 @@ containing a value of this type.
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#actionBarSplitStyle}.
-          @attr name android:actionBarSplitStyle
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#actionBarSplitStyle}.
+          @attr name com.nazir.schedx:actionBarSplitStyle
         */
         public static final int SherlockTheme_actionBarSplitStyle = 5;
         /**
@@ -2832,8 +2905,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#actionBarStyle}.
-          @attr name android:actionBarStyle
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#actionBarStyle}.
+          @attr name com.nazir.schedx:actionBarStyle
         */
         public static final int SherlockTheme_actionBarStyle = 4;
         /**
@@ -2843,7 +2917,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name android:actionBarTabBarStyle
+          @attr name com.nazir.schedx:actionBarTabBarStyle
         */
         public static final int SherlockTheme_actionBarTabBarStyle = 1;
         /**
@@ -2854,8 +2928,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#actionBarTabStyle}.
-          @attr name android:actionBarTabStyle
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#actionBarTabStyle}.
+          @attr name com.nazir.schedx:actionBarTabStyle
         */
         public static final int SherlockTheme_actionBarTabStyle = 0;
         /**
@@ -2865,7 +2940,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name android:actionBarTabTextStyle
+          @attr name com.nazir.schedx:actionBarTabTextStyle
         */
         public static final int SherlockTheme_actionBarTabTextStyle = 2;
         /**
@@ -2882,8 +2957,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#actionBarWidgetTheme}.
-          @attr name android:actionBarWidgetTheme
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#actionBarWidgetTheme}.
+          @attr name com.nazir.schedx:actionBarWidgetTheme
         */
         public static final int SherlockTheme_actionBarWidgetTheme = 6;
         /**
@@ -2893,7 +2969,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name android:actionButtonStyle
+          @attr name com.nazir.schedx:actionButtonStyle
         */
         public static final int SherlockTheme_actionButtonStyle = 52;
         /**
@@ -2903,7 +2979,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name android:actionDropDownStyle
+          @attr name com.nazir.schedx:actionDropDownStyle
         */
         public static final int SherlockTheme_actionDropDownStyle = 51;
         /**
@@ -2915,8 +2991,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#actionMenuTextAppearance}.
-          @attr name android:actionMenuTextAppearance
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#actionMenuTextAppearance}.
+          @attr name com.nazir.schedx:actionMenuTextAppearance
         */
         public static final int SherlockTheme_actionMenuTextAppearance = 10;
         /**
@@ -2929,8 +3006,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#actionMenuTextColor}.
-          @attr name android:actionMenuTextColor
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#actionMenuTextColor}.
+          @attr name com.nazir.schedx:actionMenuTextColor
         */
         public static final int SherlockTheme_actionMenuTextColor = 11;
         /**
@@ -2941,8 +3019,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#actionModeBackground}.
-          @attr name android:actionModeBackground
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#actionModeBackground}.
+          @attr name com.nazir.schedx:actionModeBackground
         */
         public static final int SherlockTheme_actionModeBackground = 14;
         /**
@@ -2952,7 +3031,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name android:actionModeCloseButtonStyle
+          @attr name com.nazir.schedx:actionModeCloseButtonStyle
         */
         public static final int SherlockTheme_actionModeCloseButtonStyle = 13;
         /**
@@ -2963,8 +3042,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#actionModeCloseDrawable}.
-          @attr name android:actionModeCloseDrawable
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#actionModeCloseDrawable}.
+          @attr name com.nazir.schedx:actionModeCloseDrawable
         */
         public static final int SherlockTheme_actionModeCloseDrawable = 16;
         /**
@@ -2975,8 +3055,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#actionModePopupWindowStyle}.
-          @attr name android:actionModePopupWindowStyle
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#actionModePopupWindowStyle}.
+          @attr name com.nazir.schedx:actionModePopupWindowStyle
         */
         public static final int SherlockTheme_actionModePopupWindowStyle = 18;
         /**
@@ -2987,8 +3068,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#actionModeShareDrawable}.
-          @attr name android:actionModeShareDrawable
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#actionModeShareDrawable}.
+          @attr name com.nazir.schedx:actionModeShareDrawable
         */
         public static final int SherlockTheme_actionModeShareDrawable = 17;
         /**
@@ -2999,8 +3081,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#actionModeSplitBackground}.
-          @attr name android:actionModeSplitBackground
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#actionModeSplitBackground}.
+          @attr name com.nazir.schedx:actionModeSplitBackground
         */
         public static final int SherlockTheme_actionModeSplitBackground = 15;
         /**
@@ -3010,7 +3093,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name android:actionModeStyle
+          @attr name com.nazir.schedx:actionModeStyle
         */
         public static final int SherlockTheme_actionModeStyle = 12;
         /**
@@ -3020,7 +3103,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name android:actionOverflowButtonStyle
+          @attr name com.nazir.schedx:actionOverflowButtonStyle
         */
         public static final int SherlockTheme_actionOverflowButtonStyle = 3;
         /**
@@ -3030,7 +3113,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name android:actionSpinnerItemStyle
+          @attr name com.nazir.schedx:actionSpinnerItemStyle
         */
         public static final int SherlockTheme_actionSpinnerItemStyle = 57;
         /**
@@ -3041,8 +3124,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#activatedBackgroundIndicator}.
-          @attr name android:activatedBackgroundIndicator
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#activatedBackgroundIndicator}.
+          @attr name com.nazir.schedx:activatedBackgroundIndicator
         */
         public static final int SherlockTheme_activatedBackgroundIndicator = 65;
         /**
@@ -3053,8 +3137,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#activityChooserViewStyle}.
-          @attr name android:activityChooserViewStyle
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#activityChooserViewStyle}.
+          @attr name com.nazir.schedx:activityChooserViewStyle
         */
         public static final int SherlockTheme_activityChooserViewStyle = 64;
         /**
@@ -3065,8 +3150,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#buttonStyleSmall}.
-          @attr name android:buttonStyleSmall
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#buttonStyleSmall}.
+          @attr name com.nazir.schedx:buttonStyleSmall
         */
         public static final int SherlockTheme_buttonStyleSmall = 19;
         /**
@@ -3077,8 +3163,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#dividerVertical}.
-          @attr name android:dividerVertical
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#dividerVertical}.
+          @attr name com.nazir.schedx:dividerVertical
         */
         public static final int SherlockTheme_dividerVertical = 50;
         /**
@@ -3088,7 +3175,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name android:dropDownHintAppearance
+          @attr name com.nazir.schedx:dropDownHintAppearance
         */
         public static final int SherlockTheme_dropDownHintAppearance = 66;
         /**
@@ -3098,7 +3185,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name android:dropDownListViewStyle
+          @attr name com.nazir.schedx:dropDownListViewStyle
         */
         public static final int SherlockTheme_dropDownListViewStyle = 54;
         /**
@@ -3114,7 +3201,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:dropdownListPreferredItemHeight
+          @attr name com.nazir.schedx:dropdownListPreferredItemHeight
         */
         public static final int SherlockTheme_dropdownListPreferredItemHeight = 56;
         /**
@@ -3124,7 +3211,7 @@ containing a value of this type.
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name android:homeAsUpIndicator
+          @attr name com.nazir.schedx:homeAsUpIndicator
         */
         public static final int SherlockTheme_homeAsUpIndicator = 53;
         /**
@@ -3134,7 +3221,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name android:listPopupWindowStyle
+          @attr name com.nazir.schedx:listPopupWindowStyle
         */
         public static final int SherlockTheme_listPopupWindowStyle = 63;
         /**
@@ -3151,8 +3238,9 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#listPreferredItemHeightSmall}.
-          @attr name android:listPreferredItemHeightSmall
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#listPreferredItemHeightSmall}.
+          @attr name com.nazir.schedx:listPreferredItemHeightSmall
         */
         public static final int SherlockTheme_listPreferredItemHeightSmall = 44;
         /**
@@ -3169,8 +3257,9 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#listPreferredItemPaddingLeft}.
-          @attr name android:listPreferredItemPaddingLeft
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#listPreferredItemPaddingLeft}.
+          @attr name com.nazir.schedx:listPreferredItemPaddingLeft
         */
         public static final int SherlockTheme_listPreferredItemPaddingLeft = 45;
         /**
@@ -3187,8 +3276,9 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#listPreferredItemPaddingRight}.
-          @attr name android:listPreferredItemPaddingRight
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#listPreferredItemPaddingRight}.
+          @attr name com.nazir.schedx:listPreferredItemPaddingRight
         */
         public static final int SherlockTheme_listPreferredItemPaddingRight = 46;
         /**
@@ -3198,7 +3288,7 @@ containing a value of this type.
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name android:popupMenuStyle
+          @attr name com.nazir.schedx:popupMenuStyle
         */
         public static final int SherlockTheme_popupMenuStyle = 55;
         /**
@@ -3209,8 +3299,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#searchAutoCompleteTextView}.
-          @attr name android:searchAutoCompleteTextView
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#searchAutoCompleteTextView}.
+          @attr name com.nazir.schedx:searchAutoCompleteTextView
         */
         public static final int SherlockTheme_searchAutoCompleteTextView = 30;
         /**
@@ -3221,8 +3312,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#searchDropdownBackground}.
-          @attr name android:searchDropdownBackground
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#searchDropdownBackground}.
+          @attr name com.nazir.schedx:searchDropdownBackground
         */
         public static final int SherlockTheme_searchDropdownBackground = 31;
         /**
@@ -3239,8 +3331,9 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#searchResultListItemHeight}.
-          @attr name android:searchResultListItemHeight
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#searchResultListItemHeight}.
+          @attr name com.nazir.schedx:searchResultListItemHeight
         */
         public static final int SherlockTheme_searchResultListItemHeight = 41;
         /**
@@ -3251,8 +3344,9 @@ containing a value of this type.
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#searchViewCloseIcon}.
-          @attr name android:searchViewCloseIcon
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#searchViewCloseIcon}.
+          @attr name com.nazir.schedx:searchViewCloseIcon
         */
         public static final int SherlockTheme_searchViewCloseIcon = 32;
         /**
@@ -3263,8 +3357,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#searchViewEditQuery}.
-          @attr name android:searchViewEditQuery
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#searchViewEditQuery}.
+          @attr name com.nazir.schedx:searchViewEditQuery
         */
         public static final int SherlockTheme_searchViewEditQuery = 36;
         /**
@@ -3275,8 +3370,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#searchViewEditQueryBackground}.
-          @attr name android:searchViewEditQueryBackground
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#searchViewEditQueryBackground}.
+          @attr name com.nazir.schedx:searchViewEditQueryBackground
         */
         public static final int SherlockTheme_searchViewEditQueryBackground = 37;
         /**
@@ -3287,8 +3383,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#searchViewGoIcon}.
-          @attr name android:searchViewGoIcon
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#searchViewGoIcon}.
+          @attr name com.nazir.schedx:searchViewGoIcon
         */
         public static final int SherlockTheme_searchViewGoIcon = 33;
         /**
@@ -3299,8 +3396,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#searchViewSearchIcon}.
-          @attr name android:searchViewSearchIcon
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#searchViewSearchIcon}.
+          @attr name com.nazir.schedx:searchViewSearchIcon
         */
         public static final int SherlockTheme_searchViewSearchIcon = 34;
         /**
@@ -3311,8 +3409,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#searchViewTextField}.
-          @attr name android:searchViewTextField
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#searchViewTextField}.
+          @attr name com.nazir.schedx:searchViewTextField
         */
         public static final int SherlockTheme_searchViewTextField = 38;
         /**
@@ -3323,8 +3422,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#searchViewTextFieldRight}.
-          @attr name android:searchViewTextFieldRight
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#searchViewTextFieldRight}.
+          @attr name com.nazir.schedx:searchViewTextFieldRight
         */
         public static final int SherlockTheme_searchViewTextFieldRight = 39;
         /**
@@ -3335,8 +3435,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#searchViewVoiceIcon}.
-          @attr name android:searchViewVoiceIcon
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#searchViewVoiceIcon}.
+          @attr name com.nazir.schedx:searchViewVoiceIcon
         */
         public static final int SherlockTheme_searchViewVoiceIcon = 35;
         /**
@@ -3347,8 +3448,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#selectableItemBackground}.
-          @attr name android:selectableItemBackground
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#selectableItemBackground}.
+          @attr name com.nazir.schedx:selectableItemBackground
         */
         public static final int SherlockTheme_selectableItemBackground = 20;
         /**
@@ -3358,7 +3460,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name android:spinnerDropDownItemStyle
+          @attr name com.nazir.schedx:spinnerDropDownItemStyle
         */
         public static final int SherlockTheme_spinnerDropDownItemStyle = 29;
         /**
@@ -3368,7 +3470,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name android:spinnerItemStyle
+          @attr name com.nazir.schedx:spinnerItemStyle
         */
         public static final int SherlockTheme_spinnerItemStyle = 28;
         /**
@@ -3379,8 +3481,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#textAppearanceLargePopupMenu}.
-          @attr name android:textAppearanceLargePopupMenu
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#textAppearanceLargePopupMenu}.
+          @attr name com.nazir.schedx:textAppearanceLargePopupMenu
         */
         public static final int SherlockTheme_textAppearanceLargePopupMenu = 22;
         /**
@@ -3391,8 +3494,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#textAppearanceListItemSmall}.
-          @attr name android:textAppearanceListItemSmall
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#textAppearanceListItemSmall}.
+          @attr name com.nazir.schedx:textAppearanceListItemSmall
         */
         public static final int SherlockTheme_textAppearanceListItemSmall = 47;
         /**
@@ -3403,8 +3507,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#textAppearanceSearchResultSubtitle}.
-          @attr name android:textAppearanceSearchResultSubtitle
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#textAppearanceSearchResultSubtitle}.
+          @attr name com.nazir.schedx:textAppearanceSearchResultSubtitle
         */
         public static final int SherlockTheme_textAppearanceSearchResultSubtitle = 43;
         /**
@@ -3415,8 +3520,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#textAppearanceSearchResultTitle}.
-          @attr name android:textAppearanceSearchResultTitle
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#textAppearanceSearchResultTitle}.
+          @attr name com.nazir.schedx:textAppearanceSearchResultTitle
         */
         public static final int SherlockTheme_textAppearanceSearchResultTitle = 42;
         /**
@@ -3427,8 +3533,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#textAppearanceSmall}.
-          @attr name android:textAppearanceSmall
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#textAppearanceSmall}.
+          @attr name com.nazir.schedx:textAppearanceSmall
         */
         public static final int SherlockTheme_textAppearanceSmall = 24;
         /**
@@ -3439,8 +3546,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#textAppearanceSmallPopupMenu}.
-          @attr name android:textAppearanceSmallPopupMenu
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#textAppearanceSmallPopupMenu}.
+          @attr name com.nazir.schedx:textAppearanceSmallPopupMenu
         */
         public static final int SherlockTheme_textAppearanceSmallPopupMenu = 23;
         /**
@@ -3455,7 +3563,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:textColorPrimary
+          @attr name com.nazir.schedx:textColorPrimary
         */
         public static final int SherlockTheme_textColorPrimary = 25;
         /**
@@ -3470,7 +3578,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:textColorPrimaryDisableOnly
+          @attr name com.nazir.schedx:textColorPrimaryDisableOnly
         */
         public static final int SherlockTheme_textColorPrimaryDisableOnly = 26;
         /**
@@ -3485,7 +3593,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:textColorPrimaryInverse
+          @attr name com.nazir.schedx:textColorPrimaryInverse
         */
         public static final int SherlockTheme_textColorPrimaryInverse = 27;
         /**
@@ -3498,8 +3606,9 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#textColorSearchUrl}.
-          @attr name android:textColorSearchUrl
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#textColorSearchUrl}.
+          @attr name com.nazir.schedx:textColorSearchUrl
         */
         public static final int SherlockTheme_textColorSearchUrl = 40;
         /**
@@ -3513,7 +3622,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:windowActionBar
+          @attr name com.nazir.schedx:windowActionBar
         */
         public static final int SherlockTheme_windowActionBar = 59;
         /**
@@ -3527,7 +3636,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:windowActionBarOverlay
+          @attr name com.nazir.schedx:windowActionBarOverlay
         */
         public static final int SherlockTheme_windowActionBarOverlay = 60;
         /**
@@ -3541,7 +3650,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:windowActionModeOverlay
+          @attr name com.nazir.schedx:windowActionModeOverlay
         */
         public static final int SherlockTheme_windowActionModeOverlay = 61;
         /**
@@ -3553,8 +3662,9 @@ containing a value of this type.
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This corresponds to the global attribute          resource symbol {@link com.nazir.schedx.R.attr#windowContentOverlay}.
-          @attr name android:windowContentOverlay
+          <p>This corresponds to the global attribute
+          resource symbol {@link com.nazir.schedx.R.attr#windowContentOverlay}.
+          @attr name com.nazir.schedx:windowContentOverlay
         */
         public static final int SherlockTheme_windowContentOverlay = 21;
         /**
@@ -3570,7 +3680,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:windowMinWidthMajor
+          @attr name com.nazir.schedx:windowMinWidthMajor
         */
         public static final int SherlockTheme_windowMinWidthMajor = 48;
         /**
@@ -3586,7 +3696,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:windowMinWidthMinor
+          @attr name com.nazir.schedx:windowMinWidthMinor
         */
         public static final int SherlockTheme_windowMinWidthMinor = 49;
         /**
@@ -3600,7 +3710,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:windowNoTitle
+          @attr name com.nazir.schedx:windowNoTitle
         */
         public static final int SherlockTheme_windowNoTitle = 58;
         /**
@@ -3614,7 +3724,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:windowSplitActionBar
+          @attr name com.nazir.schedx:windowSplitActionBar
         */
         public static final int SherlockTheme_windowSplitActionBar = 62;
         /** Attributes that can be used with a SherlockView.
@@ -3623,7 +3733,7 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #SherlockView_android_focusable com.nazir.schedx:android_focusable}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockView_android_focusable android:focusable}</code></td><td></td></tr>
            </table>
            @see #SherlockView_android_focusable
          */
@@ -3631,9 +3741,9 @@ containing a value of this type.
             0x010100da
         };
         /**
-          <p>This symbol is the offset where the {@link com.nazir.schedx.R.attr#android_focusable}
+          <p>This symbol is the offset where the {@link android.R.attr#focusable}
           attribute's value can be found in the {@link #SherlockView} array.
-          @attr name android:android_focusable
+          @attr name android:focusable
         */
         public static final int SherlockView_android_focusable = 0;
     };

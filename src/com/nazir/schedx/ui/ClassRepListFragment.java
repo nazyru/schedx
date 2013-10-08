@@ -235,6 +235,7 @@ public class ClassRepListFragment extends MyCustomFragment
       
     }
 
+	@SuppressWarnings("deprecation")
 	public void onStart()
     {
         super.onStart();
@@ -244,10 +245,10 @@ public class ClassRepListFragment extends MyCustomFragment
         
         cursor = (new ClassRepHelper(getSherlockActivity())).getClassReps();
         adapter = new SimpleCursorAdapter(getSherlockActivity(),
-        		android.R.layout.simple_list_item_2, cursor, new String[] {
+        		R.layout.courses_list_layout, cursor, new String[] {
             NAME, REG_NO
         }, new int[] {
-            android.R.id.text1, android.R.id.text2
+            R.id.course_code_list_item, R.id.course_title_list_item
         });
         
         listview.setAdapter(adapter);

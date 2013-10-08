@@ -169,7 +169,7 @@ public class AssessmentListActivity extends MyCustomFragment
         
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 
-            public boolean onItemLongClick(AdapterView adapterview, View view, int i, long l)
+            public boolean onItemLongClick(AdapterView<?> adapterview, View view, int i, long l)
             {
                 if(mActionMode != null)
                 {
@@ -183,7 +183,7 @@ public class AssessmentListActivity extends MyCustomFragment
 
         }
 );
-        final ArrayAdapter<AssessmentType> filterAdapter = new ArrayAdapter(getSherlockActivity(), 
+        final ArrayAdapter<AssessmentType> filterAdapter = new ArrayAdapter<AssessmentType>(getSherlockActivity(), 
         		android.R.layout.simple_list_item_1, AssessmentType.values());
         filter.setAdapter(filterAdapter);
         filter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -195,7 +195,7 @@ public class AssessmentListActivity extends MyCustomFragment
                 adapter.changeCursor(cursor);
             }
 
-            public void onNothingSelected(AdapterView adapterview)
+            public void onNothingSelected(AdapterView<?> adapterview)
             {
             }
         }

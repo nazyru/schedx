@@ -101,6 +101,10 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">#ff99cc00</item>
     </style>
+    <style name="list_item.sub_item">
+        <item name="android:textSize">18.0sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
     
     <style name="arrow" parent="@android:style/Widget">
         <item name="android:scaleType">centerCrop</item>

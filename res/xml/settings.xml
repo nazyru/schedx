@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
   xmlns:android="http://schemas.android.com/apk/res/android">
+  
     <PreferenceCategory android:title="@string/app_mode_cat_title">
-        <ListPreference android:entries="@array/app_mode" android:title="@string/app_mode_title" android:key="@string/app_mode_key" android:dialogTitle="@string/app_mode_dialog_titile" android:entryValues="@array/app_mode" />
+        <ListPreference 
+            android:entries="@array/app_mode" 
+            android:title="@string/app_mode_title" 
+            android:key="@string/app_mode_key" 
+            android:dialogTitle="@string/app_mode_dialog_titile" 
+            android:entryValues="@array/app_mode" />
     </PreferenceCategory>
-    <PreferenceCategory android:title="@string/notification_cat_title" android:key="@string/notification_key">
-        <CheckBoxPreference android:title="@string/notification_check_box_title" android:key="@string/notification_check_box" android:defaultValue="true" />
-    </PreferenceCategory>
-    <PreferenceCategory android:title="@string/lecture_notif_cat_title">
-        <ListPreference android:entries="@array/lecture_offset_list" android:title="@string/lecture_notif_title" android:key="@string/lecture_notification_key" android:dependency="@string/notification_check_box" android:dialogTitle="@string/lecture_notif_dialog_title" android:entryValues="@array/lecture_offset_list" />
-    </PreferenceCategory>
-    <PreferenceCategory android:title="@string/assessment_cat_title" android:dependency="@string/notification_key">
-        <ListPreference android:entries="@array/assessment_delay_list" android:title="@string/assessment_notif_title" android:key="@string/assessment_notif_key" android:dependency="@string/notification_check_box" android:dialogTitle="@string/assessment_notif_dialog_title" android:entryValues="@array/assessment_delay_list" />
-    </PreferenceCategory>
+    
 </PreferenceScreen>

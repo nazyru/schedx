@@ -7,10 +7,12 @@ import android.database.sqlite.SQLiteDatabase;
 import com.nazir.schedx.model.Todo;
 import com.nazir.schedx.types.AlarmRepeatMode;
 import com.nazir.schedx.types.AlarmTrigger;
-import com.nazir.schedx.util.DateTimeHelper;
 import com.nazir.schedx.util.Mapper;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import static com.nazir.schedx.persist.MySqliteOpenHelper.Todos.*;
+import static com.nazir.schedx.persist.MySqliteOpenHelper.Tables.*;
 
 public class TodosHelper
 {
@@ -23,33 +25,19 @@ public class TodosHelper
     int repeatModeindx;
     int timeIndx;
     int triggerIndx;
+    String cols[] = {
+            ID, NAME, DESCRIPTION, TIME, RATING, TRIGGER, REPEAT_MODE
+        };
+    
     public TodosHelper(Context context1)
     {
         context = context1;
         db = MySqliteOpenHelper.getWritableDb(context);
     }
-
-    public void addMockTodo(int i)
-    {
-        db.delete("todos", null, null);
-        Todo todo = new Todo();
-        int j = 1;
-        do
-        {
-            if(j > i)
-                return;
-            todo.setName((new StringBuilder("I wanna Call my mom ")).append(j).toString());
-            todo.setRating(j);
-            todo.setDescription("i Wanna Call my mom so that we discuss about my next vacation");
-            todo.setTime(DateTimeHelper.getTimeMillis(j, j + 5));
-            db.insert("todos", null, Mapper.mapTodos(todo));
-            j++;
-        } while(true);
-    }
-
+    
     public long addTodo(Todo todo)
     {
-        return db.insertOrThrow("todos", null, Mapper.mapTodos(todo));
+        return db.insertOrThrow(TODOS, null, Mapper.mapTodos(todo));
     }
 
     public void delete(int i)
@@ -57,7 +45,7 @@ public class TodosHelper
         SQLiteDatabase sqlitedatabase = db;
         String as[] = new String[1];
         as[0] = Integer.toString(i);
-        sqlitedatabase.delete("todos", "_id = ?", as);
+        sqlitedatabase.delete(TODOS, "_id = ?", as);
     }
 
     public void disconnect()
@@ -68,16 +56,16 @@ public class TodosHelper
     public List<Todo> getPendingTodos()
     {
         ArrayList<Todo> arraylist = new ArrayList<Todo>();
-        Cursor cursor = db.query("todos", cols, null, null, null, null, null);
+        Cursor cursor = db.query(TODOS, cols, null, null, null, null, null);
         if(cursor.moveToFirst())
         {
-            nameIndx = cursor.getColumnIndex("name");
-            descIndx = cursor.getColumnIndex("description");
-            timeIndx = cursor.getColumnIndex("TIME");
-            ratingIndx = cursor.getColumnIndex("rating");
-            repeatModeindx = cursor.getColumnIndex("alarm_repeat_mode");
-            triggerIndx = cursor.getColumnIndex("alarm_trigger");
-            idIndx = cursor.getColumnIndex("_id");
+            nameIndx = cursor.getColumnIndex(NAME);
+            descIndx = cursor.getColumnIndex(DESCRIPTION);
+            timeIndx = cursor.getColumnIndex(TIME);
+            ratingIndx = cursor.getColumnIndex(RATING);
+            repeatModeindx = cursor.getColumnIndex(REPEAT_MODE);
+            triggerIndx = cursor.getColumnIndex(TRIGGER);
+            idIndx = cursor.getColumnIndex(ID);
             do
             {
                 Todo todo = new Todo();
@@ -111,16 +99,16 @@ public class TodosHelper
     {
         String as[] = new String[1];
         as[0] = Integer.toString(i);
-        Cursor cursor = db.query("todos", cols, "_id = ?", as, null, null, null);
+        Cursor cursor = db.query(TODOS, cols, "_id = ?", as, null, null, null);
         Todo todo = new Todo();
         if(cursor.moveToFirst())
         {
             todo.setID(i);
-            todo.setName(cursor.getString(cursor.getColumnIndex("name")));
-            todo.setDescription(cursor.getString(cursor.getColumnIndex("description")));
-            todo.setTime(cursor.getLong(cursor.getColumnIndex("TIME")));
-            todo.setRating(cursor.getFloat(cursor.getColumnIndex("rating")));
-            String s = cursor.getString(cursor.getColumnIndex("alarm_trigger"));
+            todo.setName(cursor.getString(cursor.getColumnIndex(NAME)));
+            todo.setDescription(cursor.getString(cursor.getColumnIndex(DESCRIPTION)));
+            todo.setTime(cursor.getLong(cursor.getColumnIndex(TIME)));
+            todo.setRating(cursor.getFloat(cursor.getColumnIndex(RATING)));
+            String s = cursor.getString(cursor.getColumnIndex(TRIGGER));
             AlarmTrigger alarmtrigger;
             String s1;
             AlarmRepeatMode alarmrepeatmode;
@@ -129,7 +117,7 @@ public class TodosHelper
             else
                 alarmtrigger = null;
             todo.setAlarmTrigger(alarmtrigger);
-            s1 = cursor.getString(cursor.getColumnIndex("alarm_repeat_mode"));
+            s1 = cursor.getString(cursor.getColumnIndex(REPEAT_MODE));
             alarmrepeatmode = null;
             if(s1 != null)
                 alarmrepeatmode = AlarmRepeatMode.valueOf(s1);
@@ -143,19 +131,30 @@ public class TodosHelper
 
     public Cursor getTodos()
     {
-        return db.query("todos", cols, null, null, null, null, "rating DESC");
+    	Calendar now = Calendar.getInstance();
+    	long time = now.getTimeInMillis();
+    	String selection = TIME + " > ?";
+    	String selectionArgs[] = {Long.toString(time)};
+    	String orderBy = TIME+" DESC";
+        return db.query(TODOS, cols, selection, selectionArgs, null, null, orderBy);
     }
 
     public void updateTodo(Todo todo)
     {
         String s = Integer.toString(todo.getID());
-        db.update("todos", Mapper.mapTodos(todo), "_id = ? ", new String[] {
+        db.update(TODOS, Mapper.mapTodos(todo), "_id = ? ", new String[] {
             s
         });
     }
 
-    String cols[] = {
-        "_id", "name", "description", "TIME", "rating", "alarm_trigger", "alarm_repeat_mode"
-    };
+    
+    
+	public Cursor getDoneTasks() {
+		Calendar now = Calendar.getInstance();
+		long time = now.getTimeInMillis();
+		String selection = TIME + " < ?";
+		String[] selectionArgs = {Long.toString(time)};
+		return db.query(TODOS, cols, selection, selectionArgs, null, null, TIME + " DESC");
+	}
     
 }

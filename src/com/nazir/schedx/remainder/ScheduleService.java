@@ -70,10 +70,10 @@ public class ScheduleService extends IntentService
             		intent1, PendingIntent.FLAG_CANCEL_CURRENT);
             notification = (new NotificationCompat.Builder(this))
             		.setSmallIcon(R.drawable.ic_notification)
-            		.setTicker("Remainder about "+ assessment.getAssessmentType().toString())
+            		.setTicker("SchedX Remainder about "+ assessment.getAssessmentType().toString())
             		.setAutoCancel(true)
             		.setContentIntent(pendingintent)
-            		.setContentTitle("A remainder about an Assessment")
+            		.setContentTitle("SchedX Remainder about an Assessment")
             		.setContentText(assessment.getCourse().getCourseCode() + " "+assessment.getAssessmentType().toString() +" Notification")
             		.setWhen(assessment.getDate())
             		.build();
@@ -100,7 +100,7 @@ public class ScheduleService extends IntentService
         PendingIntent pendingintent = PendingIntent.getActivity(this, id, intent1, PendingIntent.FLAG_CANCEL_CURRENT);
         notification = new NotificationCompat.Builder(this)
         .setSmallIcon(R.drawable.ic_notification)
-        .setContentTitle("Lecture Remainder")
+        .setContentTitle("SchedX Lecture Remainder")
         .setContentText(lecture.getCourse().getCourseCode() + " now @ "+ lecture.getVenue())
         .setTicker(lecture.getCourse().getCourseCode() + " now @ "+ lecture.getVenue())
         .setContentIntent(pendingintent)
@@ -123,7 +123,6 @@ public class ScheduleService extends IntentService
         
         if(now.getTimeInMillis() - todo.getTime() > 1000)
         {
-        	Log.w("--Alarm Passed", "Jenny with " + (now.getTimeInMillis() - todo.getTime()));
             return;
         } else
         {
@@ -136,7 +135,7 @@ public class ScheduleService extends IntentService
             .setSmallIcon(R.drawable.ic_notification)
             .setContentIntent(pendingintent)
             .setAutoCancel(true)
-            .setContentTitle("Task Remainder")
+            .setContentTitle("SchedX TODO Remainder")
             .setContentText("is time for "+ todo.getName())
             .setTicker(todo.getDescription())
             .setWhen(todo.getTime())

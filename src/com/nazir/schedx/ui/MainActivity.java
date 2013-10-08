@@ -5,14 +5,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.ActionBar.Tab;
 import com.actionbarsherlock.view.Menu;
 import com.nazir.schedx.R;
 
 public class MainActivity extends MyFragmentActivity
 {
+	private static int currentTab = -1;
+	
 	 public void onCreate(Bundle bundle)
 	    {
 	        super.onCreate(bundle);
@@ -28,6 +32,7 @@ public class MainActivity extends MyFragmentActivity
 	        actionbar.addTab(actionbar.newTab().setText("TODO")
 	        		.setTabListener(new MyTabListener(this, "TODO", TodoListActivity.class)));
 	    }
+	 
 	 
     public static class MyTabListener
         implements ActionBar.TabListener
@@ -75,5 +80,25 @@ public class MainActivity extends MyFragmentActivity
     {
         super.onCreateOptionsMenu(menu);
         return true;
+    }
+    
+    @Override
+    public void onPause(){
+    	super.onPause();
+    	
+    	Tab current = getSupportActionBar().getSelectedTab();
+    	if(current != null)
+    		currentTab = current.getPosition();
+    		
+    }
+    
+    @Override
+    public void onStart(){
+    	super.onStart();
+    	
+    	if(currentTab != -1){
+    		ActionBar actionbar = getSupportActionBar();
+    		actionbar.selectTab(actionbar.getTabAt(currentTab));
+    	}
     }
 }

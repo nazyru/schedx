@@ -1,52 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout 
-    android:orientation="vertical" 
-    android:padding="@dimen/padding" 
-    android:layout_width="fill_parent" 
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:animateLayoutChanges="true"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    
-    <TextView 
-        android:id="@id/custom_adapter_course_code_view" 
-        android:layout_width="wrap_content" 
-        android:layout_height="wrap_content" 
-        style="@style/list_item" />
-    
-    <LinearLayout 
-        android:orientation="horizontal" 
-        android:padding="4.0dip" 
+    android:orientation="vertical"
+    android:padding="@dimen/padding" >
+
+    <TextView
+        android:id="@id/custom_adapter_course_code_view"
+        style="@style/list_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:animateLayoutChanges="true"
-        android:layout_width="fill_parent" 
-        android:layout_height="wrap_content">
-        
-        <TextView 
-            android:layout_gravity="center_horizontal" 
-            android:id="@id/custom_adapter_starting_time_view" 
-            android:layout_width="wrap_content" 
-            android:layout_height="wrap_content" 
-            style="@style/list_item" />
-        
-        <ImageView 
-            android:id="@id/custom_adapter_to_arrow" 
-            android:layout_width="wrap_content" 
-            android:layout_height="wrap_content" 
-            android:src="@drawable/ic_arrow_right" 
-            android:contentDescription="@string/custom_adapter_arrow_desc" 
-            style="@style/arrow" />
-        
-        <TextView 
-            android:layout_gravity="center_horizontal" 
-            android:id="@id/custom_adapter_end_time_view" 
-            android:layout_width="wrap_content" 
-            android:layout_height="wrap_content" 
-            style="@style/list_item" />
-        
+        android:orientation="horizontal"
+        android:padding="4.0dip" >
+
+        <TextView
+            android:id="@id/custom_adapter_starting_time_view"
+            style="@style/list_item.sub_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" />
+
+        <ImageView
+            android:id="@id/custom_adapter_to_arrow"
+            style="@style/arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/custom_adapter_arrow_desc"
+            android:src="@drawable/ic_arrow_right" />
+
+        <TextView
+            android:id="@id/custom_adapter_end_time_view"
+            style="@style/list_item.sub_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" />
     </LinearLayout>
-    <TextView 
-        android:id="@id/custom_adapter_venue_view" 
-        android:layout_width="wrap_content" 
-        android:layout_height="wrap_content" 
-        style="@style/list_item" />
-    
+
+    <TextView
+        android:id="@id/custom_adapter_venue_view"
+        style="@style/list_item.sub_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>

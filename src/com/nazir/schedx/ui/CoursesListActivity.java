@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
@@ -32,7 +33,8 @@ public class CoursesListActivity extends MyCustomListActivity
     private EditText courseUnitView;
     private SimpleCursorAdapter adapter;
     
-    public void onCreate(Bundle bundle)
+    @SuppressWarnings("deprecation")
+	public void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -45,10 +47,10 @@ public class CoursesListActivity extends MyCustomListActivity
         courseUnitView = (EditText)dialogView.findViewById(R.id.course_unit_view);
         
         String as[] = {COURSE_CODE, COURSE_TITLE};
-        int ai[] = {android.R.id.text1, android.R.id.text2};
+        int ai[] = {R.id.course_code_list_item, R.id.course_title_list_item};
        
         cursor = (new CoursesHelper(this)).getCourses();
-        adapter = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_2, cursor, as, ai);
+        adapter = new SimpleCursorAdapter(this, R.layout.courses_list_layout, cursor, as, ai);
    
         setListAdapter(adapter);
         getListView().setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
@@ -218,10 +220,10 @@ public class CoursesListActivity extends MyCustomListActivity
     {
         Course course = new Course();
         
-        if(courseCodeView.getText().toString() != null)
+        if(!TextUtils.isEmpty(courseCodeView.getText().toString()))
             course.setCourseCode(courseCodeView.getText().toString().trim());
         
-        if(courseTitleView.getText().toString() != null)
+        if(!TextUtils.isEmpty(courseTitleView.getText().toString()))
             course.setCourseTitle(courseTitleView.getText().toString().trim());
         
         
@@ -261,12 +263,12 @@ public class CoursesListActivity extends MyCustomListActivity
     {
         boolean flag = true;
         
-        if(course.getCourseCode().equals(""))
+        if(TextUtils.isEmpty(course.getCourseCode()))
         {
             Toast.makeText(this, "Not Saved: Course Code can't be Empty", Toast.LENGTH_SHORT).show();
             flag = false;
         }
-        if(course.getCourseTitle().equals(""))
+        if(TextUtils.isEmpty(course.getCourseTitle()))
         {
             Toast.makeText(this, "Not Saved: Title can't be Empty", Toast.LENGTH_SHORT).show();
             flag = false;

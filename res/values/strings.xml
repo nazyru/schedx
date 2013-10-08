@@ -26,6 +26,7 @@
     <string name="todo_name_hint">I wanna...</string>
     <string name="todo_desc_view">Description</string>
     <string name="todo_go_button_label">Schedule</string>
+    <string name="done_tasks_title">Done Tasks</string>
     <string name="assessment_venue_hint">Venue</string>
     <string name="create_assessment_button_hint">Create</string>
     <string name="assessment_memo_hint">What this Assessment all about?</string>

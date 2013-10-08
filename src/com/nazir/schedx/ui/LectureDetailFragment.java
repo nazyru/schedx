@@ -17,6 +17,8 @@ import com.nazir.schedx.R;
 import com.nazir.schedx.model.*;
 import com.nazir.schedx.persist.LecturesHelper;
 import com.nazir.schedx.util.DateTimeHelper;
+import com.nazir.schedx.util.PreferenceHelper;
+
 import static com.nazir.schedx.persist.MySqliteOpenHelper.Lectures.*;
 
 public class LectureDetailFragment extends MyCustomFragment
@@ -134,13 +136,13 @@ public class LectureDetailFragment extends MyCustomFragment
 			public void onClick(View v) {
 				Intent intent = new Intent(Intent.ACTION_VIEW);
 				intent.setData(Uri.parse("mailto:" + lecture.getClassRep().getEmailAddress()));
-				intent.putExtra("subject", "Lecture would Hold");
-				intent.putExtra("body", "I am on my way please");
+				boolean isStudentMode = new PreferenceHelper(getSherlockActivity()).isStudentMode();
+				intent.putExtra("subject", isStudentMode ? "Lecture Status":"Lecture would Hold");
+				intent.putExtra("body", isStudentMode? "Hey! there, Is the Lecturer coming?":"I am on my way please");
 				startActivity(intent);
 				dialog.dismiss();
 			}
 		});
-		
 	}
 
 	@Override
