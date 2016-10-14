@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView 
+     android:layout_gravity="center_horizontal"
+     android:layout_width="fill_parent" 
+     android:layout_height="fill_parent"
+  	 xmlns:android="http://schemas.android.com/apk/res/android">
+  	
+    <LinearLayout 
+        android:orientation="vertical" 
+        android:padding="@dimen/padding" 
+        android:layout_width="fill_parent" 
+        android:background="#ffffff"
+        android:layout_height="wrap_content">
+        
+        <EditText 
+            android:layout_gravity="center_horizontal" 
+            android:id="@id/course_code_widget" 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" 
+            android:hint="@string/add_course_hint" 
+            android:imeOptions="actionNext" />
+        
+        <EditText 
+            android:layout_gravity="center_horizontal" 
+            android:id="@id/course_title_view" 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" 
+            android:hint="@string/course_title" 
+            android:imeOptions="actionNext" />
+        
+        <EditText 
+            android:layout_gravity="center_horizontal" 
+            android:id="@id/course_unit_view" 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" 
+            android:hint="@string/course_units" 
+            android:inputType="number" 
+            android:imeOptions="actionGo" />
+    </LinearLayout>
+</ScrollView>
